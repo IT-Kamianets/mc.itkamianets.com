@@ -1,27 +1,46 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { ListItemData } from '../../components/list-items-section/list-items-section';
 
 @Component({
 	selector: 'app-profile',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, RouterLink],
 	templateUrl: './profile.html',
 	styleUrl: './profile.css',
 })
-export class Profile {
-	product = signal<ListItemData>({
-		id: 1,
-		name: 'Product Alpha',
-		description: 'This is a high-quality product designed to meet all your professional needs. It features premium materials, an ergonomic design, and industry-leading performance specifications.',
-		category: 'Electronics',
-		date: '2026-02-01',
-		icon: '⚡',
-		image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop',
-	});
+export class Profile implements OnInit {
+	private route = inject(ActivatedRoute);
+	private http = inject(HttpClient);
+	
+	product = signal<ListItemData | null>(null);
+	loading = signal(true);
 
-	addToCart(): void {
-		console.log('Added to cart:', this.product().name);
-		alert('Product added to cart!');
+	ngOnInit() {
+		const id = Number(this.route.snapshot.paramMap.get('id'));
+		
+		this.http.get<any[]>('data/events.json').subscribe({
+			next: (data) => {
+				const event = data.find(e => e.id === id);
+				if (event) {
+					this.product.set({
+						id: event.id,
+						name: event.title,
+						description: event.description,
+						category: event.category,
+						date: event.date,
+						icon: '📅',
+						image: event.image
+					});
+				}
+				this.loading.set(false);
+			},
+			error: (err) => {
+				console.error('Error loading event details:', err);
+				this.loading.set(false);
+			}
+		});
 	}
 }
