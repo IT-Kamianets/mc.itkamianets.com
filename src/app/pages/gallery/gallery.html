@@ -66,12 +66,13 @@
 					style="background-color: var(--c-bg-tertiary);"
 				>
 					<!-- Image Container -->
-					<div class="relative h-full min-h-[250px]" [class.min-h-[500px]]="i === 0">
+					<div class="relative h-full min-h-[250px] bg-[var(--c-bg-tertiary)]" [class.min-h-[500px]]="i === 0">
 						<img
 							[src]="item.imageUrl"
 							[alt]="item.title"
 							loading="lazy"
 							class="absolute inset-0 w-full h-full object-cover"
+							onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
 						/>
 
 						<!-- Overlay -->

@@ -1,4 +1,4 @@
-import { Component, Input, signal, computed, inject } from '@angular/core';
+import { Component, input, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router'; // 1. Імпорт Router
 import { ListItem } from '../list-item/list-item';
@@ -21,12 +21,12 @@ export interface ListItemData {
 	styleUrl: './list-items-section.css',
 })
 export class ListItemsSection {
-	@Input() items: ListItemData[] = [];
-	@Input() title: string = 'Items';
-	@Input() showSearch: boolean = true;
-	@Input() itemsPerRow: number = 3;
-	@Input() maxItems: number = 0;
-	@Input() showViewAllButton: boolean = false;
+	items = input<ListItemData[]>([]);
+	title = input<string>('Items');
+	showSearch = input<boolean>(true);
+	itemsPerRow = input<number>(3);
+	maxItems = input<number>(0);
+	showViewAllButton = input<boolean>(false);
 
 	// 2. Інжектимо Router для навігації
 	private router = inject(Router);
@@ -36,8 +36,9 @@ export class ListItemsSection {
 	// Обчислюємо відфільтровані елементи (пошук)
 	filteredItems = computed(() => {
 		const query = this.searchQuery().toLowerCase();
-		if (!query) return this.items;
-		return this.items.filter(item => 
+		const allItems = this.items();
+		if (!query) return allItems;
+		return allItems.filter(item => 
 			item.name.toLowerCase().includes(query) || 
 			item.description.toLowerCase().includes(query)
 		);
@@ -46,8 +47,9 @@ export class ListItemsSection {
 	// Обчислюємо елементи для відображення (ліміт maxItems)
 	displayItems = computed(() => {
 		const items = this.filteredItems();
-		if (this.maxItems > 0) {
-			return items.slice(0, this.maxItems);
+		const limit = this.maxItems();
+		if (limit > 0) {
+			return items.slice(0, limit);
 		}
 		return items;
 	});

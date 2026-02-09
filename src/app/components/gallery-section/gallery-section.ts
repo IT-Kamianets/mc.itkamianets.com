@@ -24,8 +24,11 @@ export class GallerySection implements OnInit {
 	items = signal<GalleryItem[]>([]);
 
 	ngOnInit() {
-		this.http.get<GalleryItem[]>('/data/gallery.json').subscribe(data => {
-			this.items.set(data.slice(0, 3));
+		this.http.get<GalleryItem[]>('data/gallery.json').subscribe({
+			next: (data) => {
+				this.items.set(data.slice(0, 3));
+			},
+			error: (err) => console.error('Error loading gallery preview:', err)
 		});
 	}
 }

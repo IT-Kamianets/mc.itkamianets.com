@@ -25,8 +25,11 @@ export class Gallery implements OnInit {
 	selectedItem = signal<GalleryItem | null>(null);
 
 	ngOnInit() {
-		this.http.get<GalleryItem[]>('/data/gallery.json').subscribe(data => {
-			this.items.set(data);
+		this.http.get<GalleryItem[]>('data/gallery.json').subscribe({
+			next: (data) => {
+				this.items.set(data);
+			},
+			error: (err) => console.error('Error loading gallery:', err)
 		});
 	}
 

@@ -13,11 +13,12 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 			@for (item of items(); track item.id) {
 				<div class="group relative bg-[var(--c-bg-primary)] rounded-[var(--radius)] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-					<div class="aspect-video w-full overflow-hidden">
+					<div class="aspect-video w-full overflow-hidden bg-[var(--c-bg-tertiary)]">
 						<img 
 							[src]="item.imageUrl" 
 							[alt]="item.title"
 							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+							onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
 						>
 					</div>
 					<div class="p-6">
