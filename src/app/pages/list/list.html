@@ -1,24 +1,26 @@
 <div class="min-h-screen" style="background-color: var(--c-bg-primary);">
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-8)]">
 		
+		<div class="flex flex-wrap gap-2 mb-8">
+			@for (cat of categories(); track cat) {
+				<button 
+					(click)="filterByCategory(cat)"
+					class="px-4 py-2 rounded-full text-sm font-medium transition"
+					[style.background-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
+					[style.color]="filteredCategory() === cat ? 'white' : 'var(--c-text-primary)'"
+				>
+					{{ cat }}
+				</button>
+			}
+		</div>
+
 		<app-list-items-section
 			[items]="getFilteredItems()"
-			[title]="filteredCategory() === 'All' ? 'All Available Items' : filteredCategory()"
+			[title]="filteredCategory() === 'Усі' ? 'Усі події' : 'Події: ' + filteredCategory()"
 			[showSearch]="true"
 			[itemsPerRow]="3"
 			[maxItems]="0"
 			[showViewAllButton]="false"
-		/>
-
-		<div class="my-[var(--sp-12)] border-t border-[var(--c-border-primary)]"></div>
-
-		<app-list-items-section
-			[items]="items()" 
-			title="Featured Products (Test Component)"
-			[showSearch]="false"
-			[itemsPerRow]="3"
-			[maxItems]="3"
-			[showViewAllButton]="true"
 		/>
 
 	</div>

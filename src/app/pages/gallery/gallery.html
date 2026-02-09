@@ -15,13 +15,13 @@
 					class="hero-badge inline-block px-[var(--sp-5)] py-[var(--sp-2)] rounded-full text-sm font-semibold mb-[var(--sp-6)] animate-float"
 					style="background-color: var(--c-primary); color: white; box-shadow: 0 10px 30px rgba(37, 110, 255, 0.3);"
 				>
-					Explore
+					Наше життя
 				</span>
 				<h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-[var(--sp-4)]" style="color: var(--c-text-secondary);">
-					Product Gallery
+					Галерея
 				</h1>
 				<p class="hero-subtitle text-lg max-w-2xl mx-auto" style="color: var(--c-text-muted);">
-					Browse our curated collection of premium products
+					Яскраві моменти з наших заходів та буднів молодіжного центру
 				</p>
 			</div>
 
@@ -35,7 +35,7 @@
 					[style.color]="!selectedCategory() ? 'white' : 'var(--c-text-primary)'"
 					[style.boxShadow]="!selectedCategory() ? 'var(--shadow-md)' : 'var(--shadow-sm)'"
 				>
-					All Photos
+					Усі фото
 				</button>
 
 				@for (category of getCategories(); track category) {
@@ -83,7 +83,7 @@
 										class="gallery-tag text-xs font-bold px-[var(--sp-3)] py-1 rounded-full text-white backdrop-blur-sm"
 										style="background-color: rgba(37, 110, 255, 0.8);"
 									>
-										{{ tag }}
+										#{{ tag }}
 									</span>
 								}
 							</div>
@@ -120,14 +120,13 @@
 			>
 				<span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--c-primary);"></span>
 				<p class="text-sm" style="color: var(--c-text-muted);">
-					Showing
+					Показано
 					<span class="font-bold" style="color: var(--c-text-secondary);">{{ getFilteredItems().length }}</span>
 					@if (selectedCategory()) {
-						{{ selectedCategory() }}
+						фото з категорії "{{ selectedCategory() }}"
 					} @else {
-						amazing
+						цікавих фото
 					}
-					photos
 				</p>
 			</div>
 		</div>

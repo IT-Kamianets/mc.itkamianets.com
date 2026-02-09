@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeDensity, ThemeMode, ThemeRadius, ThemeService } from 'wacom';
 
@@ -15,6 +15,12 @@ export class Header {
 	protected readonly modes: (ThemeMode | string)[] = ['light', 'dark', 'itkp'];
 	protected readonly densities: ThemeDensity[] = ['comfortable', 'compact'];
 	protected readonly radii: ThemeRadius[] = ['rounded', 'square'];
+
+	protected showThemeMenu = signal<boolean>(false);
+
+	protected toggleThemeMenu() {
+		this.showThemeMenu.update((v: boolean) => !v);
+	}
 
 	protected setMode(mode: ThemeMode | string) {
 		this.theme.setMode(mode as ThemeMode);
