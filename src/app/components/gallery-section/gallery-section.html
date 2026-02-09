@@ -1,1 +1,43 @@
-<p>gallery-section works!</p>
+<section class="py-16 bg-[var(--c-bg-secondary)]">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-12">
+			<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl">
+				Наша галерея
+			</h2>
+			<div class="h-1 w-20 bg-[var(--c-primary)] mx-auto mt-4 rounded-full"></div>
+			<p class="mt-4 text-lg text-[var(--c-text-muted)] max-w-2xl mx-auto">
+				Подивіться на яскраві моменти з життя нашого центру.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			@for (item of items(); track item.id) {
+				<div class="group relative bg-[var(--c-bg-primary)] rounded-[var(--radius)] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+					<div class="aspect-video w-full overflow-hidden">
+						<img 
+							[src]="item.imageUrl" 
+							[alt]="item.title"
+							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+						>
+					</div>
+					<div class="p-6">
+						<span class="text-xs font-bold px-2 py-1 rounded bg-[var(--c-primary)] text-white mb-2 inline-block">
+							{{ item.category }}
+						</span>
+						<h3 class="text-xl font-bold text-[var(--c-text-primary)] mb-2">{{ item.title }}</h3>
+						<p class="text-[var(--c-text-muted)] text-sm line-clamp-2">{{ item.description }}</p>
+					</div>
+				</div>
+			}
+		</div>
+
+		<div class="mt-12 text-center">
+			<a 
+				routerLink="/gallery"
+				class="inline-flex items-center px-8 py-3 bg-[var(--c-primary)] text-white font-bold rounded-[var(--radius)] hover:bg-[var(--c-primary-hover)] transition-colors shadow-lg"
+			>
+				Подивитись більше
+			</a>
+		</div>
+	</div>
+</section>

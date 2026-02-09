@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { About } from '../../components/about/about';
+import { GallerySection } from '../../components/gallery-section/gallery-section';
 import { Features } from '../../components/features/features';
 import { Hero } from '../../components/hero/hero';
 import { ListItemsSection, ListItemData } from '../../components/list-items-section/list-items-section';
@@ -8,7 +8,7 @@ import { ListItemsSection, ListItemData } from '../../components/list-items-sect
 @Component({
 	imports: [
 		Hero,
-		About,
+		GallerySection,
 		Features,
 		ListItemsSection,
 	],
