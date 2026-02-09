@@ -1,0 +1,117 @@
+﻿.hero {
+	background: var(--c-bg-secondary);
+	color: var(--c-text-primary);
+}
+
+.hero__bg {
+	background: linear-gradient(to bottom, var(--c-bg-tertiary), var(--c-bg-secondary));
+}
+
+.hero__muted {
+	color: var(--c-text-muted);
+}
+
+.hero__strong {
+	color: var(--c-text-secondary);
+}
+
+.hero__kicker {
+	color: var(--c-text-muted);
+}
+
+.hero__pill {
+	border: 1px solid var(--c-border);
+	border-radius: 999px;
+	background: var(--c-bg-secondary);
+	color: var(--c-text-muted);
+}
+
+.hero__dot {
+	background: #34d399;
+}
+
+.hero__primary {
+	border-radius: var(--radius-btn);
+	background: var(--c-primary);
+	color: #fff;
+	box-shadow: var(--shadow-sm);
+}
+
+.hero__primary:hover {
+	background: var(--c-primary-hover);
+}
+
+.hero__ghost {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-btn);
+	background: var(--c-bg-secondary);
+	color: var(--c-text-secondary);
+}
+
+.hero__ghost:hover {
+	background: var(--c-bg-tertiary);
+}
+
+.hero__primary:focus-visible,
+.hero__ghost:focus-visible {
+	outline: none;
+	box-shadow: var(--focus-ring);
+}
+
+.hero__glow {
+	border-radius: calc(var(--radius-card) + 10px);
+	background: linear-gradient(135deg, var(--c-bg-tertiary), var(--c-bg-secondary));
+}
+
+.hero__window {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-card);
+	background: var(--c-bg-secondary);
+	box-shadow: var(--shadow-sm);
+}
+
+.hero__window-bar {
+	border-bottom: 1px solid var(--c-border);
+}
+
+.hero__win-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: #fb7185;
+}
+
+.hero__win-dot--mid {
+	background: #fbbf24;
+}
+
+.hero__win-dot--ok {
+	background: #34d399;
+}
+
+.hero__mini {
+	border: 1px solid var(--c-border);
+	border-radius: calc(var(--radius-card) - 2px);
+	background: var(--c-bg-secondary);
+}
+
+.hero__badge {
+	background: rgba(16, 185, 129, 0.12);
+	color: #065f46;
+}
+
+.hero__note {
+	border-radius: calc(var(--radius-card) - 2px);
+	background: var(--c-bg-tertiary);
+}
+
+.hero__note-text {
+	color: var(--c-text-secondary);
+}
+
+.hero__tag {
+	border: 1px solid var(--c-border);
+	border-radius: calc(var(--radius-card) - 2px);
+	background: var(--c-bg-secondary);
+	color: var(--c-text-secondary);
+}

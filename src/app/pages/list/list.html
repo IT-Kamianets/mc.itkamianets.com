@@ -1,0 +1,25 @@
+<div class="min-h-screen" style="background-color: var(--c-bg-primary);">
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-8)]">
+		
+		<app-list-items-section
+			[items]="getFilteredItems()"
+			[title]="filteredCategory() === 'All' ? 'All Available Items' : filteredCategory()"
+			[showSearch]="true"
+			[itemsPerRow]="3"
+			[maxItems]="0"
+			[showViewAllButton]="false"
+		/>
+
+		<div class="my-[var(--sp-12)] border-t border-[var(--c-border-primary)]"></div>
+
+		<app-list-items-section
+			[items]="items()" 
+			title="Featured Products (Test Component)"
+			[showSearch]="false"
+			[itemsPerRow]="3"
+			[maxItems]="3"
+			[showViewAllButton]="true"
+		/>
+
+	</div>
+</div>

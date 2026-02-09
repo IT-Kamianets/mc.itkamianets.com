@@ -1,0 +1,86 @@
+<header class="header">
+	<nav class="mx-auto max-w-7xl px-3 py-2 sm:px-4 sm:py-3">
+		
+		<!-- ============================================ -->
+		<!-- DESKTOP LAYOUT (>= 640px) - Original design -->
+		<!-- ============================================ -->
+		<div class="hidden sm:flex sm:items-center sm:justify-between sm:gap-4">
+			<!-- Left: Logo + Brand -->
+			<div class="flex items-center gap-3 shrink-0">
+				<img src="logo.png" alt="Logo" class="w-8 h-8 object-contain rounded-[var(--radius)]"/>
+				<span class="text-sm font-bold tracking-wide" style="color: var(--c-text-secondary);">THEME-TAILWIND</span>
+			</div>
+
+			<!-- Center: Navigation Links -->
+			<div class="header__nav flex flex-wrap justify-center gap-1">
+				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Home</a>
+				<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">List</a>
+				<a routerLink="/profile" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Profile</a>
+				<a routerLink="/form" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Form</a>
+				<a routerLink="/table" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Table</a>
+				<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Gallery</a>
+				<a routerLink="/content" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Content</a>
+			</div>
+
+			<!-- Right: Theme Switchers -->
+			<div class="flex items-center gap-2 shrink-0">
+				<div class="header__seg">
+					@for (m of modes; track m) {
+						<button type="button" class="header__seg-btn text-xs transition" [class.header__seg-btn--active]="theme.mode() === m" (click)="setMode(m)">{{ m }}</button>
+					}
+				</div>
+				<div class="header__seg">
+					@for (d of densities; track d) {
+						<button type="button" class="header__seg-btn text-xs transition" [class.header__seg-btn--active]="theme.density() === d" (click)="setDensity(d)">{{ d }}</button>
+					}
+				</div>
+				<div class="header__seg">
+					@for (r of radii; track r) {
+						<button type="button" class="header__seg-btn text-xs transition" [class.header__seg-btn--active]="theme.radius() === r" (click)="setRadius(r)">{{ r }}</button>
+					}
+				</div>
+			</div>
+		</div>
+
+		<!-- ============================================ -->
+		<!-- MOBILE LAYOUT (< 640px) - 3 rows compact -->
+		<!-- ============================================ -->
+		<div class="sm:hidden">
+			<!-- Row 1: Logo + Brand -->
+			<div class="flex items-center justify-center gap-2 mb-1">
+				<img src="logo.png" alt="Logo" class="w-6 h-6 object-contain rounded-[var(--radius)]"/>
+				<span class="text-xs font-bold tracking-wide" style="color: var(--c-text-secondary);">THEME-TAILWIND</span>
+			</div>
+
+			<!-- Row 2: Navigation Links -->
+			<div class="header__nav flex items-center justify-center gap-0.5 py-1 overflow-x-auto -mx-3 px-3">
+				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Home</a>
+				<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">List</a>
+				<a routerLink="/profile" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Profile</a>
+				<a routerLink="/form" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Form</a>
+				<a routerLink="/table" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Table</a>
+				<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Gallery</a>
+				<a routerLink="/content" routerLinkActive="header__link--active" class="header__link rounded px-1.5 py-1 text-xs font-medium transition whitespace-nowrap">Content</a>
+			</div>
+
+			<!-- Row 3: Theme Switchers -->
+			<div class="flex items-center justify-center gap-1 pt-1">
+				<div class="header__seg">
+					@for (m of modes; track m) {
+						<button type="button" class="header__seg-btn header__seg-btn--mobile transition" [class.header__seg-btn--active]="theme.mode() === m" (click)="setMode(m)">{{ m }}</button>
+					}
+				</div>
+				<div class="header__seg">
+					@for (d of densities; track d) {
+						<button type="button" class="header__seg-btn header__seg-btn--mobile transition" [class.header__seg-btn--active]="theme.density() === d" (click)="setDensity(d)">{{ d }}</button>
+					}
+				</div>
+				<div class="header__seg">
+					@for (r of radii; track r) {
+						<button type="button" class="header__seg-btn header__seg-btn--mobile transition" [class.header__seg-btn--active]="theme.radius() === r" (click)="setRadius(r)">{{ r }}</button>
+					}
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>

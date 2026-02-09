@@ -1,0 +1,70 @@
+﻿.pricing {
+	background: var(--c-bg-secondary);
+	color: var(--c-text-primary);
+}
+
+.pricing__muted {
+	color: var(--c-text-muted);
+}
+
+.pricing__kicker {
+	color: var(--c-text-muted);
+}
+
+.pricing__card {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-card);
+	background: var(--c-bg-secondary);
+}
+
+.pricing__card--pro {
+	background: var(--c-text-secondary);
+	color: var(--c-bg-secondary);
+	border-color: var(--c-text-secondary);
+}
+
+.pricing__muted-pro {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.pricing__badge {
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.12);
+	color: rgba(255, 255, 255, 0.92);
+}
+
+.pricing__check {
+	color: #16a34a;
+}
+
+.pricing__check-pro {
+	color: rgba(134, 239, 172, 0.9);
+}
+
+.pricing__btn {
+	border-radius: var(--radius-btn);
+}
+
+.pricing__btn--ghost {
+	border: 1px solid var(--c-border);
+	background: var(--c-bg-secondary);
+	color: var(--c-text-secondary);
+}
+
+.pricing__btn--ghost:hover {
+	background: var(--c-bg-tertiary);
+}
+
+.pricing__btn--solid {
+	background: var(--c-bg-secondary);
+	color: var(--c-text-secondary);
+}
+
+.pricing__btn--solid:hover {
+	background: var(--c-bg-tertiary);
+}
+
+.pricing__btn:focus-visible {
+	outline: none;
+	box-shadow: var(--focus-ring);
+}

@@ -1,0 +1,222 @@
+<div class="min-h-screen" style="background-color: var(--c-bg-primary);">
+
+	<!-- Hero Section -->
+	<div class="hero-section relative overflow-hidden" style="background-color: var(--c-bg-secondary);">
+		<div class="absolute inset-0 opacity-[0.03]">
+			<div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, var(--c-text-primary) 1px, transparent 0); background-size: 40px 40px;"></div>
+		</div>
+		<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 animate-float" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
+		<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 animate-float" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
+
+		<div class="relative max-w-7xl mx-auto px-[var(--sp-4)] py-[var(--sp-16)] md:py-[var(--sp-20)]">
+			<!-- Header -->
+			<div class="text-center mb-[var(--sp-10)] animate-fade-in">
+				<span
+					class="hero-badge inline-block px-[var(--sp-5)] py-[var(--sp-2)] rounded-full text-sm font-semibold mb-[var(--sp-6)] animate-float"
+					style="background-color: var(--c-primary); color: white; box-shadow: 0 10px 30px rgba(37, 110, 255, 0.3);"
+				>
+					Explore
+				</span>
+				<h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-[var(--sp-4)]" style="color: var(--c-text-secondary);">
+					Product Gallery
+				</h1>
+				<p class="hero-subtitle text-lg max-w-2xl mx-auto" style="color: var(--c-text-muted);">
+					Browse our curated collection of premium products
+				</p>
+			</div>
+
+			<!-- Category Filter -->
+			<div class="flex flex-wrap justify-center gap-[var(--sp-3)] animate-fade-in" style="animation-delay: 0.2s;">
+				<button
+					(click)="selectedCategory.set(null)"
+					class="filter-btn px-[var(--sp-5)] py-[var(--sp-3)] rounded-full font-semibold transition-all duration-[var(--motion)] text-sm"
+					[class.active]="!selectedCategory()"
+					[style.backgroundColor]="!selectedCategory() ? 'var(--c-primary)' : 'var(--c-bg-primary)'"
+					[style.color]="!selectedCategory() ? 'white' : 'var(--c-text-primary)'"
+					[style.boxShadow]="!selectedCategory() ? 'var(--shadow-md)' : 'var(--shadow-sm)'"
+				>
+					All Photos
+				</button>
+
+				@for (category of getCategories(); track category) {
+					<button
+						(click)="selectedCategory.set(category)"
+						class="filter-btn px-[var(--sp-5)] py-[var(--sp-3)] rounded-full font-semibold transition-all duration-[var(--motion)] text-sm"
+						[class.active]="selectedCategory() === category"
+						[style.backgroundColor]="selectedCategory() === category ? 'var(--c-primary)' : 'var(--c-bg-primary)'"
+						[style.color]="selectedCategory() === category ? 'white' : 'var(--c-text-primary)'"
+						[style.boxShadow]="selectedCategory() === category ? 'var(--shadow-md)' : 'var(--shadow-sm)'"
+					>
+						{{ category }}
+					</button>
+				}
+			</div>
+		</div>
+	</div>
+
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] py-[var(--sp-12)]">
+		<!-- Gallery Grid -->
+		<div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[var(--sp-5)]">
+			@for (item of getFilteredItems(); track item.id; let i = $index) {
+				<div
+					(click)="selectItem(item)"
+					class="gallery-item gallery-card glow-on-hover cursor-pointer rounded-[var(--radius-card)] overflow-hidden"
+					[class.lg:col-span-2]="i === 0 || i === 5"
+					[class.lg:row-span-2]="i === 0"
+					style="background-color: var(--c-bg-tertiary);"
+				>
+					<!-- Image Container -->
+					<div class="relative h-full min-h-[250px]" [class.min-h-[500px]]="i === 0">
+						<img
+							[src]="item.imageUrl"
+							[alt]="item.title"
+							loading="lazy"
+							class="absolute inset-0 w-full h-full object-cover"
+						/>
+
+						<!-- Overlay -->
+						<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-[var(--sp-6)]">
+							<!-- Tags -->
+							<div class="absolute top-[var(--sp-4)] right-[var(--sp-4)] flex gap-[var(--sp-2)] flex-wrap justify-end">
+								@for (tag of item.tags.slice(0, 2); track tag) {
+									<span
+										class="gallery-tag text-xs font-bold px-[var(--sp-3)] py-1 rounded-full text-white backdrop-blur-sm"
+										style="background-color: rgba(37, 110, 255, 0.8);"
+									>
+										{{ tag }}
+									</span>
+								}
+							</div>
+
+							<!-- Content -->
+							<div class="gallery-content">
+								<span
+									class="inline-block text-xs font-bold px-[var(--sp-2)] py-1 rounded mb-[var(--sp-2)]"
+									style="background-color: var(--c-primary); color: white;"
+								>
+									{{ item.category }}
+								</span>
+								<h3 class="font-bold text-xl text-white mb-1">{{ item.title }}</h3>
+								<p class="text-sm text-white/80">{{ item.description }}</p>
+							</div>
+						</div>
+
+						<!-- Hover Indicator -->
+						<div class="absolute bottom-[var(--sp-4)] right-[var(--sp-4)] w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--motion)]" style="background-color: var(--c-primary);">
+							<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+							</svg>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+
+		<!-- Results Count -->
+		<div class="text-center mt-[var(--sp-12)] animate-fade-in">
+			<div
+				class="inline-flex items-center gap-[var(--sp-3)] px-[var(--sp-6)] py-[var(--sp-3)] rounded-full"
+				style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-sm);"
+			>
+				<span class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--c-primary);"></span>
+				<p class="text-sm" style="color: var(--c-text-muted);">
+					Showing
+					<span class="font-bold" style="color: var(--c-text-secondary);">{{ getFilteredItems().length }}</span>
+					@if (selectedCategory()) {
+						{{ selectedCategory() }}
+					} @else {
+						amazing
+					}
+					photos
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	@if (selectedItem(); as item) {
+		<div
+			class="modal-backdrop fixed inset-0 flex items-center justify-center p-[var(--sp-4)] z-50"
+			(click)="closeModal()"
+		>
+			<!-- Backdrop -->
+			<div class="absolute inset-0 backdrop-blur-md" style="background-color: rgba(0, 0, 0, 0.85);"></div>
+
+			<div class="modal-content relative max-w-5xl w-full" (click)="$event.stopPropagation()">
+				<!-- Close Button -->
+				<button
+					(click)="closeModal()"
+					class="absolute -top-14 right-0 w-12 h-12 flex items-center justify-center rounded-full text-white transition-all duration-[var(--motion)] hover:scale-110 hover:rotate-90 z-10"
+					style="background-color: var(--c-secondary);"
+				>
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+					</svg>
+				</button>
+
+				<!-- Image -->
+				<div class="modal-image relative rounded-[var(--radius-card)] overflow-hidden" style="background-color: var(--c-bg-tertiary);">
+					<img [src]="item.imageUrl" [alt]="item.title" class="w-full h-auto max-h-[70vh] object-contain" />
+
+					<!-- Navigation Arrows -->
+					<button
+						(click)="prevItem()"
+						class="nav-btn absolute left-[var(--sp-4)] top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full text-white"
+						style="background-color: var(--c-primary);"
+					>
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+						</svg>
+					</button>
+					<button
+						(click)="nextItem()"
+						class="nav-btn absolute right-[var(--sp-4)] top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full text-white"
+						style="background-color: var(--c-primary);"
+					>
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</button>
+
+					<!-- Image Counter -->
+					<div
+						class="absolute bottom-[var(--sp-4)] left-1/2 -translate-x-1/2 px-[var(--sp-4)] py-[var(--sp-2)] rounded-full text-sm font-medium text-white backdrop-blur-sm"
+						style="background-color: rgba(0, 0, 0, 0.5);"
+					>
+						{{ getFilteredItems().indexOf(item) + 1 }} / {{ getFilteredItems().length }}
+					</div>
+				</div>
+
+				<!-- Details -->
+				<div
+					class="mt-[var(--sp-4)] rounded-[var(--radius-card)] p-[var(--sp-6)]"
+					style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-md);"
+				>
+					<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-[var(--sp-4)]">
+						<div>
+							<span
+								class="inline-block text-xs font-bold px-[var(--sp-3)] py-1 rounded-full mb-[var(--sp-2)] text-white"
+								style="background-color: var(--c-primary);"
+							>
+								{{ item.category }}
+							</span>
+							<h2 class="text-2xl font-bold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">{{ item.title }}</h2>
+							<p style="color: var(--c-text-muted);">{{ item.description }}</p>
+						</div>
+
+						<div class="flex flex-wrap gap-[var(--sp-2)]">
+							@for (tag of item.tags; track tag) {
+								<span
+									class="text-sm font-medium px-[var(--sp-4)] py-[var(--sp-2)] rounded-full transition-all duration-[var(--motion)] hover:scale-105 cursor-pointer"
+									style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+								>
+									#{{ tag }}
+								</span>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</div>

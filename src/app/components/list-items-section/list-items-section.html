@@ -1,0 +1,67 @@
+<section class="py-[var(--sp-8)] animate-fade-in">
+	<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-[var(--sp-6)] gap-[var(--sp-4)]">
+		<div>
+			<h2 class="text-2xl font-bold" style="color: var(--c-text-primary);">
+				{{ title }}
+			</h2>
+			<div class="h-1 w-20 bg-[var(--c-primary)] mt-2 rounded-full"></div>
+		</div>
+
+		@if (showSearch) {
+			<div class="relative w-full md:w-64">
+				<input
+					type="text"
+					[value]="searchQuery()"
+					(input)="searchQuery.set($any($event.target).value)"
+					placeholder="Search items..."
+					class="w-full px-[var(--sp-4)] py-[var(--sp-2)] rounded-[var(--radius)] border border-[var(--c-border-primary)] bg-[var(--c-bg-secondary)] text-[var(--c-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--c-primary)] transition-shadow"
+				/>
+				@if (searchQuery()) {
+					<button
+						(click)="clearSearch()"
+						class="absolute right-[var(--sp-3)] top-1/2 -translate-y-1/2 text-[var(--c-text-muted)] hover:text-[var(--c-text-primary)]"
+					>
+						✕
+					</button>
+				}
+			</div>
+		}
+	</div>
+
+	@if (displayItems().length > 0) {
+		<div 
+			class="grid gap-[var(--sp-6)]"
+			[class.grid-cols-1]="itemsPerRow === 1"
+			[class.sm:grid-cols-2]="itemsPerRow >= 2"
+			[class.lg:grid-cols-3]="itemsPerRow >= 3"
+			[class.xl:grid-cols-4]="itemsPerRow >= 4"
+		>
+			@for (item of displayItems(); track item.id) {
+				<app-list-item [item]="item" />
+			}
+		</div>
+	} @else {
+		<div class="text-center py-[var(--sp-12)] bg-[var(--c-bg-secondary)] rounded-[var(--radius)] border border-[var(--c-border-primary)] border-dashed">
+			<p class="text-[var(--c-text-muted)]">No items found matching your criteria.</p>
+			@if (searchQuery()) {
+				<button 
+					(click)="clearSearch()"
+					class="mt-[var(--sp-4)] text-[var(--c-primary)] font-medium hover:underline"
+				>
+					Clear search
+				</button>
+			}
+		</div>
+	}
+
+	@if (showViewAllButton) {
+		<div class="mt-[var(--sp-8)] text-center">
+			<button
+				(click)="onViewAllClick()"
+				class="inline-flex items-center px-[var(--sp-6)] py-[var(--sp-3)] bg-[var(--c-bg-secondary)] border border-[var(--c-border-primary)] rounded-[var(--radius)] text-[var(--c-text-primary)] font-medium transition-all duration-[var(--motion)] hover:bg-[var(--c-primary)]/10 hover:border-[var(--c-primary)] hover:text-[var(--c-primary)] hover:shadow-sm"
+			>
+				View All Items
+			</button>
+		</div>
+	}
+</section>

@@ -1,0 +1,480 @@
+<div class="min-h-screen py-[var(--sp-8)] px-[var(--sp-4)]" style="background-color: var(--c-bg-primary);">
+	<div class="max-w-3xl mx-auto">
+		
+		<!-- Header with gradient effect -->
+		<div class="text-center mb-[var(--sp-8)] animate-fade-in">
+			<div class="inline-block mb-[var(--sp-3)]">
+				<span class="text-5xl animate-float inline-block">📦</span>
+			</div>
+			<h1 class="text-3xl md:text-4xl font-bold mb-[var(--sp-2)] bg-gradient-to-r from-[var(--c-text-secondary)] via-[var(--c-primary)] to-[var(--c-text-secondary)] bg-clip-text" style="color: var(--c-text-secondary);">
+				{{ formConfig.title }}
+			</h1>
+			<p class="text-lg" style="color: var(--c-text-primary);">
+				{{ formConfig.subtitle }}
+			</p>
+		</div>
+
+		<!-- Premium Progress Bar -->
+		<div class="mb-[var(--sp-6)] px-[var(--sp-4)]">
+			<div class="flex items-center justify-between mb-[var(--sp-2)]">
+				<span class="text-sm font-medium flex items-center gap-2" style="color: var(--c-text-muted);">
+					<svg class="w-4 h-4" style="color: var(--c-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+					</svg>
+					Form Progress
+				</span>
+				<span class="text-sm font-bold px-3 py-1 rounded-full" 
+					[style.backgroundColor]="progress() === 100 ? 'var(--c-primary)' : 'var(--c-bg-tertiary)'"
+					[style.color]="progress() === 100 ? 'white' : 'var(--c-primary)'">
+					{{ progress() }}%
+				</span>
+			</div>
+			<div class="h-3 rounded-full overflow-hidden relative" style="background-color: var(--c-border);">
+				<div 
+					class="h-full rounded-full transition-all duration-700 ease-out relative overflow-hidden"
+					[style.background]="progress() === 100 ? 'linear-gradient(90deg, var(--c-primary), #10b981)' : 'linear-gradient(90deg, var(--c-primary), #8b5cf6)'"
+					[style.width.%]="progress()"
+				>
+					<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" style="background-size: 200% 100%;"></div>
+				</div>
+				@if (progress() === 100) {
+					<div class="absolute right-2 top-1/2 -translate-y-1/2 text-white text-xs">✓</div>
+				}
+			</div>
+			<div class="flex justify-between mt-1 text-xs" style="color: var(--c-text-muted);">
+				<span>{{ progress() === 0 ? 'Start filling the form' : progress() < 50 ? 'Keep going!' : progress() < 100 ? 'Almost there!' : 'Ready to submit!' }}</span>
+				<span>{{ 5 - Math.floor(progress() / 20) }} fields remaining</span>
+			</div>
+		</div>
+
+		<!-- Success Message -->
+		@if (submitted()) {
+			<div class="mb-[var(--sp-6)] animate-bounce-in">
+				<div 
+					class="rounded-[var(--radius-card)] p-[var(--sp-6)] border-2 relative overflow-hidden"
+					style="background: linear-gradient(135deg, var(--c-bg-tertiary), var(--c-bg-secondary)); border-color: var(--c-primary);"
+				>
+					<!-- Animated gradient border -->
+					<div class="absolute inset-0 opacity-20" style="background: linear-gradient(45deg, var(--c-primary), transparent, var(--c-primary)); background-size: 200% 200%; animation: shimmer 2s linear infinite;"></div>
+					
+					<div class="relative flex items-center gap-[var(--sp-4)]">
+						<div 
+							class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center relative"
+							style="background: linear-gradient(135deg, var(--c-primary), #10b981);"
+						>
+							<div class="absolute inset-0 rounded-full animate-ping opacity-30" style="background-color: var(--c-primary);"></div>
+							<svg class="w-8 h-8 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+							</svg>
+						</div>
+						<div class="flex-1">
+							<h3 class="text-xl font-bold mb-1" style="color: var(--c-text-secondary);">
+								{{ formConfig.successMessage }} 🎉
+							</h3>
+							<p style="color: var(--c-text-primary);">Your product has been added to the inventory.</p>
+							<a routerLink="/table" class="inline-flex items-center gap-2 mt-2 text-sm font-medium transition-all hover:gap-3" style="color: var(--c-primary);">
+								View in Products Table
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+
+		<!-- Form Container -->
+		<div 
+			class="rounded-[var(--radius-card)] overflow-hidden"
+			style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-md);"
+		>
+			<form (ngSubmit)="submitForm()">
+				
+				<!-- Form Header -->
+				<div 
+					class="px-[var(--sp-6)] py-[var(--sp-5)] border-b"
+					style="background-color: var(--c-bg-tertiary); border-color: var(--c-border);"
+				>
+					<div class="flex items-center gap-[var(--sp-3)]">
+						<span class="text-2xl">📦</span>
+						<div>
+							<h2 class="text-xl font-bold" style="color: var(--c-text-secondary);">Product Details</h2>
+							<p class="text-sm" style="color: var(--c-text-muted);">Fill in all required fields</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="p-[var(--sp-6)]">
+					
+					<!-- Image Upload Section -->
+					<div class="mb-[var(--sp-6)]">
+						<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+							<span class="flex items-center gap-[var(--sp-2)]">
+								🖼️ Product Image
+							</span>
+						</label>
+						
+						<div 
+							class="relative border-2 border-dashed rounded-[var(--radius)] p-[var(--sp-6)] transition-all duration-[var(--motion)] cursor-pointer"
+							[style.borderColor]="dragOver() ? 'var(--c-primary)' : 'var(--c-border)'"
+							[style.backgroundColor]="dragOver() ? 'var(--c-bg-tertiary)' : 'transparent'"
+							(dragover)="$event.preventDefault(); dragOver.set(true)"
+							(dragleave)="dragOver.set(false)"
+							(drop)="onImageDrop($event)"
+						>
+							@if (imagePreview()) {
+								<!-- Image Preview -->
+								<div class="flex flex-col items-center">
+									<div class="relative group">
+										<img 
+											[src]="imagePreview()" 
+											alt="Product Preview" 
+											class="w-48 h-48 rounded-[var(--radius)] object-cover transition-transform duration-[var(--motion)] group-hover:scale-105"
+											style="box-shadow: var(--shadow-md);"
+										/>
+										<button
+											type="button"
+											(click)="removeImage()"
+											class="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-[var(--motion)] hover:scale-110"
+											style="background-color: var(--c-secondary);"
+										>
+											<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+											</svg>
+										</button>
+									</div>
+									<p class="mt-[var(--sp-3)] text-sm" style="color: var(--c-text-muted);">
+										{{ formData().productImage?.name }}
+									</p>
+									<label 
+										class="mt-[var(--sp-2)] text-sm font-medium cursor-pointer hover:underline"
+										style="color: var(--c-primary);"
+									>
+										Change image
+										<input type="file" accept="image/jpeg,image/png" (change)="onImageSelect($event)" class="hidden" />
+									</label>
+								</div>
+							} @else {
+								<!-- Upload Prompt -->
+								<div class="flex flex-col items-center text-center">
+									<div 
+										class="w-16 h-16 rounded-[var(--radius)] flex items-center justify-center mb-[var(--sp-4)] transition-transform duration-[var(--motion)] hover:scale-110"
+										style="background-color: var(--c-bg-tertiary);"
+									>
+										<svg class="w-8 h-8" style="color: var(--c-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+										</svg>
+									</div>
+									<p class="font-medium mb-1" style="color: var(--c-text-secondary);">
+										Drag and drop your image here
+									</p>
+									<p class="text-sm mb-[var(--sp-4)]" style="color: var(--c-text-muted);">or</p>
+									<label 
+										class="px-[var(--sp-5)] py-[var(--sp-2)] rounded-[var(--radius-btn)] font-medium cursor-pointer text-white transition-all duration-[var(--motion)] hover:opacity-90"
+										style="background-color: var(--c-primary);"
+									>
+										Browse Files
+										<input type="file" accept="image/jpeg,image/png" (change)="onImageSelect($event)" class="hidden" />
+									</label>
+								</div>
+							}
+						</div>
+						<p class="mt-[var(--sp-2)] text-sm" style="color: var(--c-text-muted);">
+							Recommended: 800x800px, max 5MB (JPG, PNG)
+						</p>
+						@if (imageError()) {
+							<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+								</svg>
+								{{ imageError() }}
+							</p>
+						}
+						@if (errors()['productImage']) {
+							<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+								</svg>
+								{{ errors()['productImage'] }}
+							</p>
+						}
+					</div>
+
+					<!-- Form Fields Grid -->
+					<div class="grid gap-[var(--sp-5)] md:grid-cols-2">
+						
+						<!-- Product Name -->
+						<div class="md:col-span-2" data-field="productName">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									📦 Product Name <span style="color: var(--c-secondary);">*</span>
+								</span>
+							</label>
+							<input 
+								type="text"
+								[value]="formData().productName"
+								(input)="updateField('productName', $any($event.target).value)"
+								placeholder="Enter product name"
+								class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none"
+								[style.borderColor]="errors()['productName'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+								[style.backgroundColor]="errors()['productName'] ? 'rgba(197, 61, 61, 0.05)' : 'var(--c-bg-tertiary)'"
+								style="color: var(--c-text-primary);"
+							/>
+							@if (errors()['productName']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['productName'] }}
+								</p>
+							}
+						</div>
+
+						<!-- Category -->
+						<div data-field="category">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									📂 Category <span style="color: var(--c-secondary);">*</span>
+								</span>
+							</label>
+							<select
+								[value]="formData().category"
+								(change)="updateField('category', $any($event.target).value)"
+								class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none appearance-none cursor-pointer"
+								[style.borderColor]="errors()['category'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+								style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+							>
+								<option value="" disabled>Select a category</option>
+								<option value="electronics">💻 Electronics</option>
+								<option value="clothing">👕 Clothing</option>
+								<option value="home">🏠 Home & Garden</option>
+								<option value="sports">⚽ Sports & Outdoors</option>
+								<option value="beauty">💄 Beauty & Health</option>
+								<option value="toys">🎮 Toys & Games</option>
+								<option value="food">🍕 Food & Beverages</option>
+								<option value="other">📌 Other</option>
+							</select>
+							@if (errors()['category']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['category'] }}
+								</p>
+							}
+						</div>
+
+						<!-- Status -->
+						<div data-field="status">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									✅ Status <span style="color: var(--c-secondary);">*</span>
+								</span>
+							</label>
+							<select
+								[value]="formData().status"
+								(change)="updateField('status', $any($event.target).value)"
+								class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none appearance-none cursor-pointer"
+								[style.borderColor]="errors()['status'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+								style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+							>
+								<option value="" disabled>Select a status</option>
+								<option value="active">🟢 Active</option>
+								<option value="draft">📝 Draft</option>
+								<option value="out_of_stock">🔴 Out of Stock</option>
+								<option value="discontinued">⛔ Discontinued</option>
+							</select>
+							@if (errors()['status']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['status'] }}
+								</p>
+							}
+						</div>
+
+						<!-- Price -->
+						<div data-field="price">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									💰 Price (USD) <span style="color: var(--c-secondary);">*</span>
+								</span>
+							</label>
+							<div class="relative">
+								<span class="absolute left-[var(--sp-4)] top-1/2 -translate-y-1/2 font-medium" style="color: var(--c-text-muted);">$</span>
+								<input 
+									type="text"
+									inputmode="decimal"
+									[value]="formData().price !== null ? formData().price : ''"
+									(input)="updateField('price', $any($event.target).value === '' ? null : +$any($event.target).value || null)"
+									placeholder="0.00"
+									class="w-full pl-8 pr-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none"
+									[style.borderColor]="errors()['price'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+									style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+								/>
+							</div>
+							@if (errors()['price']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['price'] }}
+								</p>
+							}
+						</div>
+
+						<!-- Quantity -->
+						<div data-field="quantity">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									📊 Stock Quantity <span style="color: var(--c-secondary);">*</span>
+								</span>
+							</label>
+							<div class="relative">
+								<input 
+									type="text"
+									inputmode="numeric"
+									[value]="formData().quantity !== null ? formData().quantity : ''"
+									(input)="updateField('quantity', $any($event.target).value === '' ? null : +$any($event.target).value || null)"
+									placeholder="0"
+									class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none"
+									[style.borderColor]="errors()['quantity'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+									style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+								/>
+								<span class="absolute right-[var(--sp-4)] top-1/2 -translate-y-1/2 text-sm" style="color: var(--c-text-muted);">units</span>
+							</div>
+							@if (errors()['quantity']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['quantity'] }}
+								</p>
+							}
+						</div>
+
+						<!-- SKU -->
+						<div class="md:col-span-2">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									🏷️ SKU (Stock Keeping Unit)
+								</span>
+							</label>
+							<input 
+								type="text"
+								[value]="formData().sku"
+								(input)="updateField('sku', $any($event.target).value)"
+								placeholder="e.g., PROD-001"
+								class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none"
+								[style.borderColor]="errors()['sku'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+								style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+							/>
+							<p class="mt-1 text-sm" style="color: var(--c-text-muted);">
+								Unique identifier for inventory tracking
+							</p>
+							@if (errors()['sku']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['sku'] }}
+								</p>
+							}
+						</div>
+
+						<!-- Description -->
+						<div class="md:col-span-2">
+							<label class="block text-sm font-semibold mb-[var(--sp-2)]" style="color: var(--c-text-secondary);">
+								<span class="flex items-center gap-[var(--sp-2)]">
+									📝 Description
+								</span>
+							</label>
+							<textarea 
+								[value]="formData().description"
+								(input)="updateField('description', $any($event.target).value)"
+								placeholder="Enter product description..."
+								rows="4"
+								class="w-full px-[var(--sp-4)] py-[var(--sp-3)] rounded-[var(--radius)] border transition-all duration-[var(--motion)] focus:outline-none resize-none"
+								[style.borderColor]="errors()['description'] ? 'var(--c-secondary)' : 'var(--c-border)'"
+								style="background-color: var(--c-bg-tertiary); color: var(--c-text-primary);"
+							></textarea>
+							<div class="flex justify-between items-center mt-1">
+								<p class="text-sm" style="color: var(--c-text-muted);">
+									Describe the product features, materials, dimensions, etc.
+								</p>
+								<span 
+									class="text-sm font-medium"
+									[style.color]="formData().description.length > 900 ? 'var(--c-secondary)' : 'var(--c-text-muted)'"
+								>
+									{{ formData().description.length }} / 1000
+								</span>
+							</div>
+							@if (errors()['description']) {
+								<p class="mt-1 text-sm flex items-center gap-1" style="color: var(--c-secondary);">
+									<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+									</svg>
+									{{ errors()['description'] }}
+								</p>
+							}
+						</div>
+					</div>
+				</div>
+
+				<!-- Form Actions -->
+				<div 
+					class="px-[var(--sp-6)] py-[var(--sp-5)] border-t flex flex-col sm:flex-row items-center justify-between gap-[var(--sp-4)]"
+					style="background-color: var(--c-bg-tertiary); border-color: var(--c-border);"
+				>
+					<p class="text-sm" style="color: var(--c-text-muted);">
+						Fields marked with <span style="color: var(--c-secondary);">*</span> are required
+					</p>
+					
+					<div class="flex items-center gap-[var(--sp-3)]">
+						<button
+							type="button"
+							(click)="resetForm()"
+							class="px-[var(--sp-5)] py-[var(--sp-3)] rounded-[var(--radius-btn)] font-medium border-2 transition-all duration-[var(--motion)] hover:opacity-80"
+							style="border-color: var(--c-border); color: var(--c-text-primary); background-color: transparent;"
+						>
+							Reset
+						</button>
+						
+						<button
+							type="submit"
+							[disabled]="isSubmitting()"
+							class="px-[var(--sp-6)] py-[var(--sp-3)] rounded-[var(--radius-btn)] font-semibold text-white transition-all duration-[var(--motion)] hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
+							style="background-color: var(--c-primary);"
+						>
+							@if (isSubmitting()) {
+								<span class="flex items-center gap-[var(--sp-2)]">
+									<svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+										<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+										<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+									</svg>
+									Adding...
+								</span>
+							} @else {
+								<span class="flex items-center gap-[var(--sp-2)]">
+									{{ formConfig.submitButtonLabel }}
+									<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+									</svg>
+								</span>
+							}
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- Footer Info -->
+		<div class="mt-[var(--sp-6)] text-center">
+			<p class="text-sm" style="color: var(--c-text-muted);">
+				Products will be added to the inventory database
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+﻿.faq {
+	background: var(--c-bg-tertiary);
+	color: var(--c-text-primary);
+}
+
+.faq__muted {
+	color: var(--c-text-muted);
+}
+
+.faq__card {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-card);
+	background: var(--c-bg-secondary);
+	box-shadow: var(--shadow-sm);
+}

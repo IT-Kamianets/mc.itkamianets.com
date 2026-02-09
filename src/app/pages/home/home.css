@@ -1,0 +1,7 @@
+.home {
+	min-height: 100vh;
+	background: var(--c-bg-primary);
+	color: var(--c-text-primary);
+	font-family: var(--ff-base);
+	letter-spacing: var(--letter-spacing);
+}

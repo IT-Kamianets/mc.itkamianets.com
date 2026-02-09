@@ -1,0 +1,5 @@
+/* Developer 1 Profile styles */
+/* src/app/pages/profile/profile.css */
+:host {
+    display: block;
+}

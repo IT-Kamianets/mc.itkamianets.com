@@ -1,0 +1,42 @@
+﻿.final-cta {
+	background: var(--c-bg-secondary);
+	color: var(--c-text-primary);
+}
+
+.final-cta__panel {
+	border: 1px solid var(--c-border);
+	border-radius: calc(var(--radius-card) + 6px);
+	background: var(--c-bg-tertiary);
+}
+
+.final-cta__muted {
+	color: var(--c-text-muted);
+}
+
+.final-cta__primary {
+	border-radius: var(--radius-btn);
+	background: var(--c-primary);
+	color: #fff;
+	box-shadow: var(--shadow-sm);
+}
+
+.final-cta__primary:hover {
+	background: var(--c-primary-hover);
+}
+
+.final-cta__ghost {
+	border: 1px solid var(--c-border);
+	border-radius: var(--radius-btn);
+	background: var(--c-bg-secondary);
+	color: var(--c-text-secondary);
+}
+
+.final-cta__ghost:hover {
+	background: var(--c-bg-tertiary);
+}
+
+.final-cta__primary:focus-visible,
+.final-cta__ghost:focus-visible {
+	outline: none;
+	box-shadow: var(--focus-ring);
+}

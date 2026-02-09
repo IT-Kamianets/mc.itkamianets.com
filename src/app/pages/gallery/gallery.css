@@ -1,0 +1,450 @@
+/* ============================================
+   GALLERY PAGE - Premium Animations & Effects
+   ============================================ */
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in-scale {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes slide-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+@keyframes pulse-glow {
+	0%, 100% {
+		box-shadow: 0 0 20px rgba(37, 110, 255, 0.3);
+	}
+	50% {
+		box-shadow: 0 0 40px rgba(37, 110, 255, 0.5);
+	}
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+@keyframes rotate-slow {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes bounce-subtle {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+@keyframes bounce-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	70% {
+		transform: scale(0.9);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero-section::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(
+		circle,
+		rgba(37, 110, 255, 0.1) 0%,
+		transparent 50%
+	);
+	animation: rotate-slow 30s linear infinite;
+}
+
+.hero-title {
+	animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.hero-subtitle {
+	animation: fade-in-up 0.8s ease-out 0.2s forwards;
+	opacity: 0;
+}
+
+.hero-badge {
+	animation: bounce-in 0.6s ease-out forwards;
+}
+
+/* ============================================
+   ANIMATION UTILITY CLASSES
+   ============================================ */
+
+.animate-fade-in {
+	animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+	animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+	animation: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-float {
+	animation: float 4s ease-in-out infinite;
+}
+
+/* ============================================
+   STAGGERED ANIMATIONS FOR GALLERY ITEMS
+   ============================================ */
+
+.gallery-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.gallery-grid > *:nth-child(2) { animation-delay: 0.1s; }
+.gallery-grid > *:nth-child(3) { animation-delay: 0.15s; }
+.gallery-grid > *:nth-child(4) { animation-delay: 0.2s; }
+.gallery-grid > *:nth-child(5) { animation-delay: 0.25s; }
+.gallery-grid > *:nth-child(6) { animation-delay: 0.3s; }
+.gallery-grid > *:nth-child(7) { animation-delay: 0.35s; }
+.gallery-grid > *:nth-child(8) { animation-delay: 0.4s; }
+.gallery-grid > *:nth-child(9) { animation-delay: 0.45s; }
+.gallery-grid > *:nth-child(10) { animation-delay: 0.5s; }
+.gallery-grid > *:nth-child(11) { animation-delay: 0.55s; }
+.gallery-grid > *:nth-child(12) { animation-delay: 0.6s; }
+
+.gallery-item {
+	opacity: 0;
+	animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* ============================================
+   GALLERY CARD EFFECTS
+   ============================================ */
+
+.gallery-card {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		135deg,
+		rgba(37, 110, 255, 0.1) 0%,
+		transparent 50%,
+		rgba(37, 110, 255, 0.05) 100%
+	);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.gallery-card:hover::before {
+	opacity: 1;
+}
+
+.gallery-card:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow:
+		0 20px 40px rgba(0, 0, 0, 0.15),
+		0 0 30px rgba(37, 110, 255, 0.1);
+}
+
+/* Image zoom effect */
+.gallery-card img {
+	transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-card:hover img {
+	transform: scale(1.15);
+}
+
+/* Overlay gradient animation */
+.gallery-overlay {
+	background: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.8) 0%,
+		rgba(0, 0, 0, 0.4) 50%,
+		transparent 100%
+	);
+	opacity: 0;
+	transition: all 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+	opacity: 1;
+}
+
+/* Content slide up */
+.gallery-content {
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all 0.4s ease 0.1s;
+}
+
+.gallery-card:hover .gallery-content {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* Tags animation */
+.gallery-tag {
+	opacity: 0;
+	transform: translateY(-10px) scale(0.8);
+	transition: all 0.3s ease;
+}
+
+.gallery-card:hover .gallery-tag:nth-child(1) {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	transition-delay: 0.1s;
+}
+
+.gallery-card:hover .gallery-tag:nth-child(2) {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	transition-delay: 0.15s;
+}
+
+.gallery-card:hover .gallery-tag:nth-child(3) {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	transition-delay: 0.2s;
+}
+
+/* ============================================
+   FILTER BUTTONS
+   ============================================ */
+
+.filter-btn {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+.filter-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(135deg, transparent, rgba(255,255,255,0.2), transparent);
+	transform: translateX(-100%);
+	transition: transform 0.5s ease;
+}
+
+.filter-btn:hover::before {
+	transform: translateX(100%);
+}
+
+.filter-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(37, 110, 255, 0.3);
+}
+
+.filter-btn.active {
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   MODAL ANIMATIONS
+   ============================================ */
+
+.modal-backdrop {
+	animation: fade-in 0.3s ease-out forwards;
+}
+
+.modal-content {
+	animation: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.modal-image {
+	animation: fade-in-scale 0.5s ease-out forwards;
+}
+
+/* Navigation buttons */
+.nav-btn {
+	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-btn:hover {
+	transform: scale(1.15);
+	box-shadow: 0 0 20px rgba(37, 110, 255, 0.5);
+}
+
+.nav-btn:active {
+	transform: scale(0.95);
+}
+
+/* ============================================
+   FEATURED CARD (LARGE)
+   ============================================ */
+
+.featured-card {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+@media (max-width: 768px) {
+	.featured-card {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+}
+
+/* ============================================
+   MASONRY-LIKE VARYING HEIGHTS
+   ============================================ */
+
+.gallery-grid > *:nth-child(3n+1) {
+	aspect-ratio: 1 / 1;
+}
+
+.gallery-grid > *:nth-child(3n+2) {
+	aspect-ratio: 4 / 5;
+}
+
+.gallery-grid > *:nth-child(3n) {
+	aspect-ratio: 3 / 4;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-on-hover {
+	transition: box-shadow 0.4s ease;
+}
+
+.glow-on-hover:hover {
+	box-shadow:
+		0 0 20px rgba(37, 110, 255, 0.3),
+		0 0 40px rgba(37, 110, 255, 0.2),
+		0 0 60px rgba(37, 110, 255, 0.1);
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+
+.skeleton {
+	background: linear-gradient(
+		90deg,
+		var(--c-bg-tertiary) 25%,
+		var(--c-bg-secondary) 50%,
+		var(--c-bg-tertiary) 75%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+	.gallery-item,
+	.gallery-card,
+	.gallery-card img,
+	.gallery-overlay,
+	.gallery-content,
+	.gallery-tag,
+	.filter-btn,
+	.modal-backdrop,
+	.modal-content,
+	.nav-btn,
+	.hero-section::before,
+	.hero-title,
+	.hero-subtitle,
+	.hero-badge {
+		animation: none;
+		transition: none;
+	}
+
+	.gallery-item,
+	.hero-subtitle {
+		opacity: 1;
+	}
+}
