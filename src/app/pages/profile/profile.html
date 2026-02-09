@@ -73,7 +73,10 @@
 		} @else {
 			<div class="text-center py-20">
 				<h2 class="text-2xl font-bold text-[var(--c-text-primary)]">Подію не знайдено</h2>
-				<a routerLink="/list" class="mt-4 inline-block text-[var(--c-primary)] hover:underline">Повернутися до списку</a>
+				<p class="text-[var(--c-text-muted)] mt-2">Ми не змогли знайти подію з ID: {{ route.snapshot.paramMap.get('id') }}</p>
+				<a routerLink="/list" class="mt-6 inline-block px-6 py-2 bg-[var(--c-primary)] text-white rounded-full hover:opacity-90 transition-opacity">
+					Повернутися до списку
+				</a>
 			</div>
 		}
 	</div>

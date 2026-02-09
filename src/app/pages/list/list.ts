@@ -18,7 +18,7 @@ export class List implements OnInit {
 	categories = signal<string[]>(['Усі']);
 
 	ngOnInit() {
-		this.http.get<any[]>('data/events.json').subscribe({
+		this.http.get<any[]>('/data/events.json').subscribe({
 			next: (data) => {
 				const mappedData: ListItemData[] = data.map(item => ({
 					id: item.id,

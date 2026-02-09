@@ -1,6 +1,6 @@
-<div 
-	class="group relative bg-[var(--c-bg-primary)] rounded-[var(--radius)] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col"
-	(click)="navigateToDetails()"
+<a 
+	[routerLink]="['/profile', item.id]"
+	class="group relative bg-[var(--c-bg-primary)] rounded-[var(--radius)] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer h-full flex flex-col no-underline"
 >
 	<div class="aspect-video w-full overflow-hidden bg-[var(--c-bg-tertiary)]">
 		<img 
@@ -44,4 +44,4 @@
 			<span class="text-xl opacity-50">{{ item.icon }}</span>
 		</div>
 	</div>
-</div>
+</a>

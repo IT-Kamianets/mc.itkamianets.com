@@ -20,7 +20,7 @@ export class Home implements OnInit {
 	featuredItems = signal<ListItemData[]>([]);
 
 	ngOnInit() {
-		this.http.get<any[]>('data/events.json').subscribe({
+		this.http.get<any[]>('/data/events.json').subscribe({
 			next: (data) => {
 				const mappedData: ListItemData[] = data.slice(0, 3).map(item => ({
 					id: item.id,

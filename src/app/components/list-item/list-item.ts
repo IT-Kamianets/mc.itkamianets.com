@@ -1,6 +1,6 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 export interface ListItemData {
 	id: number;
@@ -15,7 +15,7 @@ export interface ListItemData {
 @Component({
 	selector: 'app-list-item',
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, RouterLink],
 	templateUrl: './list-item.html',
 	styleUrl: './list-item.css',
 })
@@ -23,10 +23,6 @@ export class ListItem {
 	@Input() item!: ListItemData;
 	
 	private router = inject(Router);
-
-	navigateToDetails(): void {
-		this.router.navigate(['/profile', this.item.id]);
-	}
 
 	getCategoryColor(category: string): string {
 		const colorMap: Record<string, string> = {
