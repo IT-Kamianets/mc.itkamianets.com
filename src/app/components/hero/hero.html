@@ -5,11 +5,11 @@
 	<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
 	<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
 
-	<div class="mx-auto max-w-6xl px-4 py-16 sm:py-24 relative z-10">
-		<div class="grid items-center gap-12 lg:grid-cols-2">
+	<div class="mx-auto max-w-6xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)] relative z-10">
+		<div class="grid items-center gap-[var(--sp-10)] lg:grid-cols-2">
 			<div class="animate-fade-in-up">
 				<p
-					class="hero__pill inline-flex items-center px-4 py-2 text-sm font-bold shadow-lg float-element mb-6"
+					class="hero__pill inline-flex items-center px-[var(--sp-4)] py-[var(--sp-2)] text-sm font-bold shadow-lg float-element mb-[var(--sp-6)]"
 				>
 					<span class="hero__dot mr-2 inline-block h-2 w-2 rounded-full"></span>
 					Твій простір для розвитку
@@ -20,59 +20,59 @@
 					<span class="hero__strong">Кам'янець-Подільський</span>
 				</h1>
 
-				<p class="hero__muted mt-6 max-w-xl text-lg leading-relaxed">
+				<p class="hero__muted mt-[var(--sp-6)] max-w-xl text-lg leading-relaxed">
 					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
 				</p>
 
-				<div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+				<div class="mt-[var(--sp-8)] flex flex-col gap-[var(--sp-4)] sm:flex-row sm:items-center">
 					<a
 						routerLink="/list"
-						class="hero__primary inline-flex items-center justify-center px-8 py-4 text-base font-bold transition shadow-xl"
+						class="hero__primary inline-flex items-center justify-center px-[var(--sp-8)] py-[var(--sp-4)] text-base font-bold transition shadow-xl"
 					>
 						Наші події
 					</a>
 
 					<a
 						routerLink="/gallery"
-						class="hero__ghost inline-flex items-center justify-center px-8 py-4 text-base font-bold transition"
+						class="hero__ghost inline-flex items-center justify-center px-[var(--sp-8)] py-[var(--sp-4)] text-base font-bold transition"
 					>
 						Галерея
 					</a>
 				</div>
 				
-				<p class="hero__kicker mt-6 text-sm flex items-center gap-2">
+				<p class="hero__kicker mt-[var(--sp-6)] text-sm flex items-center gap-2">
 					<span class="w-8 h-[1px] bg-[var(--c-primary)]"></span>
 					Приєднуйся до нашої спільноти!
 				</p>
 			</div>
 
 			<div class="relative animate-fade-in-up" style="animation-delay: 0.3s;">
-				<div class="hero__window p-6 relative z-10">
-					<div class="hero__window-bar flex items-center gap-2 pb-4">
+				<div class="hero__window p-[var(--sp-6)] relative z-10">
+					<div class="hero__window-bar flex items-center gap-[var(--sp-2)] pb-[var(--sp-4)]">
 						<span class="hero__win-dot"></span>
 						<span class="hero__win-dot" style="background: #fbbf24;"></span>
 						<span class="hero__win-dot" style="background: #34d399;"></span>
 						<span class="ml-auto text-xs font-bold uppercase tracking-wider hero__strong">анонс</span>
 					</div>
 
-					<div class="mt-6 grid gap-4 sm:grid-cols-2">
-						<div class="hero__mini p-5">
+					<div class="mt-[var(--sp-6)] grid gap-[var(--sp-4)] sm:grid-cols-2">
+						<div class="hero__mini p-[var(--sp-5)]">
 							<p class="hero__strong text-xs font-bold uppercase tracking-widest">волонтерів</p>
-							<p class="mt-2 text-3xl font-extrabold" style="color: var(--c-text-secondary);">500+</p>
-							<p class="hero__muted mt-1 text-xs font-medium">активних учасників</p>
+							<p class="mt-[var(--sp-2)] text-3xl font-extrabold" style="color: var(--c-text-secondary);">500+</p>
+							<p class="hero__muted mt-[var(--sp-1)] text-xs font-medium">активних учасників</p>
 						</div>
 
-						<div class="hero__mini p-5">
+						<div class="hero__mini p-[var(--sp-5)]">
 							<p class="hero__strong text-xs font-bold uppercase tracking-widest">заходів</p>
-							<p class="mt-2 text-3xl font-extrabold" style="color: var(--c-text-secondary);">120+</p>
-							<p class="hero__muted mt-1 text-xs font-medium">щороку</p>
+							<p class="mt-[var(--sp-2)] text-3xl font-extrabold" style="color: var(--c-text-secondary);">120+</p>
+							<p class="hero__muted mt-[var(--sp-1)] text-xs font-medium">щороку</p>
 						</div>
 
-						<div class="hero__mini p-5 sm:col-span-2">
-							<p class="hero__strong text-xs font-bold uppercase tracking-widest mb-3">статус</p>
+						<div class="hero__mini p-[var(--sp-5)] sm:col-span-2">
+							<p class="hero__strong text-xs font-bold uppercase tracking-widest mb-[var(--sp-3)]">статус</p>
 							<div class="flex items-center justify-between">
 								<span
-									class="hero__badge inline-flex items-center rounded-full px-3 py-1 text-xs"
+									class="hero__badge inline-flex items-center rounded-full px-[var(--sp-3)] py-[var(--sp-1)] text-xs"
 								>
 									Працюємо для молоді
 								</span>
@@ -81,22 +81,22 @@
 						</div>
 					</div>
 
-					<div class="hero__note mt-6 p-5">
+					<div class="hero__note mt-[var(--sp-6)] p-[var(--sp-5)]">
 						<p class="hero__strong text-xs font-bold uppercase tracking-widest">актуально</p>
-						<p class="mt-2 text-sm leading-relaxed" style="color: var(--c-text-secondary);">
+						<p class="mt-[var(--sp-2)] text-sm leading-relaxed" style="color: var(--c-text-secondary);">
 							Стартував набір на весняну школу лідерства. Встигни подати заявку та прокачати свої скіли!
 						</p>
 					</div>
 				</div>
 
-				<div class="mt-6 grid grid-cols-3 gap-3">
-					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
+				<div class="mt-[var(--sp-6)] grid grid-cols-3 gap-[var(--sp-3)]">
+					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
 						креативність
 					</div>
-					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
+					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
 						лідерство
 					</div>
-					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
+					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
 						волонтерство
 					</div>
 				</div>

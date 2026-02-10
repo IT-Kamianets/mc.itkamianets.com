@@ -1,18 +1,18 @@
-<section class="gallery-section py-24">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-		<div class="text-center mb-16 animate-up">
-			<span class="gallery-section-badge inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+<section class="gallery-section py-[var(--sp-20)]">
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
+		<div class="text-center mb-[var(--sp-16)] animate-up">
+			<span class="gallery-section-badge inline-block px-[var(--sp-4)] py-[var(--sp-1)] rounded-full text-xs font-bold uppercase tracking-widest mb-[var(--sp-4)]">
 				Галерея
 			</span>
 			<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl lg:text-5xl">
 				Наше життя у фото
 			</h2>
-			<p class="mt-4 text-lg text-[var(--c-text-muted)] max-w-2xl mx-auto">
+			<p class="mt-[var(--sp-4)] text-lg text-[var(--c-text-muted)] max-w-2xl mx-auto">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[var(--sp-8)]">
 			@for (item of items(); track item.id; let i = $index) {
 				<div 
 					class="gallery-section__card group rounded-[var(--radius-card)] overflow-hidden animate-up"
@@ -27,9 +27,9 @@
 						>
 						
 						<!-- Overlay -->
-						<div class="gallery-section__overlay absolute inset-0 flex flex-col justify-end p-6">
+						<div class="gallery-section__overlay absolute inset-0 flex flex-col justify-end p-[var(--sp-6)]">
 							<div class="gallery-section__content">
-								<span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-[var(--c-primary)] text-white mb-2 uppercase tracking-wider">
+								<span class="inline-block text-[10px] font-bold px-[var(--sp-2)] py-0.5 rounded bg-[var(--c-primary)] text-white mb-[var(--sp-2)] uppercase tracking-wider">
 									{{ item.category }}
 								</span>
 								<h3 class="text-xl font-bold text-white mb-1">{{ item.title }}</h3>
@@ -41,10 +41,10 @@
 			}
 		</div>
 
-		<div class="mt-16 text-center animate-up" style="animation-delay: 0.4s;">
+		<div class="mt-[var(--sp-16)] text-center animate-up" style="animation-delay: 0.4s;">
 			<a 
 				routerLink="/gallery"
-				class="gallery-section__btn inline-flex items-center px-10 py-4 text-base font-bold transition shadow-lg"
+				class="gallery-section__btn inline-flex items-center px-[var(--sp-10)] py-[var(--sp-4)] text-base font-bold transition shadow-lg"
 			>
 				Подивитись всю галерею
 				<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

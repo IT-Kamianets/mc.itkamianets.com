@@ -1,6 +1,6 @@
-<section class="py-24">
-	<div class="text-center mb-16 animate-up">
-		<span class="list-section-badge inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+<section class="py-[var(--sp-20)]">
+	<div class="text-center mb-[var(--sp-16)] animate-up">
+		<span class="list-section-badge inline-block px-[var(--sp-4)] py-[var(--sp-1)] rounded-full text-xs font-bold uppercase tracking-widest mb-[var(--sp-4)]">
 			Події
 		</span>
 		<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl lg:text-5xl">
@@ -8,18 +8,18 @@
 		</h2>
 		
 		@if (showSearch()) {
-			<div class="mt-10 max-w-md mx-auto relative">
+			<div class="mt-[var(--sp-10)] max-w-md mx-auto relative">
 				<input
 					type="text"
 					[value]="searchQuery()"
 					(input)="searchQuery.set($any($event.target).value)"
 					placeholder="Пошук цікавих подій..."
-					class="search-input w-full px-8 py-4 rounded-full border border-[var(--c-border-primary)] bg-[var(--c-bg-secondary)] text-[var(--c-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--c-primary)] shadow-md"
+					class="search-input w-full px-[var(--sp-8)] py-[var(--sp-4)] rounded-[var(--radius-btn)] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] text-[var(--c-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--c-primary)] shadow-md"
 				/>
 				@if (searchQuery()) {
 					<button
 						(click)="clearSearch()"
-						class="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--c-text-muted)] hover:text-[var(--c-primary)] transition-colors"
+						class="absolute right-[var(--sp-5)] top-1/2 -translate-y-1/2 text-[var(--c-text-muted)] hover:text-[var(--c-primary)] transition-colors"
 					>
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -32,7 +32,7 @@
 
 	@if (displayItems().length > 0) {
 		<div 
-			class="grid gap-10 animate-up"
+			class="grid gap-[var(--sp-10)] animate-up"
 			[class.grid-cols-1]="itemsPerRow() === 1"
 			[class.sm:grid-cols-2]="itemsPerRow() >= 2"
 			[class.lg:grid-cols-3]="itemsPerRow() >= 3"
@@ -44,13 +44,13 @@
 			}
 		</div>
 	} @else {
-		<div class="text-center py-20 bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] border-2 border-[var(--c-border-primary)] border-dashed animate-up">
-			<div class="mb-4 text-4xl opacity-20">🔍</div>
+		<div class="text-center py-[var(--sp-20)] bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] border-2 border-[var(--c-border)] border-dashed animate-up">
+			<div class="mb-[var(--sp-4)] text-4xl opacity-20">🔍</div>
 			<p class="text-[var(--c-text-muted)] text-lg">Нічого не знайдено за вашим запитом.</p>
 			@if (searchQuery()) {
 				<button 
 					(click)="clearSearch()"
-					class="list-section__btn mt-6 px-8 py-3 font-bold"
+					class="list-section__btn mt-[var(--sp-6)] px-[var(--sp-8)] py-[var(--sp-3)] font-bold"
 				>
 					Очистити пошук
 				</button>
@@ -59,10 +59,10 @@
 	}
 
 	@if (showViewAllButton()) {
-		<div class="mt-16 text-center animate-up" style="animation-delay: 0.4s;">
+		<div class="mt-[var(--sp-16)] text-center animate-up" style="animation-delay: 0.4s;">
 			<button
 				(click)="onViewAllClick()"
-				class="list-section__btn inline-flex items-center px-12 py-5 text-lg font-bold shadow-xl"
+				class="list-section__btn inline-flex items-center px-[var(--sp-12)] py-[var(--sp-5)] text-lg font-bold shadow-xl"
 			>
 				Всі події
 				<svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

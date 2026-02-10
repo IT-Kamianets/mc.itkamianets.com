@@ -88,7 +88,7 @@
 	color: white;
 	box-shadow: 0 10px 30px rgba(37, 110, 255, 0.3);
 	border: none;
-	border-radius: 999px;
+	border-radius: var(--radius-btn);
 }
 
 .hero__dot {
@@ -97,7 +97,7 @@
 }
 
 .hero__primary {
-	border-radius: 999px;
+	border-radius: var(--radius-btn);
 	background: var(--c-primary);
 	color: #fff;
 	box-shadow: 0 5px 15px rgba(37, 110, 255, 0.3);
@@ -112,11 +112,12 @@
 }
 
 .hero__ghost {
-	border-radius: 999px;
+	border-radius: var(--radius-btn);
 	background: var(--c-bg-primary);
 	color: var(--c-text-secondary);
 	box-shadow: var(--shadow-sm);
 	transition: all 0.3s ease;
+	border: 1px solid var(--c-border);
 }
 
 .hero__ghost:hover {
@@ -129,8 +130,8 @@
 	border: 1px solid var(--c-border);
 	border-radius: var(--radius-card);
 	background: var(--c-bg-secondary);
-	box-shadow: var(--shadow-lg), 0 0 30px rgba(37, 110, 255, 0.1);
-	backdrop-blur: 10px;
+	box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.05);
+	backdrop-filter: blur(10px);
 }
 
 .hero__window-bar {
@@ -146,11 +147,11 @@
 
 .hero__mini:hover {
 	transform: translateY(-5px);
-	box-shadow: var(--shadow-md), 0 0 15px rgba(37, 110, 255, 0.05);
+	box-shadow: var(--shadow-md), 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
 .hero__badge {
-	background: rgba(37, 110, 255, 0.1);
+	background: color-mix(in srgb, var(--c-primary) 10%, transparent);
 	color: var(--c-primary);
 	font-weight: 700;
 }
@@ -163,7 +164,7 @@
 
 .hero__tag {
 	border: 1px solid var(--c-border);
-	border-radius: 999px;
+	border-radius: var(--radius-btn);
 	background: var(--c-bg-secondary);
 	color: var(--c-text-secondary);
 	transition: all 0.3s ease;

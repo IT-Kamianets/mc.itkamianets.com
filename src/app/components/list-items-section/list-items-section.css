@@ -5,25 +5,26 @@
 }
 
 .list-section__btn {
-	border-radius: 999px;
+	border-radius: var(--radius-btn);
 	background: var(--c-primary);
 	color: white;
-	box-shadow: 0 5px 15px rgba(37, 110, 255, 0.3);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
 }
 
 .list-section__btn:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 8px 25px rgba(37, 110, 255, 0.4);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 	opacity: 0.9;
 }
 
 .search-input {
 	transition: all 0.3s ease;
+	border-radius: var(--radius-btn);
 }
 
 .search-input:focus {
-	box-shadow: 0 0 20px rgba(37, 110, 255, 0.1);
+	box-shadow: var(--focus-ring);
 	transform: translateY(-2px);
 }
 
