@@ -1,25 +1,29 @@
-<section class="py-16 animate-fade-in">
-	<div class="text-center mb-12">
-		<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl">
+<section class="py-24">
+	<div class="text-center mb-16 animate-up">
+		<span class="list-section-badge inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+			Події
+		</span>
+		<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl lg:text-5xl">
 			{{ title() }}
 		</h2>
-		<div class="h-1 w-20 bg-[var(--c-primary)] mx-auto mt-4 rounded-full"></div>
 		
 		@if (showSearch()) {
-			<div class="mt-8 max-w-md mx-auto relative">
+			<div class="mt-10 max-w-md mx-auto relative">
 				<input
 					type="text"
 					[value]="searchQuery()"
 					(input)="searchQuery.set($any($event.target).value)"
-					placeholder="Пошук подій..."
-					class="w-full px-6 py-3 rounded-full border border-[var(--c-border-primary)] bg-[var(--c-bg-secondary)] text-[var(--c-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--c-primary)] transition-all shadow-sm"
+					placeholder="Пошук цікавих подій..."
+					class="search-input w-full px-8 py-4 rounded-full border border-[var(--c-border-primary)] bg-[var(--c-bg-secondary)] text-[var(--c-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--c-primary)] shadow-md"
 				/>
 				@if (searchQuery()) {
 					<button
 						(click)="clearSearch()"
-						class="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--c-text-muted)] hover:text-[var(--c-text-primary)]"
+						class="absolute right-5 top-1/2 -translate-y-1/2 text-[var(--c-text-muted)] hover:text-[var(--c-primary)] transition-colors"
 					>
-						✕
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
 					</button>
 				}
 			</div>
@@ -28,23 +32,25 @@
 
 	@if (displayItems().length > 0) {
 		<div 
-			class="grid gap-8"
+			class="grid gap-10 animate-up"
 			[class.grid-cols-1]="itemsPerRow() === 1"
 			[class.sm:grid-cols-2]="itemsPerRow() >= 2"
 			[class.lg:grid-cols-3]="itemsPerRow() >= 3"
 			[class.xl:grid-cols-4]="itemsPerRow() >= 4"
+			style="animation-delay: 0.2s;"
 		>
 			@for (item of displayItems(); track item.id) {
 				<app-list-item [item]="item" />
 			}
 		</div>
 	} @else {
-		<div class="text-center py-16 bg-[var(--c-bg-secondary)] rounded-[var(--radius)] border-2 border-[var(--c-border-primary)] border-dashed">
+		<div class="text-center py-20 bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] border-2 border-[var(--c-border-primary)] border-dashed animate-up">
+			<div class="mb-4 text-4xl opacity-20">🔍</div>
 			<p class="text-[var(--c-text-muted)] text-lg">Нічого не знайдено за вашим запитом.</p>
 			@if (searchQuery()) {
 				<button 
 					(click)="clearSearch()"
-					class="mt-4 px-6 py-2 bg-[var(--c-primary)] text-white rounded-full font-medium hover:bg-[var(--c-primary-hover)] transition-colors"
+					class="list-section__btn mt-6 px-8 py-3 font-bold"
 				>
 					Очистити пошук
 				</button>
@@ -53,12 +59,15 @@
 	}
 
 	@if (showViewAllButton()) {
-		<div class="mt-12 text-center">
+		<div class="mt-16 text-center animate-up" style="animation-delay: 0.4s;">
 			<button
 				(click)="onViewAllClick()"
-				class="inline-flex items-center px-10 py-4 bg-[var(--c-primary)] text-white font-bold rounded-[var(--radius)] hover:bg-[var(--c-primary-hover)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+				class="list-section__btn inline-flex items-center px-12 py-5 text-lg font-bold shadow-xl"
 			>
 				Всі події
+				<svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+				</svg>
 			</button>
 		</div>
 	}

@@ -1,92 +1,52 @@
-/* Header: static on mobile, sticky on desktop */
+/* Header: modern glassmorphism */
 .header {
-	position: relative;
+	position: sticky;
+	top: 0;
 	z-index: 50;
-	border-bottom: 1px solid var(--c-border);
-	background: color-mix(in srgb, var(--c-bg-secondary) 80%, transparent);
-	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--c-border-primary);
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(12px);
+	transition: all 0.3s ease;
 }
 
-@media (min-width: 640px) {
-	.header {
-		position: sticky;
-		top: 0;
-	}
+:host-context(.theme-dark) .header {
+	background: rgba(15, 23, 42, 0.8);
 }
 
-/* Hide scrollbar for navigation on mobile */
-.header__nav {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-
-.header__nav::-webkit-scrollbar {
-	display: none;
-}
-
-/* Navigation links */
 .header__link {
-	color: var(--c-text-primary);
+	color: var(--c-text-secondary);
+	font-weight: 600;
+	letter-spacing: 0.025em;
+	transition: all 0.2s ease;
 }
 
 .header__link:hover {
-	background: var(--c-bg-tertiary);
-	color: var(--c-text-secondary);
-}
-
-.header__link:focus-visible {
-	outline: none;
-	box-shadow: var(--focus-ring);
+	color: var(--c-primary);
+	background: rgba(37, 110, 255, 0.05);
 }
 
 .header__link--active {
-	background-color: var(--c-primary) !important;
-	color: #fff !important;
+	color: var(--c-primary) !important;
+	background: rgba(37, 110, 255, 0.1) !important;
 }
 
-/* Theme Switcher Segments */
+/* Theme Switcher */
 .header__seg {
-	display: inline-flex;
-	border: 1px solid var(--c-border);
-	border-radius: var(--radius-btn);
-	overflow: hidden;
-	background: var(--c-bg-tertiary);
+	border: 1px solid var(--c-border-primary);
+	border-radius: 999px;
+	background: var(--c-bg-primary);
+	padding: 2px;
 }
 
-/* Desktop segment buttons */
 .header__seg-btn {
-	padding: 6px 10px;
-	color: var(--c-text-primary);
-	border: none;
-	background: transparent;
-	cursor: pointer;
-}
-
-.header__seg-btn:hover {
-	color: var(--c-text-secondary);
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-weight: 600;
+	transition: all 0.2s ease;
 }
 
 .header__seg-btn--active {
 	background: var(--c-primary);
-	color: #fff;
-}
-
-.header__seg-btn:focus-visible {
-	outline: none;
-	box-shadow: var(--focus-ring);
-}
-
-.animate-fade-in {
-	animation: fadeIn 0.2s ease-out;
-}
-
-@keyframes fadeIn {
-	from { opacity: 0; transform: translateY(-10px); }
-	to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile segment buttons - smaller */
-.header__seg-btn--mobile {
-	font-size: 10px;
-	padding: 3px 5px;
+	color: white;
+	box-shadow: 0 4px 10px rgba(37, 110, 255, 0.3);
 }

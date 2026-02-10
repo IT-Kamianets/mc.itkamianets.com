@@ -1,0 +1,89 @@
+.gallery-section {
+	background: var(--c-bg-secondary);
+	position: relative;
+	overflow: hidden;
+}
+
+.gallery-section-badge {
+	background-color: var(--c-primary);
+	color: white;
+	box-shadow: 0 10px 30px rgba(37, 110, 255, 0.2);
+}
+
+.gallery-section__card {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	background-color: var(--c-bg-tertiary);
+}
+
+.gallery-section__card:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow:
+		0 20px 40px rgba(0, 0, 0, 0.15),
+		0 0 30px rgba(37, 110, 255, 0.1);
+}
+
+.gallery-section__image {
+	transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gallery-section__card:hover .gallery-section__image {
+	transform: scale(1.1);
+}
+
+.gallery-section__overlay {
+	background: linear-gradient(
+		to top,
+		rgba(0, 0, 0, 0.8) 0%,
+		rgba(0, 0, 0, 0.2) 50%,
+		transparent 100%
+	);
+	opacity: 0;
+	transition: all 0.4s ease;
+}
+
+.gallery-section__card:hover .gallery-section__overlay {
+	opacity: 1;
+}
+
+.gallery-section__content {
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all 0.4s ease 0.1s;
+}
+
+.gallery-section__card:hover .gallery-section__content {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.gallery-section__btn {
+	border-radius: 999px;
+	background: var(--c-primary);
+	color: white;
+	box-shadow: 0 5px 15px rgba(37, 110, 255, 0.3);
+	transition: all 0.3s ease;
+}
+
+.gallery-section__btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(37, 110, 255, 0.4);
+	opacity: 0.9;
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-up {
+	animation: fade-in-up 0.8s ease-out forwards;
+	opacity: 0;
+}

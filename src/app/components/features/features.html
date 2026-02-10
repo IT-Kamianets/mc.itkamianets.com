@@ -1,61 +1,106 @@
-﻿<section class="features">
-	<div class="mx-auto max-w-6xl px-4 py-16">
-		<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+﻿<section class="features overflow-hidden">
+	<div class="mx-auto max-w-6xl px-4 py-20 relative">
+		<!-- Decorative elements -->
+		<div class="absolute top-0 right-0 w-64 h-64 bg-[var(--c-primary)] opacity-[0.03] rounded-full blur-3xl -mr-32 -mt-32"></div>
+		
+		<div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-12 animate-up">
 			<div>
-				<h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Наші напрямки</h2>
-				<p class="features__muted mt-2">
-					Ми пропонуємо різноманітні можливості для розвитку та дозвілля молоді.
+				<span class="features-badge inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+					Можливості
+				</span>
+				<h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--c-text-secondary)]">Наші напрямки</h2>
+				<p class="features__muted mt-3 text-lg max-w-xl">
+					Ми пропонуємо різноманітні можливості для розвитку та дозвілля молоді у нашому місті.
 				</p>
 			</div>
 
 			<a
 				routerLink="/list"
-				class="features__btn inline-flex w-fit items-center justify-center px-4 py-2 text-sm font-semibold transition"
+				class="features__btn inline-flex w-fit items-center justify-center px-6 py-3 text-sm font-bold transition"
 			>
 				Дивитися всі події
+				<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+				</svg>
 			</a>
 		</div>
 
-		<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Волонтерство</p>
-				<p class="features__muted mt-2 text-sm">
-					Долучайся до соціальних проєктів та допомагай місту ставати кращим.
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<!-- Волонтерство -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.1s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Волонтерство</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Долучайся до соціальних проєктів, знаходь нових друзів та допомагай громаді ставати кращою.
 				</p>
 			</div>
 
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Неформальна освіта</p>
-				<p class="features__muted mt-2 text-sm">
-					Тренінги, воркшопи та лекції на актуальні теми від експертів.
+			<!-- Неформальна освіта -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.2s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Освіта</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Тренінги, воркшопи та лекції на актуальні теми від провідних експертів та практиків.
 				</p>
 			</div>
 
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Простір для коворкінгу</p>
-				<p class="features__muted mt-2 text-sm">
-					Місце для роботи над власними проєктами в дружній атмосфері.
+			<!-- Простір для коворкінгу -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.3s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Коворкінг</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Сучасний та комфортний простір для роботи над власними проєктами в колі однодумців.
 				</p>
 			</div>
 
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Творчий розвиток</p>
-				<p class="features__muted mt-2 text-sm">
-					Музичні вечори, кінопокази та мистецькі заходи.
+			<!-- Творчий розвиток -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.4s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Творчість</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Музичні вечори, кінопокази, мистецькі виставки та творчі майстер-класи.
 				</p>
 			</div>
 
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Підтримка ініціатив</p>
-				<p class="features__muted mt-2 text-sm">
-					Допомога в реалізації твоїх власних ідей та громадських проєктів.
+			<!-- Підтримка ініціатив -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.5s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Ініціативи</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Допомога в реалізації твоїх власних ідей, менторська підтримка та пошук ресурсів.
 				</p>
 			</div>
 
-			<div class="features__card p-6">
-				<p class="text-sm font-semibold">Міжнародні обміни</p>
-				<p class="features__muted mt-2 text-sm">
-					Можливості участі в програмах Erasmus+ та інших міжнародних проєктах.
+			<!-- Міжнародні обміни -->
+			<div class="features__card p-8 animate-up" style="animation-delay: 0.6s;">
+				<div class="features__icon-wrapper flex items-center justify-center">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2 2 2 0 012 2v.653m4.102-5.703A10 10 0 113.055 11"></path>
+					</svg>
+				</div>
+				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Erasmus+</h3>
+				<p class="features__muted text-sm leading-relaxed">
+					Можливості участі в міжнародних молодіжних обмінах, тренінгах та волонтерстві за кордоном.
 				</p>
 			</div>
 		</div>

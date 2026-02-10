@@ -1,97 +1,102 @@
 ﻿<section class="hero relative overflow-hidden">
-	<div class="hero__bg absolute inset-0 -z-10"></div>
+	<div class="hero-pattern"></div>
+	
+	<!-- Decorative floating circles -->
+	<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
+	<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
 
-	<div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-		<div class="grid items-center gap-10 lg:grid-cols-2">
-			<div>
+	<div class="mx-auto max-w-6xl px-4 py-16 sm:py-24 relative z-10">
+		<div class="grid items-center gap-12 lg:grid-cols-2">
+			<div class="animate-fade-in-up">
 				<p
-					class="hero__pill inline-flex items-center px-3 py-1 text-xs font-medium shadow-sm"
+					class="hero__pill inline-flex items-center px-4 py-2 text-sm font-bold shadow-lg float-element mb-6"
 				>
 					<span class="hero__dot mr-2 inline-block h-2 w-2 rounded-full"></span>
-					Твій простір для розвитку та можливостей
+					Твій простір для розвитку
 				</p>
 
-				<h1 class="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
+				<h1 class="hero-title text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
 					Молодіжний центр
 					<span class="hero__strong">Кам'янець-Подільський</span>
 				</h1>
 
-				<p class="hero__muted mt-4 max-w-xl text-base leading-7">
+				<p class="hero__muted mt-6 max-w-xl text-lg leading-relaxed">
 					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
 				</p>
 
-				<div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+				<div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
 					<a
 						routerLink="/list"
-						class="hero__primary inline-flex items-center justify-center px-5 py-3 text-sm font-semibold transition"
+						class="hero__primary inline-flex items-center justify-center px-8 py-4 text-base font-bold transition shadow-xl"
 					>
 						Наші події
 					</a>
 
 					<a
 						routerLink="/gallery"
-						class="hero__ghost inline-flex items-center justify-center px-5 py-3 text-sm font-semibold transition"
+						class="hero__ghost inline-flex items-center justify-center px-8 py-4 text-base font-bold transition"
 					>
 						Галерея
 					</a>
-
-					<p class="hero__kicker text-xs sm:ml-2">Приєднуйся до нашої спільноти!</p>
 				</div>
+				
+				<p class="hero__kicker mt-6 text-sm flex items-center gap-2">
+					<span class="w-8 h-[1px] bg-[var(--c-primary)]"></span>
+					Приєднуйся до нашої спільноти!
+				</p>
 			</div>
 
-			<div class="relative">
-				<div class="hero__glow absolute -inset-4 -z-10 blur-2xl"></div>
-
-				<div class="hero__window p-4">
-					<div class="hero__window-bar flex items-center gap-2 pb-3">
+			<div class="relative animate-fade-in-up" style="animation-delay: 0.3s;">
+				<div class="hero__window p-6 relative z-10">
+					<div class="hero__window-bar flex items-center gap-2 pb-4">
 						<span class="hero__win-dot"></span>
-						<span class="hero__win-dot hero__win-dot--mid"></span>
-						<span class="hero__win-dot hero__win-dot--ok"></span>
-						<span class="ml-auto text-xs font-medium hero__kicker">анонс</span>
+						<span class="hero__win-dot" style="background: #fbbf24;"></span>
+						<span class="hero__win-dot" style="background: #34d399;"></span>
+						<span class="ml-auto text-xs font-bold uppercase tracking-wider hero__strong">анонс</span>
 					</div>
 
-					<div class="mt-4 grid gap-3 sm:grid-cols-2">
-						<div class="hero__mini p-4">
-							<p class="hero__kicker text-xs font-semibold">волонтерів</p>
-							<p class="mt-2 text-2xl font-extrabold">500+</p>
-							<p class="hero__kicker mt-1 text-xs">активних учасників</p>
+					<div class="mt-6 grid gap-4 sm:grid-cols-2">
+						<div class="hero__mini p-5">
+							<p class="hero__strong text-xs font-bold uppercase tracking-widest">волонтерів</p>
+							<p class="mt-2 text-3xl font-extrabold" style="color: var(--c-text-secondary);">500+</p>
+							<p class="hero__muted mt-1 text-xs font-medium">активних учасників</p>
 						</div>
 
-						<div class="hero__mini p-4">
-							<p class="hero__kicker text-xs font-semibold">заходів</p>
-							<p class="mt-2 text-2xl font-extrabold">120+</p>
-							<p class="hero__kicker mt-1 text-xs">щороку</p>
+						<div class="hero__mini p-5">
+							<p class="hero__strong text-xs font-bold uppercase tracking-widest">заходів</p>
+							<p class="mt-2 text-3xl font-extrabold" style="color: var(--c-text-secondary);">120+</p>
+							<p class="hero__muted mt-1 text-xs font-medium">щороку</p>
 						</div>
 
-						<div class="hero__mini p-4 sm:col-span-2">
-							<p class="hero__kicker text-xs font-semibold">статус</p>
-							<div class="mt-2 flex items-center gap-2">
+						<div class="hero__mini p-5 sm:col-span-2">
+							<p class="hero__strong text-xs font-bold uppercase tracking-widest mb-3">статус</p>
+							<div class="flex items-center justify-between">
 								<span
-									class="hero__badge inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold"
+									class="hero__badge inline-flex items-center rounded-full px-3 py-1 text-xs"
 								>
 									Працюємо для молоді
 								</span>
-								<span class="hero__kicker text-xs">Відчинено: 10:00 - 19:00</span>
+								<span class="hero__muted text-xs font-medium">Відчинено: 10:00 - 19:00</span>
 							</div>
 						</div>
 					</div>
 
-					<div class="hero__note mt-4 p-4">
-						<p class="hero__kicker text-xs font-semibold">новина</p>
-						<p class="mt-1 text-sm hero__note-text">
-							Стартував набір на весняну школу лідерства. Встигни подати заявку!
+					<div class="hero__note mt-6 p-5">
+						<p class="hero__strong text-xs font-bold uppercase tracking-widest">актуально</p>
+						<p class="mt-2 text-sm leading-relaxed" style="color: var(--c-text-secondary);">
+							Стартував набір на весняну школу лідерства. Встигни подати заявку та прокачати свої скіли!
 						</p>
 					</div>
 				</div>
 
-				<div class="mt-4 grid grid-cols-3 gap-3">
-					<div class="hero__tag px-3 py-3 text-center text-xs font-semibold shadow-sm">
+				<div class="mt-6 grid grid-cols-3 gap-3">
+					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
 						креативність
 					</div>
-					<div class="hero__tag px-3 py-3 text-center text-xs font-semibold shadow-sm">
+					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
 						лідерство
 					</div>
-					<div class="hero__tag px-3 py-3 text-center text-xs font-semibold shadow-sm">
+					<div class="hero__tag px-4 py-3 text-center text-xs font-bold shadow-sm">
 						волонтерство
 					</div>
 				</div>

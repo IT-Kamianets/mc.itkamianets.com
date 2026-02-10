@@ -1,6 +1,7 @@
 ﻿.features {
-	background: var(--c-bg-tertiary);
+	background: var(--c-bg-primary);
 	color: var(--c-text-primary);
+	position: relative;
 }
 
 .features__muted {
@@ -8,24 +9,94 @@
 }
 
 .features__card {
-	border: 1px solid var(--c-border);
+	border: 1px solid var(--c-border-primary);
 	border-radius: var(--radius-card);
 	background: var(--c-bg-secondary);
 	box-shadow: var(--shadow-sm);
+	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.features__card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		135deg,
+		rgba(37, 110, 255, 0.05) 0%,
+		transparent 50%
+	);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.features__card:hover {
+	transform: translateY(-8px);
+	box-shadow: 
+		0 20px 40px rgba(0, 0, 0, 0.05),
+		0 0 30px rgba(37, 110, 255, 0.1);
+	border-color: var(--c-primary);
+}
+
+.features__card:hover::before {
+	opacity: 1;
+}
+
+.features__icon-wrapper {
+	width: 48px;
+	height: 48px;
+	border-radius: 12px;
+	background: rgba(37, 110, 255, 0.1);
+	color: var(--c-primary);
+	display: flex;
+	items-center: center;
+	justify-content: center;
+	margin-bottom: 1.5rem;
+	transition: all 0.3s ease;
+}
+
+.features__card:hover .features__icon-wrapper {
+	background: var(--c-primary);
+	color: white;
+	transform: scale(1.1) rotate(5deg);
 }
 
 .features__btn {
-	border: 1px solid var(--c-border);
-	border-radius: var(--radius-btn);
+	border-radius: 999px;
 	background: var(--c-bg-secondary);
 	color: var(--c-text-secondary);
+	box-shadow: var(--shadow-sm);
+	transition: all 0.3s ease;
+	border: 1px solid var(--c-border-primary);
 }
 
 .features__btn:hover {
-	background: var(--c-bg-tertiary);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+	background: var(--c-bg-secondary);
+	border-color: var(--c-primary);
+	color: var(--c-primary);
 }
 
-.features__btn:focus-visible {
-	outline: none;
-	box-shadow: var(--focus-ring);
+.features-badge {
+	background-color: var(--c-primary);
+	color: white;
+	box-shadow: 0 10px 30px rgba(37, 110, 255, 0.2);
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-up {
+	animation: fade-in-up 0.8s ease-out forwards;
+	opacity: 0;
 }

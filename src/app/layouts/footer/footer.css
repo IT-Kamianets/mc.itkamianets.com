@@ -1,114 +1,59 @@
 .footer {
-	border-top: 1px solid var(--c-border);
-	background: var(--c-bg-secondary);
+	border-top: 1px solid var(--c-border-primary);
+	background: var(--c-bg-primary);
 	color: var(--c-text-primary);
 }
 
 .footer__logo {
-	border-radius: var(--radius);
+	border-radius: 12px;
+	box-shadow: var(--shadow-sm);
 }
 
 .footer__brand {
 	color: var(--c-text-secondary);
+	font-weight: 800;
 }
 
 .footer__description {
 	color: var(--c-text-muted);
-	line-height: 1.6;
-}
-
-.footer__contact {
-	color: var(--c-text-primary);
-}
-
-.footer__icon {
-	font-size: 1rem;
-}
-
-.footer__text {
-	color: var(--c-text-muted);
-}
-
-.footer__contact-link {
-	color: var(--c-text-muted);
-	text-decoration: none;
-	transition: color var(--motion) ease;
-}
-
-.footer__contact-link:hover {
-	color: var(--c-primary);
+	line-height: 1.7;
 }
 
 .footer__heading {
 	color: var(--c-text-secondary);
-	letter-spacing: 0.05em;
-}
-
-.footer__list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	font-weight: 700;
+	letter-spacing: 0.025em;
+	text-transform: uppercase;
 }
 
 .footer__link {
 	color: var(--c-text-muted);
-	text-decoration: none;
-	transition: color var(--motion) ease, padding-left var(--motion) ease;
-	display: inline-block;
+	font-weight: 500;
+	transition: all 0.3s ease;
 }
 
 .footer__link:hover {
 	color: var(--c-primary);
-	padding-left: 4px;
-}
-
-.footer__link:focus-visible {
-	outline: none;
-	box-shadow: var(--focus-ring);
-	border-radius: var(--radius-btn);
-}
-
-.footer__divider {
-	height: 1px;
-	background: var(--c-border);
-}
-
-.footer__bottom {
-	color: var(--c-text-muted);
-}
-
-.footer__copyright {
-	color: var(--c-text-muted);
-}
-
-.footer__social {
-	display: flex;
-	gap: 0.5rem;
+	transform: translateX(4px);
 }
 
 .footer__social-link {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: var(--c-bg-secondary);
+	border: 1px solid var(--c-border-primary);
+	transition: all 0.3s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
-	border-radius: var(--radius-btn);
-	background: var(--c-bg-tertiary);
-	border: 1px solid var(--c-border);
-	text-decoration: none;
-	transition: all var(--motion) ease;
+	color: var(--c-text-secondary);
 }
 
 .footer__social-link:hover {
 	background: var(--c-primary);
+	color: white;
 	border-color: var(--c-primary);
-	transform: translateY(-2px);
-}
-
-.footer__social-icon {
-	font-size: 1rem;
-}
-
-.footer__made {
-	color: var(--c-text-muted);
+	transform: translateY(-4px);
+	box-shadow: 0 10px 20px rgba(37, 110, 255, 0.2);
 }
