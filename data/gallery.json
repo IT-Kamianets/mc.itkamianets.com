@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "День молоді 2025",
+    "description": "Святкування Дня молоді на центральній площі міста.",
+    "category": "Заходи",
+    "imageUrl": "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop",
+    "tags": ["свято", "молодь", "КП"]
+  },
+  {
+    "id": 2,
+    "title": "Воркшоп з малювання",
+    "description": "Творчий вечір у стінах нашого центру.",
+    "category": "Творчість",
+    "imageUrl": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&h=600&fit=crop",
+    "tags": ["мистецтво", "навчання"]
+  },
+  {
+    "id": 3,
+    "title": "Зустріч волонтерів",
+    "description": "Обговорення планів на наступний квартал.",
+    "category": "Волонтерство",
+    "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&h=600&fit=crop",
+    "tags": ["команда", "планування"]
+  },
+  {
+    "id": 4,
+    "title": "Спортивні змагання",
+    "description": "Турнір з настільного тенісу.",
+    "category": "Спорт",
+    "imageUrl": "https://images.unsplash.com/photo-1534158914592-062992fbe900?w=800&h=600&fit=crop",
+    "tags": ["теніс", "активність"]
+  },
+  {
+    "id": 5,
+    "title": "Лекція про екологію",
+    "description": "Як кожен може допомогти довкіллю.",
+    "category": "Освіта",
+    "imageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=600&fit=crop",
+    "tags": ["еко", "знання"]
+  },
+  {
+    "id": 6,
+    "title": "Музичний вечір",
+    "description": "Виступ місцевих гуртів.",
+    "category": "Дозвілля",
+    "imageUrl": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop",
+    "tags": ["музика", "гітара"]
+  }
+]
