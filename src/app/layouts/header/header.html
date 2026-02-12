@@ -3,8 +3,15 @@
 		<div class="flex items-center justify-between gap-4">
 			<!-- Left: Logo + Brand -->
 			<div class="flex items-center gap-3 shrink-0">
-				<img src="logo.png" alt="Logo" class="w-8 h-8 object-contain rounded-[var(--radius)]"/>
-				<span class="text-sm font-bold tracking-wide" style="color: var(--c-text-secondary);">МОЛОДІЖНИЙ ЦЕНТР КП</span>
+				<a routerLink="/" class="flex items-center gap-3 group">
+					<div class="h-10 w-10 overflow-hidden rounded-full border border-[var(--c-border)] shadow-sm transition-transform duration-300 group-hover:scale-110">
+						<img src="mc.png" alt="Logo" class="h-full w-full object-cover"/>
+					</div>
+					<div class="flex flex-col leading-none">
+						<span class="text-sm font-bold tracking-wide" style="color: var(--c-text-secondary);">МОЛОДІЖНИЙ ЦЕНТР</span>
+						<span class="text-[10px] font-medium opacity-70" style="color: var(--c-text-muted);">Кам'янець-Подільський</span>
+					</div>
+				</a>
 			</div>
 
 			<!-- Center: Navigation Links (Desktop) -->
