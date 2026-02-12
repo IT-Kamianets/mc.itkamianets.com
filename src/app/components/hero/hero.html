@@ -1,4 +1,4 @@
-﻿<section class="hero relative overflow-hidden">
+<section class="hero relative overflow-hidden">
 	<div class="hero-pattern"></div>
 	
 	<!-- Decorative floating circles -->
@@ -47,58 +47,45 @@
 			</div>
 
 			<div class="relative animate-fade-in-up" style="animation-delay: 0.3s;">
-				<div class="hero__window p-[var(--sp-6)] relative z-10">
-					<div class="hero__window-bar flex items-center gap-[var(--sp-2)] pb-[var(--sp-4)]">
-						<span class="hero__win-dot"></span>
-						<span class="hero__win-dot" style="background: #fbbf24;"></span>
-						<span class="hero__win-dot" style="background: #34d399;"></span>
-						<span class="ml-auto text-xs font-bold uppercase tracking-wider hero__strong">анонс</span>
-					</div>
-
-					<div class="mt-[var(--sp-6)] grid gap-[var(--sp-4)] sm:grid-cols-2">
-						<div class="hero__mini p-[var(--sp-5)]">
-							<p class="hero__strong text-xs font-bold uppercase tracking-widest">волонтерів</p>
-							<p class="mt-[var(--sp-2)] text-3xl font-extrabold" style="color: var(--c-text-secondary);">500+</p>
-							<p class="hero__muted mt-[var(--sp-1)] text-xs font-medium">активних учасників</p>
+				<div class="hero__card-grid grid gap-[var(--sp-6)]">
+					<!-- Working Hours Card -->
+					<div class="hero__clean-card p-[var(--sp-8)] relative overflow-hidden group">
+						<div class="absolute top-0 right-0 p-[var(--sp-4)] opacity-10 group-hover:scale-110 transition-transform duration-500">
+							<span class="text-6xl">🕒</span>
 						</div>
-
-						<div class="hero__mini p-[var(--sp-5)]">
-							<p class="hero__strong text-xs font-bold uppercase tracking-widest">заходів</p>
-							<p class="mt-[var(--sp-2)] text-3xl font-extrabold" style="color: var(--c-text-secondary);">120+</p>
-							<p class="hero__muted mt-[var(--sp-1)] text-xs font-medium">щороку</p>
-						</div>
-
-						<div class="hero__mini p-[var(--sp-5)] sm:col-span-2">
-							<p class="hero__strong text-xs font-bold uppercase tracking-widest mb-[var(--sp-3)]">статус</p>
-							<div class="flex items-center justify-between">
-								<span
-									class="hero__badge inline-flex items-center rounded-full px-[var(--sp-3)] py-[var(--sp-1)] text-xs"
-								>
-									Працюємо для молоді
-								</span>
-								<span class="hero__muted text-xs font-medium">Відчинено: 10:00 - 19:00</span>
-							</div>
-						</div>
-					</div>
-
-					<div class="hero__note mt-[var(--sp-6)] p-[var(--sp-5)]">
-						<p class="hero__strong text-xs font-bold uppercase tracking-widest">актуально</p>
-						<p class="mt-[var(--sp-2)] text-sm leading-relaxed" style="color: var(--c-text-secondary);">
-							Стартував набір на весняну школу лідерства. Встигни подати заявку та прокачати свої скіли!
+						<p class="hero__strong text-xs font-black uppercase tracking-[0.2em] mb-[var(--sp-2)]">Графік роботи</p>
+						<h3 class="text-3xl font-black" style="color: var(--c-text-secondary);">10:00 — 19:00</h3>
+						<p class="hero__muted mt-[var(--sp-2)] font-bold flex items-center gap-2 text-sm">
+							<span class="w-2 h-2 rounded-full bg-green-500"></span>
+							Чекаємо на тебе сьогодні!
 						</p>
+					</div>
+
+					<!-- Events Counter Card -->
+					<div class="hero__clean-card p-[var(--sp-8)] relative overflow-hidden group">
+						<div class="absolute top-0 right-0 p-[var(--sp-4)] opacity-10 group-hover:scale-110 transition-transform duration-500">
+							<span class="text-6xl">📅</span>
+						</div>
+						<p class="hero__strong text-xs font-black uppercase tracking-[0.2em] mb-[var(--sp-2)]">Масштаб</p>
+						<div class="flex items-baseline gap-2">
+							<h3 class="text-5xl font-black" style="color: var(--c-text-secondary);">120+</h3>
+							<span class="text-xl font-bold hero__muted">заходів</span>
+						</div>
+						<p class="hero__muted mt-[var(--sp-2)] font-medium text-sm">щороку проводимо для молоді міста</p>
 					</div>
 				</div>
 
-				<div class="mt-[var(--sp-6)] grid grid-cols-3 gap-[var(--sp-3)]">
-					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
-						креативність
-					</div>
-					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
-						лідерство
-					</div>
-					<div class="hero__tag px-[var(--sp-4)] py-[var(--sp-3)] text-center text-xs font-bold shadow-sm">
-						волонтерство
-					</div>
+				<!-- Subtle tags -->
+				<div class="mt-[var(--sp-10)] flex flex-wrap gap-[var(--sp-3)] justify-center lg:justify-start">
+					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
+						#креативність
+					</span>
+					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
+						#лідерство
+					</span>
+					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
+						#волонтерство
+					</span>
 				</div>
 			</div>
 		</div>

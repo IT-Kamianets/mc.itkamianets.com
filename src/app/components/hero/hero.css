@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    HERO COMPONENT - Gallery Style
    ============================================ */
 
@@ -126,55 +126,31 @@
 	background: var(--c-bg-primary);
 }
 
-.hero__window {
+.hero__clean-card {
+	background: var(--c-bg-secondary);
 	border: 1px solid var(--c-border);
 	border-radius: var(--radius-card);
-	background: var(--c-bg-secondary);
-	box-shadow: var(--shadow-lg), 0 0 30px rgba(0, 0, 0, 0.05);
-	backdrop-filter: blur(10px);
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	box-shadow: var(--shadow-sm);
 }
 
-.hero__window-bar {
-	border-bottom: 1px solid var(--c-border);
-}
-
-.hero__mini {
-	border: 1px solid var(--c-border);
-	border-radius: calc(var(--radius-card) - 2px);
-	background: var(--c-bg-primary);
-	transition: all 0.3s ease;
-}
-
-.hero__mini:hover {
+.hero__clean-card:hover {
 	transform: translateY(-5px);
-	box-shadow: var(--shadow-md), 0 0 15px rgba(0, 0, 0, 0.05);
+	box-shadow: var(--shadow-md), 0 10px 40px rgba(0, 0, 0, 0.05);
+	border-color: var(--c-primary);
 }
 
-.hero__badge {
-	background: color-mix(in srgb, var(--c-primary) 10%, transparent);
-	color: var(--c-primary);
-	font-weight: 700;
-}
-
-.hero__note {
-	border-radius: calc(var(--radius-card) - 2px);
-	background: var(--c-bg-tertiary);
-	border-left: 4px solid var(--c-primary);
-}
-
-.hero__tag {
-	border: 1px solid var(--c-border);
-	border-radius: var(--radius-btn);
-	background: var(--c-bg-secondary);
-	color: var(--c-text-secondary);
+.hero__tag-simple {
+	color: var(--c-text-muted);
+	border-bottom: 2px solid transparent;
 	transition: all 0.3s ease;
+	cursor: default;
 }
 
-.hero__tag:hover {
-	background: var(--c-primary);
-	color: white;
+.hero__tag-simple:hover {
+	color: var(--c-primary);
+	border-bottom-color: var(--c-primary);
 	transform: translateY(-2px);
-	box-shadow: 0 5px 15px rgba(37, 110, 255, 0.2);
 }
 
 .float-element {
