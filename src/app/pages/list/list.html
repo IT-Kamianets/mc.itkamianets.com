@@ -1,17 +1,14 @@
 <div class="min-h-screen bg-[var(--c-bg-primary)]">
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
 		
-		<div class="mb-12 animate-fade-in">
-			<div class="flex items-center gap-2 mb-4">
-				<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
-				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl" style="color: var(--c-text-primary);">Події</h1>
-			</div>
-			<p class="text-lg opacity-70 leading-relaxed max-w-2xl" style="color: var(--c-text-secondary);">
+		<div class="text-center mb-12">
+			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Події</h1>
+			<p class="text-lg opacity-70 leading-relaxed max-w-2xl mx-auto" style="color: var(--c-text-secondary);">
 				Відкривай нові можливості, навчайся та розважайся разом з молодіжною спільнотою нашого міста.
 			</p>
 		</div>
 
-		<div class="flex flex-wrap gap-3 mb-12 animate-slide-up stagger-1">
+		<div class="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in">
 			@for (cat of categories(); track cat) {
 				<button 
 					(click)="filterByCategory(cat)"
@@ -25,10 +22,10 @@
 			}
 		</div>
 
-		<div class="animate-slide-up stagger-2">
+		<div class="animate-slide-up">
 			<app-list-items-section
 				[items]="getFilteredItems()"
-				[title]="filteredCategory() === 'Усі' ? 'Усі події' : 'Події: ' + filteredCategory()"
+				title=""
 				[showSearch]="true"
 				[itemsPerRow]="3"
 				[maxItems]="0"

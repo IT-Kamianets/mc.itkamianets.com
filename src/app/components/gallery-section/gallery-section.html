@@ -1,16 +1,13 @@
 <section class="gallery-section py-[var(--sp-20)] bg-[var(--c-bg-primary)]">
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
-		<div class="mb-12 animate-fade-in">
-			<div class="flex items-center gap-2 mb-4">
-				<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
-				<h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="color: var(--c-text-primary);">Наше життя у фото</h2>
-			</div>
-			<p class="text-lg opacity-70 leading-relaxed max-w-2xl" style="color: var(--c-text-secondary);">
+		<div class="mb-12 text-center">
+			<h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="color: var(--c-text-primary);">Наше життя у фото</h2>
+			<p class="text-lg opacity-70 leading-relaxed max-w-2xl mx-auto mt-4" style="color: var(--c-text-secondary);">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up stagger-1">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
 			@for (item of items(); track item.id; let i = $index) {
 				<div 
 					class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
@@ -34,7 +31,7 @@
 			}
 		</div>
 
-		<div class="mt-16 text-center animate-slide-up stagger-2">
+		<div class="mt-16 text-center">
 			<a 
 				routerLink="/gallery"
 				class="inline-flex items-center gap-3 px-10 py-4 bg-[var(--c-bg-secondary)] border-2 border-[var(--c-border)] text-[var(--c-text-primary)] font-black text-base rounded-[var(--radius-btn)] transition-all duration-300 hover:border-[var(--c-primary)] hover:shadow-xl hover:-translate-y-1 group"

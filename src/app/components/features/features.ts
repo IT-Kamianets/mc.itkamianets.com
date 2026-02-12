@@ -1,10 +1,8 @@
-﻿import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'app-features',
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	imports: [RouterLink],
+	imports: [],
 	templateUrl: './features.html',
 	styleUrl: './features.css',
 })

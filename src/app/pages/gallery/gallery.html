@@ -2,18 +2,15 @@
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
 		
 		<!-- Header Section -->
-		<div class="mb-12 animate-fade-in">
-			<div class="flex items-center gap-2 mb-4">
-				<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
-				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl" style="color: var(--c-text-primary);">Галерея</h1>
-			</div>
-			<p class="text-lg opacity-70 leading-relaxed max-w-2xl" style="color: var(--c-text-secondary);">
+		<div class="mb-12 text-center animate-fade-in">
+			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Галерея</h1>
+			<p class="text-lg opacity-70 leading-relaxed max-w-2xl mx-auto" style="color: var(--c-text-secondary);">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
 			</p>
 		</div>
 
 		<!-- Category Filter -->
-		<div class="flex flex-wrap gap-3 mb-12 animate-slide-up stagger-1">
+		<div class="flex flex-wrap justify-center gap-3 mb-12 animate-slide-up stagger-1">
 			<button
 				(click)="selectedCategory.set(null)"
 				class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
@@ -38,7 +35,7 @@
 		</div>
 
 		<!-- Gallery Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 animate-slide-up stagger-2">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 animate-slide-up">
 			@for (item of getFilteredItems(); track item.id; let i = $index) {
 				<div
 					(click)="selectItem(item)"
@@ -53,7 +50,7 @@
 					/>
 
 					<!-- Overlay -->
-					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
 						<span class="inline-block w-fit text-[10px] font-black px-3 py-1 rounded-full bg-[var(--c-primary)] text-white mb-2 uppercase tracking-widest">
 							{{ item.category }}
 						</span>
@@ -65,7 +62,7 @@
 		</div>
 
 		<!-- Results Count -->
-		<div class="text-center mt-16 animate-fade-in stagger-3">
+		<div class="text-center mt-16 animate-fade-in">
 			<div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-md">
 				<span class="w-2 h-2 rounded-full bg-[var(--c-primary)] animate-pulse"></span>
 				<p class="text-sm font-bold" style="color: var(--c-text-secondary);">

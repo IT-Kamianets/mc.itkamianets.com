@@ -1,12 +1,7 @@
-<section class="list-items-section animate-fade-in py-[var(--sp-12)]">
-	<div class="mb-[var(--sp-12)]">
-		<div class="flex items-center gap-2 mb-4">
-			<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
-			<h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="color: var(--c-text-primary);">{{ title() }}</h2>
-		</div>
-		
-		@if (showSearch()) {
-			<div class="mt-8 max-w-md animate-slide-up stagger-1">
+<section class="list-items-section py-[var(--sp-12)]">
+	@if (showSearch()) {
+		<div class="mb-[var(--sp-12)] text-center">
+			<div class="mt-8 max-w-md mx-auto">
 				<div class="relative group">
 					<input
 						type="text"
@@ -27,12 +22,12 @@
 					}
 				</div>
 			</div>
-		}
-	</div>
+		</div>
+	}
 
 	@if (displayItems().length > 0) {
 		<div 
-			class="grid gap-8 animate-slide-up stagger-2"
+			class="grid gap-8 animate-slide-up"
 			[class.grid-cols-1]="itemsPerRow() === 1"
 			[class.sm:grid-cols-2]="itemsPerRow() >= 2"
 			[class.lg:grid-cols-3]="itemsPerRow() >= 3"
@@ -43,7 +38,7 @@
 			}
 		</div>
 	} @else {
-		<div class="text-center py-20 bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-xl animate-fade-in">
+		<div class="text-center py-20 bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-xl">
 			<div class="mb-4 text-5xl opacity-20">🔍</div>
 			<p class="text-[var(--c-text-muted)] text-lg font-medium">Нічого не знайдено за вашим запитом.</p>
 			@if (searchQuery()) {
@@ -58,7 +53,7 @@
 	}
 
 	@if (showViewAllButton() && items().length > maxItems()) {
-		<div class="mt-16 text-center animate-slide-up stagger-3">
+		<div class="mt-16 text-center">
 			<button
 				(click)="onViewAllClick()"
 				class="px-12 py-5 bg-[var(--c-bg-secondary)] border-2 border-[var(--c-primary)] text-[var(--c-primary)] text-lg font-bold rounded-[var(--radius-btn)] hover:bg-[var(--c-primary)] hover:text-white transition-all duration-300 shadow-xl shadow-[var(--c-primary)]/10 hover:shadow-2xl hover:-translate-y-1"

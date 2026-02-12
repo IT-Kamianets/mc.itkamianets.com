@@ -72,8 +72,8 @@
    ============================================ */
 
 @keyframes fade-in {
-	from { opacity: 0; transform: translateY(-10px); }
-	to { opacity: 1; transform: translateY(0); }
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 
 @keyframes slide-up {
@@ -81,25 +81,16 @@
 	to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes scale-in {
-	from { opacity: 0; transform: scale(0.95); }
-	to { opacity: 1; transform: scale(1); }
-}
-
 /* ============================================
    ANIMATION UTILITY CLASSES
    ============================================ */
 
 .animate-fade-in {
-	animation: fade-in 0.6s var(--motion) forwards;
+	animation: fade-in 0.8s var(--motion) forwards;
 }
 
 .animate-slide-up {
-	animation: slide-up 0.6s var(--motion) forwards;
-}
-
-.animate-scale-in {
-	animation: scale-in 0.4s var(--motion) forwards;
+	animation: slide-up 0.8s var(--motion) forwards;
 }
 
 /* Stagger reveals */
