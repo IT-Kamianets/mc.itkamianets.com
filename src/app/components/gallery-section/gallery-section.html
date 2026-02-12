@@ -1,5 +1,5 @@
-<section class="py-20 bg-[var(--c-bg-primary)]">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-[var(--sp-20)] bg-[var(--c-bg-primary)]">
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)]">
 		<!-- Header -->
 		<div class="text-center mb-12">
 			<h2 class="text-3xl font-bold text-[var(--c-text-primary)] sm:text-4xl">Наше життя у фото</h2>
@@ -11,7 +11,7 @@
 		<!-- Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 			@for (item of items(); track item.id) {
-				<div class="group relative aspect-[4/3] rounded-[24px] overflow-hidden cursor-pointer">
+				<div class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden cursor-pointer shadow-[var(--shadow-md)]">
 					<img 
 						[src]="item.imageUrl" 
 						[alt]="item.title"
@@ -34,10 +34,10 @@
 		<div class="mt-16 text-center">
 			<a 
 				routerLink="/gallery"
-				class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-[14px] text-[var(--c-text-primary)] font-bold text-sm transition-all hover:border-[var(--c-primary)] hover:shadow-lg hover:-translate-y-0.5 group"
+				class="inline-flex items-center gap-2 px-[var(--sp-8)] py-3 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] rounded-[var(--radius-btn)] text-[var(--c-text-primary)] font-bold text-sm transition-all hover:border-[var(--c-primary)] active:scale-95 shadow-[var(--shadow-sm)] group"
 			>
 				Вся галерея
-				<span class="text-[var(--c-primary)] transition-transform group-hover:translate-x-1">→</span>
+				<span class="text-[var(--c-primary)]">→</span>
 			</a>
 		</div>
 	</div>

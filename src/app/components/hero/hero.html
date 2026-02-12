@@ -8,8 +8,8 @@
 			<!-- Left Column: Content -->
 			<div class="lg:col-span-7">
 				<!-- Brand Identity -->
-				<div class="mb-8">
-					<img src="mc.png" alt="MC Logo" class="h-20 w-20 sm:h-24 sm:w-24 rounded-2xl shadow-xl border-2 border-white bg-white">
+				<div class="mb-[var(--sp-8)]">
+					<img src="mc.png" alt="MC Logo" class="h-20 w-20 sm:h-24 sm:w-24 rounded-[var(--radius-card)] shadow-[var(--shadow-xl)] border-2 border-[var(--c-bg-secondary)] bg-[var(--c-bg-secondary)]">
 				</div>
 
 				<h1 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl leading-[1.15]" style="color: var(--c-text-primary);">
@@ -17,14 +17,14 @@
 					<span class="text-[var(--c-primary)]">Кам'янець-Подільський</span>
 				</h1>
 
-				<p class="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-[var(--c-text-secondary)] opacity-80">
+				<p class="mt-[var(--sp-6)] max-w-lg text-base sm:text-lg leading-relaxed text-[var(--c-text-secondary)] opacity-80">
 					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
 				</p>
 
-				<div class="mt-8 flex flex-wrap gap-4">
+				<div class="mt-[var(--sp-8)] flex flex-wrap gap-[var(--sp-4)]">
 					<a
 						routerLink="/list"
-						class="px-8 py-3.5 bg-[var(--c-primary)] hover:bg-[var(--c-primary-hover)] text-white text-sm font-bold rounded-xl transition-all shadow-lg shadow-[var(--c-primary)]/20 active:scale-95 flex items-center gap-2 group"
+						class="px-[var(--sp-8)] py-3.5 bg-[var(--c-primary)] hover:bg-[var(--c-primary-hover)] text-white text-sm font-bold rounded-[var(--radius-btn)] transition-all shadow-[var(--shadow-lg)] shadow-[var(--c-primary)]/20 active:scale-95 flex items-center gap-2 group"
 					>
 						Наші події
 						<span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
@@ -32,7 +32,7 @@
 
 					<a
 						routerLink="/gallery"
-						class="px-8 py-3.5 bg-white border border-[var(--c-border)] text-[var(--c-text-primary)] text-sm font-bold rounded-xl transition-all hover:border-[var(--c-primary)] active:scale-95 shadow-sm"
+						class="px-[var(--sp-8)] py-3.5 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-sm font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] active:scale-95 shadow-[var(--shadow-sm)]"
 					>
 						Галерея
 					</a>
@@ -41,10 +41,10 @@
 
 			<!-- Right Column: Stats Cards -->
 			<div class="lg:col-span-5">
-				<div class="grid gap-4">
+				<div class="grid gap-[var(--sp-4)]">
 					<!-- Working Hours Card -->
-					<div class="bg-white p-6 rounded-2xl border border-[var(--c-border)] shadow-xl shadow-black/5 flex items-start gap-5 group">
-						<div class="w-12 h-12 shrink-0 rounded-xl bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">🕒</div>
+					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-6)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-[var(--shadow-xl)] shadow-black/5 flex items-start gap-[var(--sp-5)] group">
+						<div class="w-12 h-12 shrink-0 rounded-[var(--radius)] bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">🕒</div>
 						<div>
 							<p class="text-[10px] font-bold uppercase tracking-widest text-[var(--c-primary)] mb-1">Графік роботи</p>
 							<h3 class="text-2xl font-bold text-[var(--c-text-primary)]">10:00 — 19:00</h3>
@@ -56,8 +56,8 @@
 					</div>
 
 					<!-- Activity Card -->
-					<div class="bg-white p-6 rounded-2xl border border-[var(--c-border)] shadow-xl shadow-black/5 flex items-start gap-5 group">
-						<div class="w-12 h-12 shrink-0 rounded-xl bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">📅</div>
+					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-6)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-[var(--shadow-xl)] shadow-black/5 flex items-start gap-[var(--sp-5)] group">
+						<div class="w-12 h-12 shrink-0 rounded-[var(--radius)] bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">📅</div>
 						<div>
 							<p class="text-[10px] font-bold uppercase tracking-widest text-[var(--c-primary)] mb-1">Активність</p>
 							<div class="flex items-baseline gap-2">
