@@ -4,7 +4,6 @@ import { ThemeDensity, ThemeMode, ThemeRadius, ThemeService } from 'wacom';
 
 @Component({
 	selector: 'app-header',
-	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [RouterLink, RouterLinkActive],
 	templateUrl: './header.html',
 	styleUrl: './header.css',

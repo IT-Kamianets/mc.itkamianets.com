@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Public } from './layouts/public/public';
+import { Contacts } from './pages/contacts/contacts';
 import { Content } from './pages/content/content';
 import { Form } from './pages/form/form';
 import { Gallery } from './pages/gallery/gallery';
@@ -40,6 +41,10 @@ export const routes: Routes = [
 			{
 				path: 'content',
 				component: Content,
+			},
+			{
+				path: 'contacts',
+				component: Contacts,
 			},
 		],
 	},
