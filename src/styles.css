@@ -77,8 +77,14 @@
 }
 
 @keyframes slide-up {
-	from { opacity: 0; transform: translateY(20px); }
-	to { opacity: 1; transform: translateY(0); }
+	from { 
+		opacity: 0; 
+		transform: translateY(30px); 
+	}
+	to { 
+		opacity: 1; 
+		transform: translateY(0); 
+	}
 }
 
 /* ============================================
@@ -86,17 +92,20 @@
    ============================================ */
 
 .animate-fade-in {
-	animation: fade-in 0.8s var(--motion) forwards;
+	animation: fade-in 0.8s ease-out forwards;
 }
 
 .animate-slide-up {
-	animation: slide-up 0.8s var(--motion) forwards;
+	animation: slide-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* Stagger reveals */
+/* Stagger delays for grid items */
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
 
 /* ========= modes ========= */
 html[data-mode='dark'] {

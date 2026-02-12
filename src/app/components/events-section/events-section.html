@@ -1,0 +1,57 @@
+<section class="py-20 bg-[var(--c-bg-secondary)]">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Header -->
+		<div class="text-center mb-12 animate-fade-in">
+			<h2 class="text-3xl font-bold text-[var(--c-text-primary)] sm:text-4xl">{{ title() }}</h2>
+			<p class="mt-4 text-lg text-[var(--c-text-secondary)] opacity-70 max-w-2xl mx-auto">
+				Приєднуйся до наших ініціатив та розвивайся разом з нами.
+			</p>
+		</div>
+
+		<!-- Grid -->
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			@for (item of items(); track item.id; let i = $index) {
+				<a 
+					[routerLink]="['/profile', item.id]"
+					class="group relative aspect-[4/3] rounded-[24px] overflow-hidden cursor-pointer block animate-slide-up"
+					[class.stagger-1]="i === 0"
+					[class.stagger-2]="i === 1"
+					[class.stagger-3]="i === 2"
+				>
+					<img 
+						[src]="item.imageUrl" 
+						[alt]="item.name"
+						class="w-full h-full object-cover"
+						onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
+					>
+					
+					<!-- Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
+						<div class="flex items-center gap-2 mb-2">
+							<span class="inline-block w-fit px-3 py-1 rounded-full bg-[var(--c-primary)] text-white text-[10px] font-bold uppercase tracking-widest">
+								{{ item.category }}
+							</span>
+							<span class="text-white/80 text-[10px] font-bold uppercase tracking-widest">
+								{{ item.date }}
+							</span>
+						</div>
+						
+						<h3 class="text-white text-xl font-bold mb-1">{{ item.name }}</h3>
+						<p class="text-white/80 text-sm line-clamp-2">{{ item.description }}</p>
+					</div>
+				</a>
+			}
+		</div>
+
+		<!-- Button -->
+		<div class="mt-16 text-center animate-fade-in" style="animation-delay: 0.4s;">
+			<a 
+				routerLink="/list"
+				class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-[14px] text-[var(--c-text-primary)] font-bold text-sm hover:border-[var(--c-primary)] group transition-all"
+			>
+				Переглянути всі події
+				<span class="text-[var(--c-primary)]">→</span>
+			</a>
+		</div>
+	</div>
+</section>

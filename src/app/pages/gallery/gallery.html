@@ -2,7 +2,7 @@
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
 		
 		<!-- Header Section -->
-		<div class="mb-12 text-center animate-fade-in">
+		<div class="mb-12 text-center">
 			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Галерея</h1>
 			<p class="text-lg opacity-70 leading-relaxed max-w-2xl mx-auto" style="color: var(--c-text-secondary);">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
@@ -10,7 +10,7 @@
 		</div>
 
 		<!-- Category Filter -->
-		<div class="flex flex-wrap justify-center gap-3 mb-12 animate-slide-up stagger-1">
+		<div class="flex flex-wrap justify-center gap-3 mb-12">
 			<button
 				(click)="selectedCategory.set(null)"
 				class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
@@ -35,7 +35,7 @@
 		</div>
 
 		<!-- Gallery Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 animate-slide-up">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 			@for (item of getFilteredItems(); track item.id; let i = $index) {
 				<div
 					(click)="selectItem(item)"
@@ -62,9 +62,9 @@
 		</div>
 
 		<!-- Results Count -->
-		<div class="text-center mt-16 animate-fade-in">
+		<div class="text-center mt-16">
 			<div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-md">
-				<span class="w-2 h-2 rounded-full bg-[var(--c-primary)] animate-pulse"></span>
+				<span class="w-2 h-2 rounded-full bg-[var(--c-primary)]"></span>
 				<p class="text-sm font-bold" style="color: var(--c-text-secondary);">
 					Показано {{ getFilteredItems().length }} фото
 				</p>
@@ -75,12 +75,12 @@
 	<!-- Modal -->
 	@if (selectedItem(); as item) {
 		<div
-			class="fixed inset-0 flex items-center justify-center p-4 z-50 animate-fade-in"
+			class="fixed inset-0 flex items-center justify-center p-4 z-50"
 			(click)="closeModal()"
 		>
 			<div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
 
-			<div class="relative max-w-5xl w-full animate-scale-in" (click)="$event.stopPropagation()">
+			<div class="relative max-w-5xl w-full" (click)="$event.stopPropagation()">
 				<button
 					(click)="closeModal()"
 					class="absolute -top-16 right-0 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-[var(--c-primary)] hover:scale-110 transition-all duration-300 z-10"

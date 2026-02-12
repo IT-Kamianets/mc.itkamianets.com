@@ -8,7 +8,7 @@
 		<div class="relative max-w-6xl mx-auto px-[var(--sp-4)] py-[var(--sp-16)] md:py-[var(--sp-20)]">
 			<div class="text-center">
 				<span
-					class="hero-badge inline-block px-[var(--sp-5)] py-[var(--sp-2)] rounded-full text-sm font-semibold mb-[var(--sp-6)] animate-float"
+					class="hero-badge inline-block px-[var(--sp-5)] py-[var(--sp-2)] rounded-full text-sm font-semibold mb-[var(--sp-6)] "
 					style="background-color: var(--c-primary); color: white; box-shadow: 0 10px 30px rgba(37, 110, 255, 0.3);"
 				>
 					Product Blog
@@ -22,15 +22,15 @@
 			</div>
 		</div>
 		<!-- Decorative elements -->
-		<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 animate-float" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
-		<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 animate-float" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
+		<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 " style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
+		<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 " style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
 	</div>
 
 	<div class="max-w-6xl mx-auto px-[var(--sp-4)] py-[var(--sp-12)]">
 
 		<!-- Single Post View -->
 		@if (selectedPost(); as post) {
-			<article class="animate-fade-in">
+			<article class="">
 				<!-- Back Button -->
 				<button
 					(click)="clearSelection()"
@@ -146,7 +146,7 @@
 			</article>
 		} @else {
 			<!-- Posts List View -->
-			<div class="animate-fade-in">
+			<div class="">
 
 				<!-- Featured Post (First Post) -->
 				@if (posts().length > 0) {

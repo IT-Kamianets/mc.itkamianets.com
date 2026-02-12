@@ -3,16 +3,10 @@
 
 	<app-features></app-features>
 
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)]">
-		<app-list-items-section
-			[items]="featuredItems()"
-			title="Найближчі події"
-			[showSearch]="false"
-			[itemsPerRow]="3"
-			[maxItems]="3"
-			[showViewAllButton]="true"
-		/>
-	</div>
+	<app-events-section 
+		[items]="featuredItems()"
+		title="Найближчі події"
+	/>
 
 	<app-gallery-section></app-gallery-section>
 </div>

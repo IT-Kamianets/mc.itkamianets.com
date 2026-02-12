@@ -1,124 +1,4 @@
-/* Advanced Data Table - Custom Animations & Styles */
-
-/* ============================================
-   KEYFRAME ANIMATIONS
-   ============================================ */
-
-@keyframes fade-in {
-	from {
-		opacity: 0;
-		transform: translateY(-10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes scale-in {
-	from {
-		opacity: 0;
-		transform: scale(0.95);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
-}
-
-@keyframes slide-in-right {
-	from {
-		opacity: 0;
-		transform: translateX(100px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes slide-out-right {
-	from {
-		opacity: 1;
-		transform: translateX(0);
-	}
-	to {
-		opacity: 0;
-		transform: translateX(100px);
-	}
-}
-
-@keyframes row-highlight {
-	0% {
-		background-color: rgba(251, 191, 36, 0.3);
-	}
-	100% {
-		background-color: transparent;
-	}
-}
-
-@keyframes shimmer {
-	0% {
-		background-position: -200% 0;
-	}
-	100% {
-		background-position: 200% 0;
-	}
-}
-
-@keyframes pulse-glow {
-	0%, 100% {
-		box-shadow: 0 0 5px rgba(var(--c-primary-rgb, 251, 191, 36), 0.3);
-	}
-	50% {
-		box-shadow: 0 0 20px rgba(var(--c-primary-rgb, 251, 191, 36), 0.6);
-	}
-}
-
-@keyframes badge-pop {
-	0% {
-		transform: scale(0.8);
-		opacity: 0;
-	}
-	50% {
-		transform: scale(1.1);
-	}
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
-
-@keyframes row-enter {
-	from {
-		opacity: 0;
-		transform: translateX(-20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-/* ============================================
-   ANIMATION UTILITY CLASSES
-   ============================================ */
-
-.animate-fade-in {
-	animation: fade-in 0.4s ease-out forwards;
-}
-
-.animate-scale-in {
-	animation: scale-in 0.3s ease-out forwards;
-}
-
-.animate-slide-in-right {
-	animation: slide-in-right 0.4s ease-out forwards;
-}
-
-.animate-row-added {
-	animation: row-highlight 1s ease-out forwards;
-}
+/* Advanced Data Table - Custom Styles */
 
 /* ============================================
    TABLE ENHANCEMENTS
@@ -145,7 +25,7 @@ tbody tr:hover {
    PREMIUM TABLE ENHANCEMENTS
    ============================================ */
 
-/* Table header - clean border, no shimmer */
+/* Table header - clean border */
 thead {
 	position: relative;
 }
@@ -173,12 +53,12 @@ thead button:hover {
 	background-color: rgba(128, 128, 128, 0.2);
 }
 
-/* Sort indicator - no glow animation */
+/* Sort indicator */
 thead button span {
 	transition: all 0.2s ease;
 }
 
-/* Badge animations */
+/* Badge transitions */
 .badge-electronics,
 .badge-clothing,
 .badge-home,
@@ -191,7 +71,6 @@ thead button span {
 .badge-draft,
 .badge-out_of_stock,
 .badge-discontinued {
-	animation: badge-pop 0.3s ease-out forwards;
 	transition: all 0.2s ease;
 }
 
@@ -228,23 +107,9 @@ td button {
 	overflow: hidden;
 }
 
-/* Currency value styling - solid white color */
+/* Currency value styling */
 td span.font-bold {
 	color: var(--c-text-secondary);
-}
-
-/* Empty state animation */
-@keyframes empty-bounce {
-	0%, 100% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-10px);
-	}
-}
-
-tbody td[colspan] > div {
-	animation: empty-bounce 2s ease-in-out infinite;
 }
 
 /* Remove alternating colors - use consistent background from template */
@@ -272,8 +137,6 @@ select:focus,
 textarea:focus {
 	box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
 }
-
-
 
 /* Date input styling */
 input[type="date"] {
@@ -494,25 +357,6 @@ html[data-mode='itkp'] tbody tr:hover {
 	
 	td, th {
 		padding: 0.75rem 0.5rem;
-	}
-}
-
-/* ============================================
-   REDUCED MOTION SUPPORT
-   ============================================ */
-
-@media (prefers-reduced-motion: reduce) {
-	.animate-fade-in,
-	.animate-scale-in,
-	.animate-slide-in-right,
-	.animate-row-added {
-		animation: none;
-		opacity: 1;
-		transform: none;
-	}
-	
-	tbody tr {
-		transition: none;
 	}
 }
 

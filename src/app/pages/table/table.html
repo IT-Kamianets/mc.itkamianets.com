@@ -2,7 +2,7 @@
 	<div class="max-w-7xl mx-auto">
 		
 		<!-- Premium Header -->
-		<div class="mb-[var(--sp-6)] animate-fade-in">
+		<div class="mb-[var(--sp-6)] ">
 			<div>
 				<h1 class="text-3xl md:text-4xl font-bold" style="color: var(--c-text-secondary);">
 					{{ tableConfig.title }}
@@ -18,7 +18,7 @@
 
 		<!-- Notification Toast -->
 		@if (notification()) {
-			<div class="fixed top-20 left-1/2 -translate-x-1/2 sm:left-auto sm:right-4 sm:translate-x-0 z-50 animate-slide-in-right">
+			<div class="fixed top-20 left-1/2 -translate-x-1/2 sm:left-auto sm:right-4 sm:translate-x-0 z-50 ">
 				<div 
 					class="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-4 rounded-[var(--radius)] text-white text-sm whitespace-nowrap"
 					[style.backgroundColor]="notification()?.type === 'success' ? 'var(--c-primary)' : 'var(--c-secondary)'"
@@ -40,7 +40,7 @@
 
 		<!-- Filters Section -->
 		<div 
-			class="rounded-[var(--radius-card)] p-[var(--sp-5)] mb-[var(--sp-5)] animate-fade-in"
+			class="rounded-[var(--radius-card)] p-[var(--sp-5)] mb-[var(--sp-5)] "
 			style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-sm);"
 		>
 			<div class="grid gap-[var(--sp-4)] md:grid-cols-4">
@@ -122,7 +122,7 @@
 
 		<!-- Table Container -->
 		<div 
-			class="rounded-[var(--radius-card)] overflow-hidden animate-fade-in"
+			class="rounded-[var(--radius-card)] overflow-hidden "
 			style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-md);"
 		>
 			
@@ -312,7 +312,7 @@
 <!-- EDIT MODAL -->
 <!-- ==================== -->
 @if (isEditModalOpen()) {
-	<div class="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
+	<div class="fixed inset-0 z-50 flex items-center justify-center p-4 ">
 		<!-- Backdrop -->
 		<div 
 			class="absolute inset-0 backdrop-blur-sm"
@@ -322,7 +322,7 @@
 		
 		<!-- Modal: small on mobile, large on desktop -->
 		<div 
-			class="relative w-full max-w-sm sm:max-w-2xl max-h-[90vh] overflow-hidden rounded-[var(--radius-card)] animate-scale-in flex flex-col"
+			class="relative w-full max-w-sm sm:max-w-2xl max-h-[90vh] overflow-hidden rounded-[var(--radius-card)]  flex flex-col"
 			style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-md);"
 		>
 			<!-- Header -->
@@ -521,7 +521,7 @@
 <!-- DELETE CONFIRMATION MODAL -->
 <!-- ==================== -->
 @if (isDeleteModalOpen()) {
-	<div class="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in">
+	<div class="fixed inset-0 z-50 flex items-center justify-center p-4 ">
 		<!-- Backdrop -->
 		<div 
 			class="absolute inset-0 backdrop-blur-sm"
@@ -531,7 +531,7 @@
 		
 		<!-- Modal: compact on mobile, normal on desktop -->
 		<div 
-			class="relative w-full max-w-xs sm:max-w-md overflow-hidden rounded-[var(--radius-card)] animate-scale-in"
+			class="relative w-full max-w-xs sm:max-w-md overflow-hidden rounded-[var(--radius-card)] "
 			style="background-color: var(--c-bg-secondary); box-shadow: var(--shadow-md);"
 		>
 			<div class="p-[var(--sp-6)] text-center">

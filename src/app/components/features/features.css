@@ -1,4 +1,4 @@
-﻿.features {
+.features {
 	background: var(--c-bg-primary);
 	color: var(--c-text-primary);
 	position: relative;
@@ -81,20 +81,4 @@
 	background-color: var(--c-primary);
 	color: white;
 	box-shadow: 0 10px 30px rgba(37, 110, 255, 0.2);
-}
-
-@keyframes fade-in-up {
-	from {
-		opacity: 0;
-		transform: translateY(30px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.animate-up {
-	animation: fade-in-up 0.8s ease-out forwards;
-	opacity: 0;
 }

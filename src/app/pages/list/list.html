@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-[var(--c-bg-primary)]">
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 		
 		<div class="text-center mb-12">
 			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Події</h1>
@@ -8,12 +8,12 @@
 			</p>
 		</div>
 
-		<div class="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in">
+		<div class="flex flex-wrap justify-center gap-3 mb-12">
 			@for (cat of categories(); track cat) {
 				<button 
 					(click)="filterByCategory(cat)"
-					class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
-					[style.background-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
+					class="px-6 py-2.5 rounded-full text-sm font-bold border-2 shadow-sm active:scale-95 transition-colors"
+					[style.background-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'white'"
 					[style.color]="filteredCategory() === cat ? 'white' : 'var(--c-text-primary)'"
 					[style.border-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'var(--c-border)'"
 				>
@@ -22,15 +22,35 @@
 			}
 		</div>
 
-		<div class="animate-slide-up">
-			<app-list-items-section
-				[items]="getFilteredItems()"
-				title=""
-				[showSearch]="true"
-				[itemsPerRow]="3"
-				[maxItems]="0"
-				[showViewAllButton]="false"
-			/>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			@for (item of getFilteredItems(); track item.id; let i = $index) {
+				<a 
+					[routerLink]="['/profile', item.id]"
+					class="group relative aspect-[4/3] rounded-[24px] overflow-hidden cursor-pointer block bg-gray-100"
+				>
+					<img 
+						[src]="item.imageUrl" 
+						[alt]="item.name"
+						class="w-full h-full object-cover"
+						onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
+					>
+					
+					<!-- Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
+						<div class="flex items-center gap-2 mb-2">
+							<span class="inline-block w-fit px-3 py-1 rounded-full bg-[var(--c-primary)] text-white text-[10px] font-bold uppercase tracking-widest">
+								{{ item.category }}
+							</span>
+							<span class="text-white/80 text-[10px] font-bold uppercase tracking-widest">
+								{{ item.date }}
+							</span>
+						</div>
+						
+						<h3 class="text-white text-xl font-bold mb-1">{{ item.name }}</h3>
+						<p class="text-white/80 text-sm line-clamp-2">{{ item.description }}</p>
+					</div>
+				</a>
+			}
 		</div>
 
 	</div>
