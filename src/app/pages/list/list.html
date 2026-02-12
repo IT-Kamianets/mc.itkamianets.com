@@ -1,27 +1,40 @@
-<div class="min-h-screen" style="background-color: var(--c-bg-primary);">
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-8)]">
+<div class="min-h-screen bg-[var(--c-bg-primary)]">
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
 		
-		<div class="flex flex-wrap gap-2 mb-8">
+		<div class="mb-12 animate-fade-in">
+			<div class="flex items-center gap-2 mb-4">
+				<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
+				<h1 class="text-4xl font-bold tracking-tight sm:text-5xl" style="color: var(--c-text-primary);">Події</h1>
+			</div>
+			<p class="text-lg opacity-70 leading-relaxed max-w-2xl" style="color: var(--c-text-secondary);">
+				Відкривай нові можливості, навчайся та розважайся разом з молодіжною спільнотою нашого міста.
+			</p>
+		</div>
+
+		<div class="flex flex-wrap gap-3 mb-12 animate-slide-up stagger-1">
 			@for (cat of categories(); track cat) {
 				<button 
 					(click)="filterByCategory(cat)"
-					class="px-4 py-2 rounded-full text-sm font-medium transition"
+					class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
 					[style.background-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
 					[style.color]="filteredCategory() === cat ? 'white' : 'var(--c-text-primary)'"
+					[style.border-color]="filteredCategory() === cat ? 'var(--c-primary)' : 'var(--c-border)'"
 				>
 					{{ cat }}
 				</button>
 			}
 		</div>
 
-		<app-list-items-section
-			[items]="getFilteredItems()"
-			[title]="filteredCategory() === 'Усі' ? 'Усі події' : 'Події: ' + filteredCategory()"
-			[showSearch]="true"
-			[itemsPerRow]="3"
-			[maxItems]="0"
-			[showViewAllButton]="false"
-		/>
+		<div class="animate-slide-up stagger-2">
+			<app-list-items-section
+				[items]="getFilteredItems()"
+				[title]="filteredCategory() === 'Усі' ? 'Усі події' : 'Події: ' + filteredCategory()"
+				[showSearch]="true"
+				[itemsPerRow]="3"
+				[maxItems]="0"
+				[showViewAllButton]="false"
+			/>
+		</div>
 
 	</div>
 </div>

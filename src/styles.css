@@ -29,13 +29,12 @@
 	/* typography */
 	--ff-base: 'Inter', system-ui, -apple-system, sans-serif;
 	--fs: 16px;
-	--letter-spacing: -0.01em;
+	--letter-spacing: 0;
 	--fw-light: 300;
 	--fw-normal: 400;
 	--fw-medium: 500;
 	--fw-semibold: 600;
 	--fw-bold: 700;
-	--fw-black: 800;
 
 	/* radius (Consistent with Profile page reference) */
 	--radius: 12px;
@@ -63,7 +62,50 @@
 
 	/* focus */
 	--focus-ring: 0 0 0 4px rgba(37, 110, 255, 0.2);
+
+	/* transitions */
+	--motion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(-10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+	from { opacity: 0; transform: scale(0.95); }
+	to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================
+   ANIMATION UTILITY CLASSES
+   ============================================ */
+
+.animate-fade-in {
+	animation: fade-in 0.6s var(--motion) forwards;
+}
+
+.animate-slide-up {
+	animation: slide-up 0.6s var(--motion) forwards;
+}
+
+.animate-scale-in {
+	animation: scale-in 0.4s var(--motion) forwards;
+}
+
+/* Stagger reveals */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
 
 /* ========= modes ========= */
 html[data-mode='dark'] {

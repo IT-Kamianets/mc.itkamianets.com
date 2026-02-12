@@ -7,8 +7,8 @@
 					<div class="h-10 w-10 overflow-hidden rounded-full border border-[var(--c-border)] shadow-sm transition-transform duration-300 group-hover:scale-110">
 						<img src="mc.png" alt="Logo" class="h-full w-full object-cover"/>
 					</div>
-					<div class="flex flex-col leading-none">
-						<span class="text-sm font-bold tracking-wide" style="color: var(--c-text-secondary);">МОЛОДІЖНИЙ ЦЕНТР</span>
+					<div class="flex flex-col leading-tight">
+						<span class="text-sm font-bold tracking-tight" style="color: var(--c-text-secondary);">МОЛОДІЖНИЙ ЦЕНТР</span>
 						<span class="text-[10px] font-medium opacity-70" style="color: var(--c-text-muted);">Кам'янець-Подільський</span>
 					</div>
 				</a>
@@ -16,20 +16,20 @@
 
 			<!-- Center: Navigation Links (Desktop) -->
 			<div class="header__nav hidden sm:flex flex-wrap justify-center gap-1">
-				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Головна</a>
-				<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Події</a>
-				<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Галерея</a>
-				<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-medium transition">Контакти</a>
+				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Головна</a>
+				<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Події</a>
+				<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Галерея</a>
+				<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Контакти</a>
 			</div>
 
 			<!-- Right: Theme Menu Trigger -->
 			<div class="relative shrink-0 flex items-center gap-2">
 				<!-- Navigation Links (Mobile icon or text) - keeping it simple for now as per user request to wrap theme controls -->
 				<div class="sm:hidden flex items-center gap-2">
-					<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-medium transition">Г</a>
-					<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-medium transition">П</a>
-					<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-medium transition">Гал</a>
-					<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-medium transition">К</a>
+					<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">Г</a>
+					<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">П</a>
+					<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">Гал</a>
+					<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">К</a>
 				</div>
 
 				<button 

@@ -1,55 +1,46 @@
-<section class="gallery-section py-[var(--sp-20)]">
+<section class="gallery-section py-[var(--sp-20)] bg-[var(--c-bg-primary)]">
 	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
-		<div class="text-center mb-[var(--sp-16)] animate-up">
-			<span class="gallery-section-badge inline-block px-[var(--sp-4)] py-[var(--sp-1)] rounded-full text-xs font-bold uppercase tracking-widest mb-[var(--sp-4)]">
-				Галерея
-			</span>
-			<h2 class="text-3xl font-extrabold tracking-tight text-[var(--c-text-secondary)] sm:text-4xl lg:text-5xl">
-				Наше життя у фото
-			</h2>
-			<p class="mt-[var(--sp-4)] text-lg text-[var(--c-text-muted)] max-w-2xl mx-auto">
+		<div class="mb-12 animate-fade-in">
+			<div class="flex items-center gap-2 mb-4">
+				<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
+				<h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="color: var(--c-text-primary);">Наше життя у фото</h2>
+			</div>
+			<p class="text-lg opacity-70 leading-relaxed max-w-2xl" style="color: var(--c-text-secondary);">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
 			</p>
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[var(--sp-8)]">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up stagger-1">
 			@for (item of items(); track item.id; let i = $index) {
 				<div 
-					class="gallery-section__card group rounded-[var(--radius-card)] overflow-hidden animate-up"
-					[style.animation-delay]="(i * 0.1) + 's'"
+					class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
 				>
-					<div class="aspect-[4/3] w-full overflow-hidden">
-						<img 
-							[src]="item.imageUrl" 
-							[alt]="item.title"
-							class="gallery-section__image w-full h-full object-cover"
-							onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
-						>
-						
-						<!-- Overlay -->
-						<div class="gallery-section__overlay absolute inset-0 flex flex-col justify-end p-[var(--sp-6)]">
-							<div class="gallery-section__content">
-								<span class="inline-block text-[10px] font-bold px-[var(--sp-2)] py-0.5 rounded bg-[var(--c-primary)] text-white mb-[var(--sp-2)] uppercase tracking-wider">
-									{{ item.category }}
-								</span>
-								<h3 class="text-xl font-bold text-white mb-1">{{ item.title }}</h3>
-								<p class="text-white/80 text-xs line-clamp-2">{{ item.description }}</p>
-							</div>
-						</div>
+					<img 
+						[src]="item.imageUrl" 
+						[alt]="item.title"
+						class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+						onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
+					>
+					
+					<!-- Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+						<span class="inline-block w-fit text-[10px] font-black px-3 py-1 rounded-full bg-[var(--c-primary)] text-white mb-2 uppercase tracking-widest">
+							{{ item.category }}
+						</span>
+						<h3 class="text-xl font-bold text-white mb-1 leading-tight">{{ item.title }}</h3>
+						<p class="text-white/70 text-xs line-clamp-2 font-medium">{{ item.description }}</p>
 					</div>
 				</div>
 			}
 		</div>
 
-		<div class="mt-[var(--sp-16)] text-center animate-up" style="animation-delay: 0.4s;">
+		<div class="mt-16 text-center animate-slide-up stagger-2">
 			<a 
 				routerLink="/gallery"
-				class="gallery-section__btn inline-flex items-center px-[var(--sp-10)] py-[var(--sp-4)] text-base font-bold transition shadow-lg"
+				class="inline-flex items-center gap-3 px-10 py-4 bg-[var(--c-bg-secondary)] border-2 border-[var(--c-border)] text-[var(--c-text-primary)] font-black text-base rounded-[var(--radius-btn)] transition-all duration-300 hover:border-[var(--c-primary)] hover:shadow-xl hover:-translate-y-1 group"
 			>
-				Подивитись всю галерею
-				<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 00-2 2z"></path>
-				</svg>
+				Вся галерея
+				<span class="text-[var(--c-primary)] group-hover:translate-x-1 transition-transform">→</span>
 			</a>
 		</div>
 	</div>
