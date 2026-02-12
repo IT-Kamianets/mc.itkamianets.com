@@ -1,84 +1,67 @@
-<section class="hero relative overflow-hidden">
-	<div class="hero-pattern"></div>
+<section class="hero relative overflow-hidden bg-[var(--c-bg-primary)]">
+	<div class="hero-pattern opacity-10"></div>
 	
-	<!-- Decorative floating circles -->
-	<div class="absolute top-10 left-10 w-20 h-20 rounded-full opacity-20 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 0.5s;"></div>
-	<div class="absolute bottom-10 right-10 w-32 h-32 rounded-full opacity-10 float-element" style="background: linear-gradient(135deg, var(--c-primary), transparent); animation-delay: 1s;"></div>
-
-	<div class="mx-auto max-w-6xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)] relative z-10">
+	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)] relative z-10">
 		<div class="grid items-center gap-[var(--sp-10)] lg:grid-cols-2">
 			<div class="animate-fade-in-up">
-				<h1 class="hero-title text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+				<div class="flex items-center gap-2 mb-[var(--sp-6)]">
+					<span class="w-12 h-1 bg-[var(--c-primary)] rounded-full"></span>
+					<span class="text-xs font-black uppercase tracking-[0.3em] text-[var(--c-primary)]">Твій простір можливостей</span>
+				</div>
+
+				<h1 class="text-4xl font-black tracking-tight sm:text-5xl lg:text-7xl leading-[1.1]" style="color: var(--c-text-primary);">
 					Молодіжний центр
-					<span class="hero__strong">Кам'янець-Подільський</span>
+					<span class="block mt-2 text-[var(--c-primary)]">Кам'янець-Подільський</span>
 				</h1>
 
-				<p class="hero__muted mt-[var(--sp-6)] max-w-xl text-lg leading-relaxed">
+				<p class="mt-[var(--sp-8)] max-w-xl text-lg lg:text-xl leading-relaxed opacity-80" style="color: var(--c-text-secondary);">
 					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
 				</p>
 
-				<div class="mt-[var(--sp-8)] flex flex-col gap-[var(--sp-4)] sm:flex-row sm:items-center">
+				<div class="mt-[var(--sp-10)] flex flex-wrap gap-[var(--sp-4)]">
 					<a
 						routerLink="/list"
-						class="hero__primary inline-flex items-center justify-center px-[var(--sp-8)] py-[var(--sp-4)] text-base font-bold transition shadow-xl"
+						class="px-10 py-4 bg-[var(--c-primary)] hover:bg-[var(--c-primary-hover)] text-white text-base font-black rounded-[var(--radius-btn)] transition-all duration-300 shadow-xl shadow-[var(--c-primary)]/20 hover:shadow-2xl hover:-translate-y-1 flex items-center gap-2 group"
 					>
 						Наші події
+						<span class="group-hover:translate-x-1 transition-transform">→</span>
 					</a>
 
 					<a
 						routerLink="/gallery"
-						class="hero__ghost inline-flex items-center justify-center px-[var(--sp-8)] py-[var(--sp-4)] text-base font-bold transition"
+						class="px-10 py-4 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-black rounded-[var(--radius-btn)] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
 					>
 						Галерея
 					</a>
 				</div>
-				
-				<p class="hero__kicker mt-[var(--sp-6)] text-sm flex items-center gap-2">
-					<span class="w-8 h-[1px] bg-[var(--c-primary)]"></span>
-					Приєднуйся до нашої спільноти!
-				</p>
 			</div>
 
 			<div class="relative animate-fade-in-up" style="animation-delay: 0.3s;">
 				<div class="hero__card-grid grid gap-[var(--sp-6)]">
 					<!-- Working Hours Card -->
-					<div class="hero__clean-card p-[var(--sp-8)] relative overflow-hidden group">
-						<div class="absolute top-0 right-0 p-[var(--sp-4)] opacity-10 group-hover:scale-110 transition-transform duration-500">
-							<span class="text-6xl">🕒</span>
-						</div>
-						<p class="hero__strong text-xs font-black uppercase tracking-[0.2em] mb-[var(--sp-2)]">Графік роботи</p>
-						<h3 class="text-3xl font-black" style="color: var(--c-text-secondary);">10:00 — 19:00</h3>
-						<p class="hero__muted mt-[var(--sp-2)] font-bold flex items-center gap-2 text-sm">
-							<span class="w-2 h-2 rounded-full bg-green-500"></span>
+					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-xl relative overflow-hidden group">
+						<div class="absolute -right-4 -top-4 opacity-5 group-hover:scale-110 transition-transform duration-700 text-9xl">🕒</div>
+						<p class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[var(--c-primary)]">Графік роботи</p>
+						<h3 class="text-4xl font-black" style="color: var(--c-text-primary);">10:00 — 19:00</h3>
+						<div class="mt-6 flex items-center gap-2 text-sm font-bold text-green-600">
+							<span class="relative flex h-3 w-3">
+								<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+								<span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+							</span>
 							Чекаємо на тебе сьогодні!
-						</p>
+						</div>
 					</div>
 
 					<!-- Events Counter Card -->
-					<div class="hero__clean-card p-[var(--sp-8)] relative overflow-hidden group">
-						<div class="absolute top-0 right-0 p-[var(--sp-4)] opacity-10 group-hover:scale-110 transition-transform duration-500">
-							<span class="text-6xl">📅</span>
+					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-xl relative overflow-hidden group">
+						<div class="absolute -right-4 -top-4 opacity-5 group-hover:scale-110 transition-transform duration-700 text-9xl">📅</div>
+						<p class="text-[10px] font-black uppercase tracking-[0.3em] mb-4 text-[var(--c-primary)]">Діяльність</p>
+						<div class="flex items-baseline gap-3">
+							<h3 class="text-6xl font-black" style="color: var(--c-text-primary);">120+</h3>
+							<span class="text-xl font-bold opacity-60" style="color: var(--c-text-secondary);">заходів щороку</span>
 						</div>
-						<p class="hero__strong text-xs font-black uppercase tracking-[0.2em] mb-[var(--sp-2)]">Масштаб</p>
-						<div class="flex items-baseline gap-2">
-							<h3 class="text-5xl font-black" style="color: var(--c-text-secondary);">120+</h3>
-							<span class="text-xl font-bold hero__muted">заходів</span>
-						</div>
-						<p class="hero__muted mt-[var(--sp-2)] font-medium text-sm">щороку проводимо для молоді міста</p>
+						<p class="mt-4 text-sm font-medium opacity-70" style="color: var(--c-text-secondary);">Для розвитку та дозвілля молоді громади</p>
 					</div>
-				</div>
-
-				<!-- Subtle tags -->
-				<div class="mt-[var(--sp-10)] flex flex-wrap gap-[var(--sp-3)] justify-center lg:justify-start">
-					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
-						#креативність
-					</span>
-					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
-						#лідерство
-					</span>
-					<span class="hero__tag-simple px-[var(--sp-4)] py-[var(--sp-2)] text-xs font-bold uppercase tracking-widest">
-						#волонтерство
-					</span>
 				</div>
 			</div>
 		</div>

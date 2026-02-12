@@ -1,65 +1,67 @@
-<section class="about">
-	<div class="mx-auto max-w-6xl px-4 py-16">
-		<div class="grid gap-10 lg:grid-cols-2">
+<section class="about bg-[var(--c-bg-primary)]">
+	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)]">
+		<div class="grid gap-12 lg:grid-cols-2 items-start">
 			<div>
-				<h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">Наша мета</h2>
-				<p class="about__muted mt-3 leading-7 text-lg italic">
-					«Активне залучення молоді до громадського життя та суспільної взаємодії через створення можливостей для розвитку, самореалізації та участі у процесах прийняття рішень, що у підсумку сприятиме формуванню ефективної молодіжної політики в Кам'янець-Подільській міській територіальній громаді.»
-				</p>
+				<div class="flex items-center gap-2 mb-4">
+					<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
+					<span class="text-xs font-black uppercase tracking-[0.3em] text-[var(--c-primary)]">Хто ми є</span>
+				</div>
+				<h2 class="text-4xl font-black tracking-tight sm:text-5xl mb-8" style="color: var(--c-text-primary);">Наша мета</h2>
+				
+				<div class="relative p-[var(--sp-8)] rounded-[var(--radius-card)] bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-xl mb-8">
+					<div class="absolute -top-4 -left-4 text-6xl opacity-10 select-none">"</div>
+					<p class="text-xl lg:text-2xl font-bold italic leading-relaxed" style="color: var(--c-text-primary);">
+						Активне залучення молоді до громадського життя та суспільної взаємодії через створення можливостей для розвитку, самореалізації та участі у процесах прийняття рішень.
+					</p>
+				</div>
 
-				<div class="mt-8 grid gap-4 sm:grid-cols-2">
-					<div class="about__card p-5 border-l-4 border-[var(--c-primary)]">
-						<p class="text-sm font-bold uppercase tracking-wider opacity-60">Для кого</p>
-						<p class="about__muted mt-2 text-sm font-medium">
-							Молодь міста, яка прагне саморозвитку та змін у громаді.
-						</p>
+				<div class="grid gap-6 sm:grid-cols-2">
+					<div class="p-6 rounded-[var(--radius-card)] bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-lg">
+						<p class="text-[10px] font-black uppercase tracking-widest text-[var(--c-primary)] mb-2">Для кого</p>
+						<p class="font-bold text-sm" style="color: var(--c-text-secondary);">Молодь міста, яка прагне саморозвитку та змін у громаді.</p>
 					</div>
 
-					<div class="about__card p-5 border-l-4 border-[var(--c-blue)]">
-						<p class="text-sm font-bold uppercase tracking-wider opacity-60">Результат</p>
-						<p class="about__muted mt-2 text-sm font-medium">
-							Формування ефективної молодіжної політики та активної громади.
-						</p>
+					<div class="p-6 rounded-[var(--radius-card)] bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-lg">
+						<p class="text-[10px] font-black uppercase tracking-widest text-[var(--c-primary)] mb-2">Результат</p>
+						<p class="font-bold text-sm" style="color: var(--c-text-secondary);">Формування ефективної молодіжної політики та активної громади.</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="about__panel p-6">
-				<div class="about__card p-6 relative overflow-hidden">
-					<div class="absolute -right-4 -top-4 w-24 h-24 bg-[var(--c-primary)] opacity-5 rounded-full"></div>
-					<p class="about__kicker text-xs font-bold uppercase tracking-[0.2em] opacity-50">
-						Інформаційна панель
-					</p>
+			<div class="sticky top-[var(--sp-8)]">
+				<div class="bg-[var(--c-bg-secondary)] p-1 rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-2xl overflow-hidden group">
+					<div class="p-8 sm:p-10">
+						<p class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--c-primary)] mb-8">Інформаційна панель</p>
+						
+						<div class="space-y-8">
+							<div class="flex items-center gap-6">
+								<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-2xl shrink-0">📍</div>
+								<div>
+									<p class="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1" style="color: var(--c-text-primary);">Локація</p>
+									<p class="font-bold text-lg leading-tight" style="color: var(--c-text-primary);">вул. Симона Петлюри, 16, 3 поверх</p>
+								</div>
+							</div>
 
-					<dl class="mt-6 grid gap-6 sm:grid-cols-2">
-						<div>
-							<dt class="about__kicker text-[10px] font-bold uppercase opacity-50">Локація</dt>
-							<dd class="about__strong mt-1 text-sm font-bold leading-tight">
-								вул. Симона Петлюри, 16, 3 поверх
-							</dd>
-						</div>
-						<div>
-							<dt class="about__kicker text-[10px] font-bold uppercase opacity-50">Контакт</dt>
-							<dd class="about__strong mt-1 text-sm font-bold">
-								+380 98 382 03 59
-							</dd>
-						</div>
-						<div>
-							<dt class="about__kicker text-[10px] font-bold uppercase opacity-50">Режим роботи</dt>
-							<dd class="about__strong mt-1 text-sm font-bold">
-								10:00 — 19:00
-							</dd>
-						</div>
-						<div>
-							<dt class="about__kicker text-[10px] font-bold uppercase opacity-50">Пошта</dt>
-							<dd class="about__strong mt-1 text-xs font-bold truncate">
-								molodiznijcentrkp@gmail.com
-							</dd>
-						</div>
-					</dl>
+							<div class="flex items-center gap-6">
+								<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-2xl shrink-0">📞</div>
+								<div>
+									<p class="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1" style="color: var(--c-text-primary);">Контакт</p>
+									<p class="font-bold text-lg" style="color: var(--c-text-primary);">+380 98 382 03 59</p>
+								</div>
+							</div>
 
-					<div class="about__note mt-8 p-5 bg-[var(--c-bg-primary)] rounded-xl border border-[var(--c-border)]">
-						<p class="text-sm font-bold" style="color: var(--c-primary);">✨ Твій шлях до успіху починається тут!</p>
+							<div class="flex items-center gap-6">
+								<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-2xl shrink-0">✉️</div>
+								<div>
+									<p class="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1" style="color: var(--c-text-primary);">Пошта</p>
+									<p class="font-bold text-sm truncate max-w-[200px] sm:max-w-none" style="color: var(--c-text-primary);">molodiznijcentrkp@gmail.com</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="mt-12 p-6 bg-[var(--c-bg-tertiary)] rounded-[var(--radius)] border-l-4 border-[var(--c-primary)]">
+							<p class="text-sm font-black" style="color: var(--c-text-primary);">✨ Твій шлях до успіху починається тут!</p>
+						</div>
 					</div>
 				</div>
 			</div>

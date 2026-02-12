@@ -1,95 +1,63 @@
-<section class="features overflow-hidden">
-	<div class="mx-auto max-w-6xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)] relative">
-		<!-- Decorative elements -->
-		<div class="absolute top-0 right-0 w-64 h-64 bg-[var(--c-primary)] opacity-[0.03] rounded-full blur-3xl -mr-32 -mt-32"></div>
+<section class="features overflow-hidden bg-[var(--c-bg-primary)]">
+	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-20)] relative">
 		
-		<div class="flex flex-col gap-[var(--sp-6)] sm:flex-row sm:items-end sm:justify-between mb-[var(--sp-12)] animate-up">
-			<div>
-				<span class="features-badge inline-block px-[var(--sp-4)] py-[var(--sp-1)] rounded-full text-xs font-bold uppercase tracking-widest mb-[var(--sp-4)]">
-					Що ми робимо
-				</span>
-				<h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl text-[var(--c-text-secondary)]">Наші активності</h2>
-				<p class="features__muted mt-[var(--sp-3)] text-lg max-w-xl">
+		<div class="flex flex-col gap-[var(--sp-6)] lg:flex-row lg:items-end lg:justify-between mb-[var(--sp-12)]">
+			<div class="max-w-3xl">
+				<div class="flex items-center gap-2 mb-4">
+					<span class="w-10 h-1 bg-[var(--c-primary)] rounded-full"></span>
+					<span class="text-xs font-black uppercase tracking-[0.3em] text-[var(--c-primary)]">Що ми робимо</span>
+				</div>
+				<h2 class="text-4xl font-black tracking-tight sm:text-5xl" style="color: var(--c-text-primary);">Наші активності</h2>
+				<p class="mt-6 text-lg lg:text-xl opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">
 					Створюємо можливості для розвитку, самореалізації та цікавого дозвілля молоді Кам'янця-Подільського.
 				</p>
 			</div>
 
 			<a
 				routerLink="/list"
-				class="features__btn inline-flex w-fit items-center justify-center px-[var(--sp-6)] py-[var(--sp-3)] text-sm font-bold transition"
+				class="hidden lg:flex items-center gap-3 px-8 py-4 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] rounded-[var(--radius-btn)] font-black text-sm transition-all hover:shadow-lg hover:-translate-y-1 group"
 			>
 				Актуальні події
-				<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-				</svg>
+				<span class="text-[var(--c-primary)] group-hover:translate-x-1 transition-transform">→</span>
 			</a>
 		</div>
 
 		<div class="grid gap-[var(--sp-6)] sm:grid-cols-2 lg:grid-cols-3">
-			<!-- Молодіжні вечірки -->
-			<div class="features__card p-[var(--sp-8)] animate-up" style="animation-delay: 0.1s;">
-				<div class="features__icon-wrapper">
-					<span class="text-2xl">🎉</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Молодіжні вечірки</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Яскраві тематичні заходи, де молодь може відпочити, познайомитися та знайти нових друзів.
-				</p>
+			<!-- Activities -->
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">🎉</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Молодіжні вечірки</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Яскраві тематичні заходи, де молодь може відпочити, познайомитися та знайти нових друзів.</p>
 			</div>
 
-			<!-- Вечори настільних ігор -->
-			<div class="features__card p-8 animate-up" style="animation-delay: 0.2s;">
-				<div class="features__icon-wrapper flex items-center justify-center">
-					<span class="text-2xl">🎲</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Настільні ігри</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Регулярні вечори ігротек: від стратегій до веселої "Мафії". Розвиваємо логіку та командний дух.
-				</p>
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">🎲</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Настільні ігри</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Регулярні вечори ігротек: від стратегій до веселої "Мафії". Розвиваємо логіку та командний дух.</p>
 			</div>
 
-			<!-- Перегляд фільмів -->
-			<div class="features__card p-8 animate-up" style="animation-delay: 0.3s;">
-				<div class="features__icon-wrapper flex items-center justify-center">
-					<span class="text-2xl">🎬</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Кіноперегляди</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Перегляд цікавого кіно з подальшим обговоренням у колі однодумців.
-				</p>
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">🎬</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Кіноперегляди</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Перегляд цікавого кіно з подальшим обговоренням у колі однодумців.</p>
 			</div>
 
-			<!-- Волонтерська діяльність -->
-			<div class="features__card p-8 animate-up" style="animation-delay: 0.4s;">
-				<div class="features__icon-wrapper flex items-center justify-center">
-					<span class="text-2xl">🤝</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Волонтерство</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Долучайся до соціальних проєктів, волонтерських рейдів та допомоги громаді нашого міста.
-				</p>
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">🤝</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Волонтерство</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Долучайся до соціальних проєктів, волонтерських рейдів та допомоги громаді нашого міста.</p>
 			</div>
 
-			<!-- Молодіжний простір -->
-			<div class="features__card p-8 animate-up" style="animation-delay: 0.5s;">
-				<div class="features__icon-wrapper flex items-center justify-center">
-					<span class="text-2xl">🏠</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Молодіжний простір</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Ми організовуємо та розвиваємо комфортний простір для твоїх ідей, навчання та відпочинку.
-				</p>
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">🏠</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Молодіжний простір</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Ми організовуємо та розвиваємо комфортний простір для твоїх ідей, навчання та відпочинку.</p>
 			</div>
 
-			<!-- Освітні заходи -->
-			<div class="features__card p-8 animate-up" style="animation-delay: 0.6s;">
-				<div class="features__icon-wrapper flex items-center justify-center">
-					<span class="text-2xl">💡</span>
-				</div>
-				<h3 class="text-xl font-bold mb-3" style="color: var(--c-text-secondary);">Тренінги та курси</h3>
-				<p class="features__muted text-sm leading-relaxed">
-					Можливості для неформальної освіти: школа лідерства, воркшопи з м'яких навичок та інше.
-				</p>
+			<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-8)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-lg hover:shadow-xl transition-all duration-500 group">
+				<div class="w-14 h-14 rounded-2xl bg-[var(--c-bg-primary)] flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-500 group-hover:bg-[var(--c-primary)] group-hover:text-white">💡</div>
+				<h3 class="text-2xl font-black mb-4" style="color: var(--c-text-primary);">Тренінги та курси</h3>
+				<p class="opacity-70 leading-relaxed" style="color: var(--c-text-secondary);">Можливості для неформальної освіти: школа лідерства, воркшопи з м'яких навичок та інше.</p>
 			</div>
 		</div>
 	</div>

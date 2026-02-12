@@ -2,7 +2,18 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ListItemData } from '../../components/list-items-section/list-items-section';
+
+export interface EventDetails {
+	id: number;
+	name: string;
+	description: string;
+	category: string;
+	date: string;
+	time: string;
+	location: string;
+	icon: string;
+	image: string;
+}
 
 @Component({
 	selector: 'app-profile',
@@ -15,7 +26,7 @@ export class Profile implements OnInit {
 	public route = inject(ActivatedRoute);
 	private http = inject(HttpClient);
 	
-	product = signal<ListItemData | null>(null);
+	product = signal<EventDetails | null>(null);
 	loading = signal(true);
 
 	ngOnInit() {
@@ -34,6 +45,8 @@ export class Profile implements OnInit {
 							description: event.description,
 							category: event.category,
 							date: event.date,
+							time: event.time || '10:00', // Default if missing
+							location: event.location || 'Молодіжний центр', // Default if missing
 							icon: '📅',
 							image: event.image
 						});
