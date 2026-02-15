@@ -1,71 +1,85 @@
-<footer class="footer bg-[var(--c-bg-secondary)] border-t border-[var(--c-border)]">
-	<div class="mx-auto max-w-7xl px-4 py-16 text-center">
-		<!-- Main Footer Content -->
-		<div class="flex flex-col items-center mb-12">
-			<div class="w-16 h-16 overflow-hidden rounded-full border border-[var(--c-border)] shadow-md mb-6">
-				<img 
-					src="mc.png" 
-					alt="Logo" 
-					class="w-full h-full object-cover"
-				/>
-			</div>
-			<h3 class="footer__brand text-2xl font-bold tracking-tight mb-4" style="color: var(--c-text-primary);">МОЛОДІЖНИЙ ЦЕНТР</h3>
-			<p class="footer__description text-lg opacity-70 max-w-2xl mx-auto mb-8" style="color: var(--c-text-secondary);">
-				Твій простір для розвитку, творчості та волонтерства у Кам'янці-Подільському. Творимо майбутнє разом!
-			</p>
+<footer class="bg-[var(--c-bg-tertiary)] border-t border-[var(--c-border)] pt-[var(--sp-16)] pb-[var(--sp-8)] relative overflow-hidden">
+	<!-- Decorative background element -->
+	<div class="absolute bottom-0 right-0 w-64 h-64 bg-[var(--c-primary)] opacity-[0.03] rounded-full blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2"></div>
+	
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-[var(--sp-12)]">
 			
-			<!-- Social Links -->
-			<div class="flex flex-wrap justify-center gap-4">
-				<a href="https://instagram.com/mcenterkp" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-[var(--c-bg-primary)] border border-[var(--c-border)] hover:bg-[var(--c-primary)] hover:text-white transition-all shadow-md group" title="Instagram">
-					<span class="text-sm font-bold group-hover:scale-110 transition-transform">IG</span>
+			<!-- Brand Section -->
+			<div class="space-y-6 lg:pr-12">
+				<a routerLink="/" class="flex items-center group transition-transform hover:scale-105 origin-left">
+					<div class="h-12 w-12 overflow-hidden rounded-xl border-2 border-[var(--c-primary)]/10 shadow-sm bg-white p-1">
+						<img src="mc.png" alt="Logo" class="h-full w-full object-contain"/>
+					</div>
+					<div class="ml-3 leading-tight">
+						<p class="text-sm font-black tracking-tight text-[var(--c-text-primary)]">МОЛОДІЖНИЙ ЦЕНТР</p>
+						<p class="text-[10px] font-bold text-[var(--c-text-muted)]">Кам'янець-Подільський</p>
+					</div>
 				</a>
-				<a href="https://tiktok.com/@mcenterkp" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-[var(--c-bg-primary)] border border-[var(--c-border)] hover:bg-[var(--c-primary)] hover:text-white transition-all shadow-md group" title="TikTok">
-					<span class="text-sm font-bold group-hover:scale-110 transition-transform">TT</span>
-				</a>
-				<a href="https://t.me/mcenterkp" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-[var(--c-bg-primary)] border border-[var(--c-border)] hover:bg-[var(--c-primary)] hover:text-white transition-all shadow-md group" title="Telegram">
-					<span class="text-sm font-bold group-hover:scale-110 transition-transform">TG</span>
-				</a>
-				<a href="https://facebook.com/Молодіжний-центр" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-[var(--c-bg-primary)] border border-[var(--c-border)] hover:bg-[var(--c-primary)] hover:text-white transition-all shadow-md group" title="Facebook">
-					<span class="text-sm font-bold group-hover:scale-110 transition-transform">FB</span>
-				</a>
+				<p class="text-sm leading-relaxed text-[var(--c-text-secondary)] opacity-80">
+					Простір для твоїх ідей, розвитку та нових можливостей. Приєднуйся до нашої спільноти вже сьогодні!
+				</p>
+				<div class="flex items-center gap-4">
+					<a href="#" class="footer-social-link group" title="Instagram">
+						<span class="w-10 h-10 rounded-lg bg-white border border-[var(--c-border)] flex items-center justify-center transition-all group-hover:bg-[#E1306C] group-hover:text-white group-hover:border-[#E1306C] group-hover:-translate-y-1 shadow-sm">IG</span>
+					</a>
+					<a href="#" class="footer-social-link group" title="Telegram">
+						<span class="w-10 h-10 rounded-lg bg-white border border-[var(--c-border)] flex items-center justify-center transition-all group-hover:bg-[#0088cc] group-hover:text-white group-hover:border-[#0088cc] group-hover:-translate-y-1 shadow-sm">TG</span>
+					</a>
+					<a href="#" class="footer-social-link group" title="Facebook">
+						<span class="w-10 h-10 rounded-lg bg-white border border-[var(--c-border)] flex items-center justify-center transition-all group-hover:bg-[#1877F2] group-hover:text-white group-hover:border-[#1877F2] group-hover:-translate-y-1 shadow-sm">FB</span>
+					</a>
+				</div>
 			</div>
-		</div>
 
-		<!-- Links Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-12 max-w-4xl mx-auto pt-12 border-t border-[var(--c-border)]">
-			<div>
-				<h4 class="text-xs font-bold uppercase tracking-widest opacity-40 mb-6" style="color: var(--c-text-primary);">Навігація</h4>
-				<ul class="space-y-3">
-					<li><a routerLink="/" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Головна</a></li>
-					<li><a routerLink="/list" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Події</a></li>
-					<li><a routerLink="/gallery" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Галерея</a></li>
-					<li><a routerLink="/contacts" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Контакти</a></li>
+			<!-- Quick Links -->
+			<div class="md:pl-12">
+				<h3 class="text-sm font-black uppercase tracking-widest text-[var(--c-text-primary)] mb-8 flex items-center gap-2">
+					<span class="w-6 h-1 bg-[var(--c-primary)] rounded-full"></span>
+					Навігація
+				</h3>
+				<ul class="space-y-4">
+					<li><a routerLink="/" class="footer-link">Головна</a></li>
+					<li><a routerLink="/list" class="footer-link">Події</a></li>
+					<li><a routerLink="/gallery" class="footer-link">Галерея</a></li>
+					<li><a routerLink="/contacts" class="footer-link">Контакти</a></li>
 				</ul>
 			</div>
 
+			<!-- Contacts -->
 			<div>
-				<h4 class="text-xs font-bold uppercase tracking-widest opacity-40 mb-6" style="color: var(--c-text-primary);">Анкети</h4>
-				<ul class="space-y-3">
-					<li><a href="#" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Анкета коворкінгу</a></li>
-					<li><a href="#" class="text-sm font-bold hover:text-[var(--c-primary)] transition-colors">Проведення заходів</a></li>
-				</ul>
-			</div>
-
-			<div>
-				<h4 class="text-xs font-bold uppercase tracking-widest opacity-40 mb-6" style="color: var(--c-text-primary);">Контакти</h4>
-				<div class="space-y-3 text-sm font-bold">
-					<p>вул. Симона Петлюри, 16</p>
-					<a href="tel:+380983820359" class="block hover:text-[var(--c-primary)] transition-colors">+380 98 382 03 59</a>
-					<a href="mailto:molodiznijcentrkp@gmail.com" class="block truncate hover:text-[var(--c-primary)] transition-colors">molodiznijcentrkp@gmail.com</a>
+				<h3 class="text-sm font-black uppercase tracking-widest text-[var(--c-text-primary)] mb-8 flex items-center gap-2">
+					<span class="w-6 h-1 bg-[var(--c-secondary)] rounded-full"></span>
+					Зв'язок
+				</h3>
+				<div class="space-y-6">
+					<div class="flex items-start gap-3">
+						<span class="text-xl">📍</span>
+						<div>
+							<p class="text-xs font-black text-[var(--c-text-muted)] uppercase mb-1">Адреса</p>
+							<p class="text-sm font-bold text-[var(--c-text-secondary)] leading-relaxed">вул. Симона Петлюри, 16,<br>3 поверх</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-3">
+						<span class="text-xl">📞</span>
+						<div>
+							<p class="text-xs font-black text-[var(--c-text-muted)] uppercase mb-1">Телефон</p>
+							<a href="tel:+380983820359" class="text-sm font-black text-[var(--c-primary)] hover:underline">+380 98 382 03 59</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Bottom Section -->
-		<div class="mt-16 pt-8 border-t border-[var(--c-border)] opacity-40">
-			<p class="text-[10px] font-bold uppercase tracking-widest">
-				© {{ year }} Молодіжний центр Кам'янець-Подільський. Зроблено з ❤️
+		<!-- Bottom Bar -->
+		<div class="mt-[var(--sp-16)] pt-[var(--sp-8)] border-t border-[var(--c-border)] flex flex-col md:flex-row justify-between items-center gap-4">
+			<p class="text-xs font-bold text-[var(--c-text-muted)] uppercase tracking-wider">
+				© 2026 МОЛОДІЖНИЙ ЦЕНТР КАМ'ЯНЕЦЬ-ПОДІЛЬСЬКИЙ
 			</p>
+			<div class="flex items-center gap-6">
+				<a href="#" class="text-[10px] font-black text-[var(--c-text-muted)] hover:text-[var(--c-primary)] uppercase tracking-widest transition-colors">Політика приватності</a>
+				<a href="#" class="text-[10px] font-black text-[var(--c-text-muted)] hover:text-[var(--c-primary)] uppercase tracking-widest transition-colors">Правила простору</a>
+			</div>
 		</div>
 	</div>
 </footer>

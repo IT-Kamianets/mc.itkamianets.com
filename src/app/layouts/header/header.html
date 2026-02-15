@@ -1,15 +1,11 @@
 <header class="header">
-	<nav class="mx-auto max-w-7xl px-3 py-2 sm:px-4 sm:py-3">
+	<nav class="mx-auto max-w-7xl px-3 py-1.5 sm:px-4 sm:py-2">
 		<div class="flex items-center justify-between gap-4">
-			<!-- Left: Logo + Brand -->
-			<div class="flex items-center gap-3 shrink-0">
-				<a routerLink="/" class="flex items-center gap-3 group">
-					<div class="h-10 w-10 overflow-hidden rounded-full border border-[var(--c-border)] shadow-sm transition-transform duration-300 group-hover:scale-110">
-						<img src="mc.png" alt="Logo" class="h-full w-full object-cover"/>
-					</div>
-					<div class="flex flex-col leading-tight">
-						<span class="text-sm font-bold tracking-tight" style="color: var(--c-text-secondary);">МОЛОДІЖНИЙ ЦЕНТР</span>
-						<span class="text-[10px] font-medium opacity-70" style="color: var(--c-text-muted);">Кам'янець-Подільський</span>
+			<!-- Left: Logo (Home Link) -->
+			<div class="flex items-center shrink-0">
+				<a routerLink="/" class="flex items-center group transition-transform hover:scale-105 active:scale-95">
+					<div class="h-10 w-10 overflow-hidden rounded-xl border-2 border-[var(--c-primary)]/10 shadow-sm bg-white p-1">
+						<img src="mc.png" alt="Logo" class="h-full w-full object-contain"/>
 					</div>
 				</a>
 			</div>

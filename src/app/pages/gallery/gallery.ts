@@ -7,7 +7,7 @@ interface GalleryItem {
 	title: string;
 	description: string;
 	category: string;
-	imageUrl: string;
+	images: string[]; // Масив посилань
 	tags: string[];
 }
 
@@ -23,9 +23,10 @@ export class Gallery implements OnInit {
 
 	selectedCategory = signal<string | null>(null);
 	selectedItem = signal<GalleryItem | null>(null);
+	currentImageIndex = signal<number>(0); // Індекс фото в альбомі
 
 	ngOnInit() {
-		this.http.get<GalleryItem[]>('data/gallery.json').subscribe({
+		this.http.get<GalleryItem[]>('/data/gallery.json').subscribe({
 			next: (data) => {
 				this.items.set(data);
 			},
@@ -46,29 +47,36 @@ export class Gallery implements OnInit {
 
 	selectItem(item: GalleryItem) {
 		this.selectedItem.set(item);
+		this.currentImageIndex.set(0);
+		document.body.style.overflow = 'hidden';
+		document.documentElement.classList.add('modal-open');
 	}
 
 	closeModal() {
 		this.selectedItem.set(null);
+		document.body.style.overflow = '';
+		document.documentElement.classList.remove('modal-open');
 	}
 
-	nextItem() {
-		const current = this.selectedItem();
-		if (!current) return;
+	nextImage(event?: Event) {
+		if (event) event.stopPropagation();
+		const item = this.selectedItem();
+		if (!item) return;
 
-		const filtered = this.getFilteredItems();
-		const currentIndex = filtered.findIndex((item) => item.id === current.id);
-		const nextIndex = (currentIndex + 1) % filtered.length;
-		this.selectedItem.set(filtered[nextIndex]);
+		const nextIndex = (this.currentImageIndex() + 1) % item.images.length;
+		this.currentImageIndex.set(nextIndex);
 	}
 
-	prevItem() {
-		const current = this.selectedItem();
-		if (!current) return;
+	prevImage(event?: Event) {
+		if (event) event.stopPropagation();
+		const item = this.selectedItem();
+		if (!item) return;
 
-		const filtered = this.getFilteredItems();
-		const currentIndex = filtered.findIndex((item) => item.id === current.id);
-		const prevIndex = currentIndex === 0 ? filtered.length - 1 : currentIndex - 1;
-		this.selectedItem.set(filtered[prevIndex]);
+		const prevIndex = this.currentImageIndex() === 0 ? item.images.length - 1 : this.currentImageIndex() - 1;
+		this.currentImageIndex.set(prevIndex);
+	}
+
+	setCurrentImage(index: number) {
+		this.currentImageIndex.set(index);
 	}
 }

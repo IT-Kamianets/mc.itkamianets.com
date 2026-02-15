@@ -3,8 +3,8 @@
 	position: sticky;
 	top: 0;
 	z-index: 50;
-	border-bottom: 1px solid var(--c-border);
-	background: color-mix(in srgb, var(--c-bg-secondary) 80%, transparent);
+	border-bottom: 1px solid color-mix(in srgb, var(--c-border) 50%, transparent);
+	background: color-mix(in srgb, var(--c-bg-secondary) 85%, transparent);
 	backdrop-filter: blur(20px);
 	transition: all 0.3s ease;
 }
@@ -12,38 +12,31 @@
 .header__link {
 	color: var(--c-text-secondary);
 	font-weight: 700;
-	letter-spacing: 0.025em;
+	letter-spacing: 0.01em;
+	padding: 8px 16px;
+	border-radius: var(--radius-btn);
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	position: relative;
 }
 
 .header__link:hover {
 	color: var(--c-primary);
+	background: color-mix(in srgb, var(--c-primary) 8%, transparent);
 }
 
 .header__link--active {
 	color: white !important;
 	background: var(--g-primary) !important;
-	box-shadow: var(--shadow-md);
+	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
 }
 
-/* Theme Switcher */
-.header__seg {
-	border: 1px solid var(--c-border);
-	border-radius: var(--radius-btn);
-	background: var(--c-bg-tertiary);
-	padding: 2px;
-}
-
-.header__seg-btn {
-	padding: 6px 12px;
-	border-radius: var(--radius-btn);
-	font-weight: 700;
+/* Theme Trigger Button */
+.header button {
+	background: white;
+	box-shadow: var(--shadow-sm);
 	transition: all 0.2s ease;
 }
 
-.header__seg-btn--active {
-	background: var(--g-primary);
-	color: white;
-	box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
+.header button:hover {
+	transform: rotate(15deg) scale(1.1);
+	border-color: var(--c-primary);
 }

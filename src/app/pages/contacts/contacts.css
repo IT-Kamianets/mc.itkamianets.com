@@ -1,8 +1,36 @@
 .contact-card {
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.contact-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--g-primary);
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	z-index: 0;
 }
 
 .contact-card:hover {
+	transform: translateY(-8px);
 	border-color: var(--c-primary);
-	transform: translateY(-4px);
+	shadow: var(--shadow-xl);
+}
+
+.contact-icon {
+	position: relative;
+	z-index: 1;
+}
+
+.contact-card h3, 
+.contact-card p, 
+.contact-card a {
+	position: relative;
+	z-index: 1;
 }

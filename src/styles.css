@@ -112,6 +112,11 @@
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
 
+/* Fix for modal z-index vs sticky header */
+html.modal-open .header {
+	z-index: 0 !important;
+}
+
 /* ========= modes ========= */
 html[data-mode='dark'] {
 	--c-bg-primary: #0f172a;
