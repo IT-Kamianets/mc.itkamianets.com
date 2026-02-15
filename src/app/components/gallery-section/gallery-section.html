@@ -16,6 +16,7 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 			@for (item of items(); track item.id; let i = $index) {
 				<div 
+					(click)="selectItem(item)"
 					class="group relative aspect-square rounded-[var(--radius-card)] overflow-hidden cursor-pointer shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-700 animate-slide-up bg-[var(--c-bg-tertiary)]"
 					[style.animationDelay]="(i * 0.1) + 's'"
 				>
@@ -55,4 +56,66 @@
 			</a>
 		</div>
 	</div>
+
+	<!-- Modal Viewer -->
+	@if (selectedItem(); as item) {
+		<div
+			class="fixed inset-0 flex items-center justify-center p-4 sm:p-6 z-[99999] animate-fade-in"
+			(click)="closeModal()"
+		>
+			<div class="absolute inset-0 bg-black/95 backdrop-blur-2xl"></div>
+
+			<div class="relative max-w-6xl w-full h-full flex items-center justify-center py-6 sm:py-12" (click)="$event.stopPropagation()">
+				<button
+					(click)="closeModal()"
+					class="absolute -top-2 -right-2 sm:top-4 sm:right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-[var(--c-secondary)] hover:scale-110 transition-all duration-300 z-[100001]"
+				>
+					✕
+				</button>
+
+				<div class="bg-white rounded-[var(--radius-card)] overflow-hidden shadow-2xl flex flex-col lg:flex-row w-full max-h-[80vh]">
+					<!-- Main Image Container -->
+					<div class="relative flex-1 bg-black flex items-center justify-center overflow-hidden group min-h-[300px] lg:min-h-0">
+						@if (item.images && item.images.length > 0) {
+							<img [src]="item.images[currentImageIndex()]" [alt]="item.title" class="max-w-full max-h-full object-contain animate-fade-in" />
+						}
+
+						@if (item.images && item.images.length > 1) {
+							<button (click)="prevImage($event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">←</button>
+							<button (click)="nextImage($event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">→</button>
+						}
+					</div>
+
+					<!-- Sidebar Info -->
+					<div class="w-full lg:w-80 flex flex-col border-l border-[var(--c-border)] bg-white overflow-hidden h-full">
+						<div class="p-6 sm:p-8 flex-1 overflow-y-auto">
+							<span class="inline-block px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-[var(--c-primary)] text-white mb-4">
+								{{ item.category }}
+							</span>
+							<h2 class="text-xl sm:text-2xl font-black mb-4 leading-tight" style="color: var(--c-text-primary);">{{ item.title }}</h2>
+							<p class="text-sm opacity-70 leading-relaxed mb-6" style="color: var(--c-text-secondary);">{{ item.description }}</p>
+							
+							<!-- Thumbnails -->
+							@if (item.images && item.images.length > 1) {
+								<div class="mb-6">
+									<p class="text-[9px] font-black uppercase tracking-widest text-[var(--c-text-muted)] mb-3">Всі фото ({{ item.images.length }})</p>
+									<div class="grid grid-cols-4 gap-2">
+										@for (img of item.images; track $index; let i = $index) {
+											<div 
+												(click)="setCurrentImage(i)"
+												class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 transition-all shadow-sm"
+												[style.borderColor]="currentImageIndex() === i ? 'var(--c-primary)' : 'transparent'"
+											>
+												<img [src]="img" class="w-full h-full object-cover" [style.opacity]="currentImageIndex() === i ? '1' : '0.4'">
+											</div>
+										}
+									</div>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	}
 </section>
