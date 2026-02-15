@@ -1,72 +1,58 @@
-<section class="hero relative overflow-hidden bg-[var(--c-bg-primary)] border-b border-[var(--c-border)]">
-	<!-- Background pattern -->
-	<div class="hero-pattern opacity-[0.03]"></div>
+<section class="hero relative overflow-hidden bg-white min-h-[75vh] flex items-center mb-[var(--sp-8)] border-b border-[var(--c-border)]">
 	
-	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-12)] sm:py-[var(--sp-16)] relative z-10">
-		<div class="grid items-center gap-[var(--sp-8)] lg:grid-cols-12">
+	<!-- Left Side: Solid Image spanning half width and full height -->
+	<div class="absolute inset-y-0 left-0 w-full lg:w-1/2 overflow-hidden z-0">
+		<div class="relative h-full w-full">
+			<img 
+				src="mc.png" 
+				alt="Молодіжний Центр Кам'янець-Подільський" 
+				class="h-full w-full object-cover blur-[2px] scale-105 opacity-90"
+			>
+			<!-- Overlay to ensure the image doesn't overwhelm the design and fades into the right side -->
+			<div class="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-white"></div>
+		</div>
+	</div>
+
+	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-10)] relative z-10 w-full">
+		<div class="grid items-center lg:grid-cols-2">
 			
-			<!-- Left Column: Content -->
-			<div class="lg:col-span-7">
-				<!-- Brand Identity -->
-				<div class="mb-[var(--sp-8)]">
-					<img src="mc.png" alt="MC Logo" class="h-20 w-20 sm:h-24 sm:w-24 rounded-[var(--radius-card)] shadow-[var(--shadow-xl)] border-2 border-[var(--c-bg-secondary)] bg-[var(--c-bg-secondary)]">
+			<!-- Left Spacer: Occupied by the absolute image above on desktop -->
+			<div class="hidden lg:block pointer-events-none"></div>
+
+			<!-- Right Column: Content -->
+			<div class="text-left animate-slide-up lg:pl-[var(--sp-12)]">
+				<div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--c-primary)]/5 border border-[var(--c-primary)]/10 text-[var(--c-primary)] text-[11px] font-black uppercase tracking-wider mb-8">
+					<span class="relative flex h-2 w-2">
+						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--c-primary)] opacity-75"></span>
+						<span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--c-primary)]"></span>
+					</span>
+					Твій простір можливостей
 				</div>
 
-				<h1 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl leading-[1.15]" style="color: var(--c-text-primary);">
+				<h1 class="text-5xl font-black tracking-tight sm:text-6xl leading-[1.1] mb-8" style="color: var(--c-text-primary);">
 					Молодіжний центр<br>
-					<span class="text-[var(--c-primary)]">Кам'янець-Подільський</span>
+					<span class="text-[#6366f1] block mt-2">Кам'янець-Подільський</span>
 				</h1>
 
-				<p class="mt-[var(--sp-6)] max-w-lg text-base sm:text-lg leading-relaxed text-[var(--c-text-secondary)] opacity-80">
+				<p class="max-w-xl text-lg leading-relaxed text-[var(--c-text-secondary)] mb-12 font-medium opacity-90">
 					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
 				</p>
 
-				<div class="mt-[var(--sp-8)] flex flex-wrap gap-[var(--sp-4)]">
+				<div class="flex flex-wrap gap-[var(--sp-5)]">
 					<a
 						routerLink="/list"
-						class="px-[var(--sp-8)] py-3.5 bg-[var(--c-primary)] hover:bg-[var(--c-primary-hover)] text-white text-sm font-bold rounded-[var(--radius-btn)] transition-all shadow-[var(--shadow-lg)] shadow-[var(--c-primary)]/20 active:scale-95 flex items-center gap-2 group"
+						class="px-[var(--sp-10)] py-4.5 bg-[#6366f1] text-white text-base font-black rounded-[var(--radius-btn)] transition-all shadow-lg hover:shadow-[#6366f1]/40 hover:-translate-y-1 active:scale-95 flex items-center gap-3 group"
 					>
-						Наші події
-						<span class="opacity-70 group-hover:translate-x-1 transition-transform">→</span>
+						<span class="text-white">Наші події</span>
+						<span class="text-white group-hover:translate-x-1 transition-transform">→</span>
 					</a>
 
 					<a
 						routerLink="/gallery"
-						class="px-[var(--sp-8)] py-3.5 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-sm font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] active:scale-95 shadow-[var(--shadow-sm)]"
+						class="px-[var(--sp-10)] py-4.5 bg-white border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] hover:shadow-md hover:-translate-y-1 active:scale-95 shadow-sm"
 					>
 						Галерея
 					</a>
-				</div>
-			</div>
-
-			<!-- Right Column: Stats Cards -->
-			<div class="lg:col-span-5">
-				<div class="grid gap-[var(--sp-4)]">
-					<!-- Working Hours Card -->
-					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-6)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-[var(--shadow-xl)] shadow-black/5 flex items-start gap-[var(--sp-5)] group">
-						<div class="w-12 h-12 shrink-0 rounded-[var(--radius)] bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">🕒</div>
-						<div>
-							<p class="text-[10px] font-bold uppercase tracking-widest text-[var(--c-primary)] mb-1">Графік роботи</p>
-							<h3 class="text-2xl font-bold text-[var(--c-text-primary)]">10:00 — 19:00</h3>
-							<div class="mt-2 flex items-center gap-2 text-xs font-semibold text-green-600">
-								<span class="w-2 h-2 rounded-full bg-green-500"></span>
-								Чекаємо на тебе сьогодні!
-							</div>
-						</div>
-					</div>
-
-					<!-- Activity Card -->
-					<div class="bg-[var(--c-bg-secondary)] p-[var(--sp-6)] rounded-[var(--radius-card)] border border-[var(--c-border)] shadow-[var(--shadow-xl)] shadow-black/5 flex items-start gap-[var(--sp-5)] group">
-						<div class="w-12 h-12 shrink-0 rounded-[var(--radius)] bg-[var(--c-bg-primary)] flex items-center justify-center text-xl border border-[var(--c-border)] group-hover:bg-[var(--c-primary)] group-hover:text-white transition-colors">📅</div>
-						<div>
-							<p class="text-[10px] font-bold uppercase tracking-widest text-[var(--c-primary)] mb-1">Активність</p>
-							<div class="flex items-baseline gap-2">
-								<h3 class="text-3xl font-black text-[var(--c-text-primary)]">120+</h3>
-								<span class="text-sm font-bold text-[var(--c-text-muted)]">заходів щороку</span>
-							</div>
-							<p class="mt-1 text-xs text-[var(--c-text-secondary)] opacity-70">Для розвитку та дозвілля громади</p>
-						</div>
-					</div>
 				</div>
 			</div>
 

@@ -1,9 +1,13 @@
-<section class="py-[var(--sp-20)] bg-[var(--c-bg-secondary)]">
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)]">
+<section class="py-[var(--sp-16)] sm:py-[var(--sp-20)] bg-white relative overflow-hidden">
+	<!-- Subtle background pattern -->
+	<div class="events-pattern absolute inset-0 opacity-[0.015] pointer-events-none"></div>
+
+	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
 		<!-- Header -->
-		<div class="text-center mb-12 animate-fade-in">
-			<h2 class="text-3xl font-bold text-[var(--c-text-primary)] sm:text-4xl">{{ title() }}</h2>
-			<p class="mt-4 text-lg text-[var(--c-text-secondary)] opacity-70 max-w-2xl mx-auto">
+		<div class="text-center mb-[var(--sp-12)] animate-fade-in">
+			<h2 class="text-3xl font-black text-[var(--c-text-primary)] sm:text-4xl lg:text-5xl mb-4">{{ title() }}</h2>
+			<div class="w-16 h-1 bg-[var(--c-secondary)] mx-auto rounded-full mb-6"></div>
+			<p class="text-base text-[var(--c-text-secondary)] opacity-70 max-w-xl mx-auto font-medium">
 				Приєднуйся до наших ініціатив та розвивайся разом з нами.
 			</p>
 		</div>
@@ -13,7 +17,7 @@
 			@for (item of items(); track item.id; let i = $index) {
 				<a 
 					[routerLink]="['/profile', item.id]"
-					class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden cursor-pointer block animate-slide-up shadow-[var(--shadow-md)]"
+					class="group relative aspect-[4/5] rounded-[var(--radius-card)] overflow-hidden cursor-pointer block animate-slide-up shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-500 hover:-translate-y-1.5"
 					[class.stagger-1]="i === 0"
 					[class.stagger-2]="i === 1"
 					[class.stagger-3]="i === 2"
@@ -21,36 +25,40 @@
 					<img 
 						[src]="item.imageUrl" 
 						[alt]="item.name"
-						class="w-full h-full object-cover"
+						class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
 						onerror="this.src='https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80'"
 					>
 					
-					<!-- Overlay -->
-					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 flex flex-col justify-end p-6 transition-opacity duration-300">
-						<div class="flex items-center gap-2 mb-2">
-							<span class="inline-block w-fit px-3 py-1 rounded-full bg-[var(--c-primary)] text-white text-[10px] font-bold uppercase tracking-widest">
+					<!-- Static Info Overlay (Bottom) -->
+					<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 flex flex-col justify-end">
+						<div class="flex items-center gap-2.5 mb-3">
+							<span class="px-2.5 py-1 rounded-full bg-[var(--c-primary)] text-white text-[9px] font-black uppercase tracking-widest shadow-lg">
 								{{ item.category }}
 							</span>
-							<span class="text-white/80 text-[10px] font-bold uppercase tracking-widest">
+							<span class="text-white/80 text-[9px] font-bold uppercase tracking-widest flex items-center gap-1">
+								<span class="w-1 h-1 rounded-full bg-white/40"></span>
 								{{ item.date }}
 							</span>
 						</div>
 						
-						<h3 class="text-white text-xl font-bold mb-1">{{ item.name }}</h3>
-						<p class="text-white/80 text-sm line-clamp-2">{{ item.description }}</p>
+						<h3 class="text-white text-xl font-black mb-1.5 leading-tight group-hover:text-[var(--c-primary)] transition-colors">{{ item.name }}</h3>
+						<p class="text-white/70 text-xs line-clamp-2 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">{{ item.description }}</p>
 					</div>
+
+					<!-- Hover Glow -->
+					<div class="absolute inset-0 border border-[var(--c-primary)] opacity-0 group-hover:opacity-10 transition-opacity rounded-[var(--radius-card)] pointer-events-none"></div>
 				</a>
 			}
 		</div>
 
 		<!-- Button -->
-		<div class="mt-16 text-center animate-fade-in" style="animation-delay: 0.4s;">
+		<div class="mt-[var(--sp-12)] text-center animate-fade-in" style="animation-delay: 0.4s;">
 			<a 
 				routerLink="/list"
-				class="inline-flex items-center gap-2 px-[var(--sp-8)] py-3 bg-[var(--c-bg-primary)] border border-[var(--c-border)] rounded-[var(--radius-btn)] text-[var(--c-text-primary)] font-bold text-sm transition-all hover:border-[var(--c-primary)] active:scale-95 shadow-[var(--shadow-sm)] group"
+				class="inline-flex items-center gap-2.5 px-[var(--sp-10)] py-3.5 rounded-[var(--radius-btn)] transition-all shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-95 group bg-[#6366f1] text-white font-black text-sm"
 			>
 				Переглянути всі події
-				<span class="text-[var(--c-primary)]">→</span>
+				<span class="group-hover:translate-x-1 transition-transform">→</span>
 			</a>
 		</div>
 	</div>

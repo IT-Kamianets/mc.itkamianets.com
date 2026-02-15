@@ -2,46 +2,51 @@
 
 /* Design tokens (CSS variables). Runtime-themable; keep SCSS using var(--token) */
 :root {
-	/* brand / actions - Based on Logo */
-	--c-primary: #256eff;
-	--c-primary-hover: #0051f1;
-	--c-secondary: #457B9D;
-	--c-secondary-hover: #1D3557;
+	/* brand / actions - More vibrant and energetic */
+	--c-primary: #6366f1; /* Indigo */
+	--c-primary-hover: #4f46e5;
+	--c-secondary: #ec4899; /* Pink/Rose for accent */
+	--c-secondary-hover: #db2777;
+	--c-accent: #8b5cf6; /* Purple */
+	
+	/* gradients */
+	--g-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+	--g-surface: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(99,102,241,0.05) 100%);
 
 	/* surfaces */
-	--c-bg-primary: #f8fafc; /* Lighter, cleaner background */
+	--c-bg-primary: #fcfdff;
 	--c-bg-secondary: #ffffff;
-	--c-bg-tertiary: #f1f5f9;
+	--c-bg-tertiary: #f5f7ff;
 
 	/* content */
-	--c-text-primary: #0f172a; /* Deep navy/black for headers */
-	--c-text-secondary: #334155; /* Gray-slate for body */
+	--c-text-primary: #1e1b4b; /* Deep indigo for better contrast */
+	--c-text-secondary: #475569;
 	--c-text-muted: #64748b;
 	--c-placeholder: #94a3b8;
 
-	/* borders & elevation */
+	/* borders & elevation - Softer, more premium shadows */
 	--c-border: #e2e8f0;
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	--shadow-sm: 0 1px 2px rgba(99, 102, 241, 0.05);
+	--shadow-md: 0 4px 12px -1px rgba(99, 102, 241, 0.08), 0 2px 4px -1px rgba(99, 102, 241, 0.04);
+	--shadow-lg: 0 20px 25px -5px rgba(99, 102, 241, 0.1), 0 8px 10px -6px rgba(99, 102, 241, 0.05);
+	--shadow-xl: 0 25px 50px -12px rgba(99, 102, 241, 0.15);
 
 	/* typography */
 	--ff-base: 'Inter', system-ui, -apple-system, sans-serif;
-	--fs: 16px;
-	--letter-spacing: 0;
+	--fs: 15px; /* Slightly smaller base font */
+	--letter-spacing: -0.01em;
 	--fw-light: 300;
 	--fw-normal: 400;
 	--fw-medium: 500;
 	--fw-semibold: 600;
 	--fw-bold: 700;
 
-	/* radius (Consistent with Profile page reference) */
-	--radius: 12px;
-	--radius-card: 24px;
-	--radius-btn: 14px;
+	/* radius */
+	--radius: 10px;
+	--radius-card: 20px;
+	--radius-btn: 12px;
 
-	/* spacing */
+	/* spacing - adjusted for better density */
 	--sp-0: 0px;
 	--sp-1: 4px;
 	--sp-2: 8px;
@@ -49,12 +54,12 @@
 	--sp-4: 16px;
 	--sp-5: 20px;
 	--sp-6: 24px;
-	--sp-7: 32px;
-	--sp-8: 40px;
-	--sp-10: 48px;
-	--sp-12: 56px;
-	--sp-16: 72px;
-	--sp-20: 96px;
+	--sp-7: 28px;
+	--sp-8: 32px;
+	--sp-10: 40px;
+	--sp-12: 48px;
+	--sp-16: 64px;
+	--sp-20: 80px;
 
 	/* layout */
 	--container: 1280px;
