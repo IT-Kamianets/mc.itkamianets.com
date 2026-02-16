@@ -29,14 +29,108 @@
 	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
 }
 
-/* Theme Trigger Button */
+/* Theme Trigger Button - Subtle animation */
 .header button {
 	background: white;
 	box-shadow: var(--shadow-sm);
-	transition: all 0.2s ease;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header button:hover {
-	transform: rotate(15deg) scale(1.1);
+	transform: scale(1.05);
+	border-color: var(--c-primary);
+	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+/* Theme Menu - Smooth dropdown animation */
+.header__menu {
+	animation: slideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+	transform-origin: top right;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-8px) scale(0.96);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* Segmented Control Styles */
+.header__seg {
+	background: var(--c-bg-tertiary);
+	border-radius: var(--radius-btn);
+	padding: 3px;
+	gap: 3px;
+}
+
+.header__seg-btn {
+	padding: 6px 8px;
+	border-radius: calc(var(--radius-btn) - 3px);
+	color: var(--c-text-primary);
+	font-weight: 600;
+	text-transform: capitalize;
+	background: rgba(0, 0, 0, 0.03);
+	border: 1px solid var(--c-border);
+	cursor: pointer;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+}
+
+.header__seg-btn:hover:not(.header__seg-btn--active) {
+	color: var(--c-primary);
+	border-color: var(--c-primary);
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+}
+
+.header__seg-btn--active {
+	color: #ffffff !important;
+	background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+	border-color: transparent;
+	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+	transform: scale(1.02);
+	font-weight: 700;
+	z-index: 10;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	/* Ensure text pops */
+}
+
+.header__seg-btn--active::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		left: -100%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}
+
+/* Dark mode adjustments */
+/* Dark mode adjustments using :host-context to break out of component encapsulation correctly */
+:host-context(html[data-mode='dark']) .header__seg-btn:not(.header__seg-btn--active) {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgba(255, 255, 255, 0.1);
+	color: var(--c-text-primary);
+}
+
+:host-context(html[data-mode='dark']) .header__seg-btn:hover:not(.header__seg-btn--active) {
+	background: rgba(255, 255, 255, 0.1);
 	border-color: var(--c-primary);
 }

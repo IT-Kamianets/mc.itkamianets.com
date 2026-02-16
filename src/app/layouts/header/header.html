@@ -4,68 +4,83 @@
 			<!-- Left: Logo (Home Link) -->
 			<div class="flex items-center shrink-0">
 				<a routerLink="/" class="flex items-center group transition-transform hover:scale-105 active:scale-95">
-					<div class="h-10 w-10 overflow-hidden rounded-xl border-2 border-[var(--c-primary)]/10 shadow-sm bg-white p-1">
-						<img src="mc.png" alt="Logo" class="h-full w-full object-contain"/>
+					<div
+						class="h-10 w-10 overflow-hidden rounded-xl border-2 border-[var(--c-primary)]/10 shadow-sm bg-white p-1">
+						<img src="mc.png" alt="Logo" class="h-full w-full object-contain" />
 					</div>
 				</a>
 			</div>
 
 			<!-- Center: Navigation Links (Desktop) -->
 			<div class="header__nav hidden sm:flex flex-wrap justify-center gap-1">
-				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Головна</a>
-				<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Події</a>
-				<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Галерея</a>
-				<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Контакти</a>
+				<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active"
+					class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Головна</a>
+				<a routerLink="/list" routerLinkActive="header__link--active"
+					class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Події</a>
+				<a routerLink="/gallery" routerLinkActive="header__link--active"
+					class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Галерея</a>
+				<a routerLink="/contacts" routerLinkActive="header__link--active"
+					class="header__link rounded-md px-3 py-2 text-sm font-semibold transition">Контакти</a>
 			</div>
 
 			<!-- Right: Theme Menu Trigger -->
 			<div class="relative shrink-0 flex items-center gap-2">
 				<!-- Navigation Links (Mobile icon or text) - keeping it simple for now as per user request to wrap theme controls -->
 				<div class="sm:hidden flex items-center gap-2">
-					<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">Г</a>
-					<a routerLink="/list" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">П</a>
-					<a routerLink="/gallery" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">Гал</a>
-					<a routerLink="/contacts" routerLinkActive="header__link--active" class="header__link rounded px-2 py-1 text-xs font-semibold transition">К</a>
+					<a routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+						routerLinkActive="header__link--active"
+						class="header__link rounded px-2 py-1 text-xs font-semibold transition">Г</a>
+					<a routerLink="/list" routerLinkActive="header__link--active"
+						class="header__link rounded px-2 py-1 text-xs font-semibold transition">П</a>
+					<a routerLink="/gallery" routerLinkActive="header__link--active"
+						class="header__link rounded px-2 py-1 text-xs font-semibold transition">Гал</a>
+					<a routerLink="/contacts" routerLinkActive="header__link--active"
+						class="header__link rounded px-2 py-1 text-xs font-semibold transition">К</a>
 				</div>
 
-				<button 
-					(click)="toggleThemeMenu()"
-					class="p-2 rounded-md hover:bg-[var(--c-bg-tertiary)] transition-colors border border-[var(--c-border)]"
-					title="Налаштування теми"
-				>
+				<button (click)="toggleThemeMenu()"
+					class="header__theme-btn p-2 rounded-md hover:bg-[var(--c-bg-tertiary)] transition-colors border border-[var(--c-border)]"
+					title="Налаштування теми (Theme Settings)">
 					🎨
 				</button>
 
 				<!-- Theme Settings Menu -->
 				@if (showThemeMenu()) {
-					<div class="absolute right-0 top-full mt-2 w-48 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] rounded-[var(--radius)] shadow-lg z-[100] p-3 ">
-						<div class="space-y-4">
-							<div>
-								<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Тема</p>
-								<div class="header__seg flex w-full">
-									@for (m of modes; track m) {
-										<button type="button" class="header__seg-btn flex-1 text-[10px] transition" [class.header__seg-btn--active]="theme.mode() === m" (click)="setMode(m)">{{ m }}</button>
-									}
-								</div>
+				<div
+					class="header__menu absolute right-0 top-full mt-2 w-48 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] rounded-[var(--radius)] shadow-lg z-[100] p-3 ">
+					<div class="space-y-4">
+						<div>
+							<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Тема</p>
+							<div class="header__seg flex w-full">
+								@for (m of modes; track m) {
+								<button type="button" class="header__seg-btn flex-1 text-[11px] transition"
+									[class.header__seg-btn--active]="theme.mode() === m" (click)="setMode(m)">{{ m
+									}}</button>
+								}
 							</div>
-							<div>
-								<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Щільність</p>
-								<div class="header__seg flex w-full">
-									@for (d of densities; track d) {
-										<button type="button" class="header__seg-btn flex-1 text-[10px] transition" [class.header__seg-btn--active]="theme.density() === d" (click)="setDensity(d)">{{ d.slice(0, 4) }}</button>
-									}
-								</div>
+						</div>
+						<div>
+							<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Щільність</p>
+							<div class="header__seg flex w-full">
+								@for (d of densities; track d) {
+								<button type="button" class="header__seg-btn flex-1 text-[11px] transition"
+									[class.header__seg-btn--active]="theme.density() === d" (click)="setDensity(d)">{{ d
+									=== 'comfortable' ? 'Комф' : 'Комп' }}</button>
+								}
 							</div>
-							<div>
-								<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Радіус</p>
-								<div class="header__seg flex w-full">
-									@for (r of radii; track r) {
-										<button type="button" class="header__seg-btn flex-1 text-[10px] transition" [class.header__seg-btn--active]="theme.radius() === r" (click)="setRadius(r)">{{ r.slice(0, 4) }}</button>
-									}
-								</div>
+						</div>
+						<div>
+							<p class="text-[10px] uppercase font-bold text-[var(--c-text-muted)] mb-1.5">Радіус</p>
+							<div class="header__seg flex w-full">
+								@for (r of radii; track r) {
+								<button type="button" class="header__seg-btn flex-1 text-[11px] transition"
+									[class.header__seg-btn--active]="theme.radius() === r" (click)="setRadius(r)">{{ r
+									=== 'rounded' ? 'Закр' : 'Квад' }}</button>
+								}
 							</div>
 						</div>
 					</div>
+				</div>
 				}
 			</div>
 		</div>
