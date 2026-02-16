@@ -3,13 +3,25 @@
    ============================================ */
 
 @keyframes float {
-	0%, 100% { transform: translateY(0); }
-	50% { transform: translateY(-10px); }
+
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
 }
 
 @keyframes rotate-slow {
-	from { transform: rotate(0deg); }
-	to { transform: rotate(360deg); }
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes fade-in-up {
@@ -17,6 +29,7 @@
 		opacity: 0;
 		transform: translateY(30px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -28,9 +41,11 @@
 		opacity: 0;
 		transform: scale(0.3);
 	}
+
 	50% {
 		transform: scale(1.05);
 	}
+
 	100% {
 		opacity: 1;
 		transform: scale(1);
@@ -42,7 +57,8 @@
 	color: var(--c-text-primary);
 	position: relative;
 	overflow: hidden;
-	padding-top: 60px; /* Reduced from 80px */
+	padding-top: 60px;
+	/* Reduced from 80px */
 }
 
 .hero-pattern {
@@ -172,4 +188,17 @@
 
 .float-element {
 	animation: float 4s ease-in-out infinite;
+}
+
+/* Dark mode overrides */
+:host-context(html[data-mode='dark']) .hero__btn-secondary {
+	background: rgba(255, 255, 255, 0.05);
+	/* Легкий прозорий фон */
+	border-color: rgba(255, 255, 255, 0.1);
+	color: var(--c-text-primary);
+}
+
+:host-context(html[data-mode='dark']) .hero__btn-secondary:hover {
+	border-color: var(--c-primary);
+	background: rgba(255, 255, 255, 0.1);
 }
