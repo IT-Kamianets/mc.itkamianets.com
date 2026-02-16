@@ -1,56 +1,56 @@
-<section class="hero relative overflow-hidden bg-white min-h-[75vh] flex items-center mb-[var(--sp-8)] border-b border-[var(--c-border)]">
-	
+<section
+	class="hero relative overflow-hidden bg-[var(--c-bg-secondary)] min-h-[75vh] flex items-center mb-[var(--sp-8)] border-b border-[var(--c-border)]">
+
 	<!-- Left Side: Solid Image spanning half width and full height -->
 	<div class="absolute inset-y-0 left-0 w-full lg:w-1/2 overflow-hidden z-0">
 		<div class="relative h-full w-full">
-			<img 
-				src="mc.png" 
-				alt="Молодіжний Центр Кам'янець-Подільський" 
-				class="h-full w-full object-cover blur-[2px] scale-105 opacity-90"
-			>
+			<img src="mc.png" alt="Молодіжний Центр Кам'янець-Подільський"
+				class="h-full w-full object-cover blur-[2px] scale-105 opacity-90">
 			<!-- Overlay to ensure the image doesn't overwhelm the design and fades into the right side -->
-			<div class="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-white"></div>
+			<div class="absolute inset-0"
+				style="background: linear-gradient(to right, rgba(0,0,0,0.05), transparent, var(--c-bg-secondary));">
+			</div>
 		</div>
 	</div>
 
 	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-10)] relative z-10 w-full">
 		<div class="grid items-center lg:grid-cols-2">
-			
+
 			<!-- Left Spacer: Occupied by the absolute image above on desktop -->
 			<div class="hidden lg:block pointer-events-none"></div>
 
 			<!-- Right Column: Content -->
 			<div class="text-left animate-slide-up lg:pl-[var(--sp-12)]">
-				<div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--c-primary)]/5 border border-[var(--c-primary)]/10 text-[var(--c-primary)] text-[11px] font-black uppercase tracking-wider mb-8">
+				<div
+					class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--c-primary)]/5 border border-[var(--c-primary)]/10 text-[var(--c-primary)] text-[11px] font-black uppercase tracking-wider mb-8">
 					<span class="relative flex h-2 w-2">
-						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--c-primary)] opacity-75"></span>
+						<span
+							class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--c-primary)] opacity-75"></span>
 						<span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--c-primary)]"></span>
 					</span>
 					Твій простір можливостей
 				</div>
 
-				<h1 class="text-5xl font-black tracking-tight sm:text-6xl leading-[1.1] mb-8" style="color: var(--c-text-primary);">
+				<h1 class="text-5xl font-black tracking-tight sm:text-6xl leading-[1.1] mb-8"
+					style="color: var(--c-text-primary);">
 					Молодіжний центр<br>
-					<span class="text-[#6366f1] block mt-2">Кам'янець-Подільський</span>
+					<span class="block mt-2" style="color: var(--c-primary);">Кам'янець-Подільський</span>
 				</h1>
 
 				<p class="max-w-xl text-lg leading-relaxed text-[var(--c-text-secondary)] mb-12 font-medium opacity-90">
-					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо волонтерський рух у нашому місті.
+					Ми створюємо умови для самореалізації молоді, підтримуємо громадські ініціативи та розвиваємо
+					волонтерський рух у нашому місті.
 				</p>
 
 				<div class="flex flex-wrap gap-[var(--sp-5)]">
-					<a
-						routerLink="/list"
-						class="px-[var(--sp-10)] py-4.5 bg-[#6366f1] text-white text-base font-black rounded-[var(--radius-btn)] transition-all shadow-lg hover:shadow-[#6366f1]/40 hover:-translate-y-1 active:scale-95 flex items-center gap-3 group"
-					>
+					<a routerLink="/list"
+						class="px-[var(--sp-10)] py-4.5 bg-[var(--c-primary)] text-white text-base font-black rounded-[var(--radius-btn)] transition-all shadow-lg hover:shadow-[var(--c-primary)]/40 hover:-translate-y-1 active:scale-95 flex items-center gap-3 group">
 						<span class="text-white">Наші події</span>
 						<span class="text-white group-hover:translate-x-1 transition-transform">→</span>
 					</a>
 
-					<a
-						routerLink="/gallery"
-						class="px-[var(--sp-10)] py-4.5 bg-white border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] hover:shadow-md hover:-translate-y-1 active:scale-95 shadow-sm"
-					>
+					<a routerLink="/gallery"
+						class="px-[var(--sp-10)] py-4.5 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] hover:shadow-md hover:-translate-y-1 active:scale-95 shadow-sm">
 						Галерея
 					</a>
 				</div>

@@ -3,15 +3,18 @@
 /* Design tokens (CSS variables). Runtime-themable; keep SCSS using var(--token) */
 :root {
 	/* brand / actions - More vibrant and energetic */
-	--c-primary: #6366f1; /* Indigo */
+	--c-primary: #6366f1;
+	/* Indigo */
 	--c-primary-hover: #4f46e5;
-	--c-secondary: #ec4899; /* Pink/Rose for accent */
+	--c-secondary: #ec4899;
+	/* Pink/Rose for accent */
 	--c-secondary-hover: #db2777;
-	--c-accent: #8b5cf6; /* Purple */
-	
+	--c-accent: #8b5cf6;
+	/* Purple */
+
 	/* gradients */
 	--g-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-	--g-surface: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(99,102,241,0.05) 100%);
+	--g-surface: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(99, 102, 241, 0.05) 100%);
 
 	/* surfaces */
 	--c-bg-primary: #fcfdff;
@@ -19,7 +22,8 @@
 	--c-bg-tertiary: #f5f7ff;
 
 	/* content */
-	--c-text-primary: #1e1b4b; /* Deep indigo for better contrast */
+	--c-text-primary: #1e1b4b;
+	/* Deep indigo for better contrast */
 	--c-text-secondary: #475569;
 	--c-text-muted: #64748b;
 	--c-placeholder: #94a3b8;
@@ -33,7 +37,8 @@
 
 	/* typography */
 	--ff-base: 'Inter', system-ui, -apple-system, sans-serif;
-	--fs: 15px; /* Slightly smaller base font */
+	--fs: 15px;
+	/* Slightly smaller base font */
 	--letter-spacing: -0.01em;
 	--fw-light: 300;
 	--fw-normal: 400;
@@ -77,18 +82,24 @@
    ============================================ */
 
 @keyframes fade-in {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes slide-up {
-	from { 
-		opacity: 0; 
-		transform: translateY(30px); 
+	from {
+		opacity: 0;
+		transform: translateY(30px);
 	}
-	to { 
-		opacity: 1; 
-		transform: translateY(0); 
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
@@ -105,12 +116,29 @@
 }
 
 /* Stagger delays for grid items */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+.stagger-1 {
+	animation-delay: 0.1s;
+}
+
+.stagger-2 {
+	animation-delay: 0.2s;
+}
+
+.stagger-3 {
+	animation-delay: 0.3s;
+}
+
+.stagger-4 {
+	animation-delay: 0.4s;
+}
+
+.stagger-5 {
+	animation-delay: 0.5s;
+}
+
+.stagger-6 {
+	animation-delay: 0.6s;
+}
 
 /* Fix for modal z-index vs sticky elements */
 html.modal-open .header,
@@ -127,7 +155,7 @@ html[data-mode='dark'] {
 	--c-text-primary: #f8fafc;
 	--c-text-secondary: #cbd5e1;
 	--c-text-muted: #94a3b8;
-	
+
 	--c-border: #334155;
 	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
@@ -139,14 +167,19 @@ html[data-mode='itkp'] {
 	--c-bg-tertiary: #d9cba3;
 	--c-text-primary: #1b1b1b;
 	--c-text-secondary: #2d2d2d;
-	--c-border: rgba(0,0,0,0.1);
+	--c-border: rgba(0, 0, 0, 0.1);
 }
 
 /* ========= density ========= */
 html[data-density='compact'] {
 	--sp-4: 12px;
+	--sp-5: 16px;
 	--sp-6: 16px;
 	--sp-8: 24px;
+	--sp-10: 32px;
+	--sp-12: 36px;
+	--sp-16: 48px;
+	--sp-20: 64px;
 	--radius-card: 16px;
 }
 
