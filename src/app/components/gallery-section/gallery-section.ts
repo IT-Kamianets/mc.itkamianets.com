@@ -1,9 +1,9 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { GALLERY_ITEMS } from '../../data/gallery';
 
-interface GalleryItem {
+export interface GalleryItem {
 	id: number;
 	title: string;
 	description: string;
@@ -19,20 +19,10 @@ interface GalleryItem {
 	templateUrl: './gallery-section.html',
 	styleUrl: './gallery-section.css',
 })
-export class GallerySection implements OnInit {
-	private http = inject(HttpClient);
-	items = signal<GalleryItem[]>([]);
+export class GallerySection {
+	items = signal<GalleryItem[]>(GALLERY_ITEMS.slice(0, 3));
 	selectedItem = signal<GalleryItem | null>(null);
 	currentImageIndex = signal<number>(0);
-
-	ngOnInit() {
-		this.http.get<GalleryItem[]>('/data/gallery.json').subscribe({
-			next: (data) => {
-				this.items.set(data.slice(0, 3));
-			},
-			error: (err) => console.error('Error loading gallery data for section:', err)
-		});
-	}
 
 	selectItem(item: GalleryItem) {
 		this.selectedItem.set(item);

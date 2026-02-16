@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal, computed } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs/operators';
+import { Component, signal, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { EVENTS } from '../../data/events';
 
 @Component({
 	selector: 'app-list',
@@ -12,24 +10,18 @@ import { RouterLink } from '@angular/router';
 	styleUrl: './list.css',
 })
 export class List {
-	private http = inject(HttpClient);
-	
-	items = toSignal(
-		this.http.get<any[]>('/data/events.json').pipe(
-			map((data) =>
-				data.map((item) => ({
-					id: item.id,
-					name: item.title,
-					description: item.description,
-					category: item.category,
-					date: item.date,
-					icon: '📅',
-					imageUrl: item.image,
-				}))
-			)
-		),
-		{ initialValue: [] }
-	);
+	// Мапимо дані з файлу events.ts у формат, який очікує шаблон
+	private readonly rawItems = EVENTS.map((item) => ({
+		id: item.id,
+		name: item.title,
+		description: item.description,
+		category: item.category,
+		date: item.date,
+		icon: '📅',
+		imageUrl: item.image,
+	}));
+
+	items = signal(this.rawItems);
 
 	selectedItem = signal<any | null>(null);
 	filteredCategory = signal<string>('Усі');

@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, signal } from '@angular/core';
+import { GALLERY_ITEMS } from '../../data/gallery';
 
-interface GalleryItem {
+export interface GalleryItem {
 	id: number;
 	title: string;
 	description: string;
 	category: string;
-	images: string[]; // Масив посилань
+	images: string[];
 	tags: string[];
 }
 
@@ -17,25 +17,16 @@ interface GalleryItem {
 	templateUrl: './gallery.html',
 	styleUrl: './gallery.css',
 })
-export class Gallery implements OnInit {
-	private http = inject(HttpClient);
-	items = signal<GalleryItem[]>([]);
+export class Gallery {
+	items = signal<GalleryItem[]>(GALLERY_ITEMS);
 
 	selectedCategory = signal<string | null>(null);
 	selectedItem = signal<GalleryItem | null>(null);
-	currentImageIndex = signal<number>(0); // Індекс фото в альбомі
-
-	ngOnInit() {
-		this.http.get<GalleryItem[]>('/data/gallery.json').subscribe({
-			next: (data) => {
-				this.items.set(data);
-			},
-			error: (err) => console.error('Error loading gallery:', err)
-		});
-	}
+	currentImageIndex = signal<number>(0);
 
 	getCategories(): string[] {
-		return [...new Set(this.items().map((item) => item.category))];
+		const unique = new Set(this.items().map((item) => item.category));
+		return Array.from(unique);
 	}
 
 	getFilteredItems(): GalleryItem[] {
