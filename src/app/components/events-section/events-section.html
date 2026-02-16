@@ -1,12 +1,14 @@
-<section class="py-[var(--sp-16)] sm:py-[var(--sp-20)] bg-[var(--c-bg-primary)] relative overflow-hidden">
+<section
+	class="py-[var(--sp-16)] sm:py-[var(--sp-20)] bg-[var(--c-bg-primary)] relative overflow-hidden transition-all duration-300">
 	<!-- Subtle background pattern -->
 	<div
 		class="events-pattern absolute inset-0 opacity-[0.035] pointer-events-none mix-blend-multiply dark:mix-blend-overlay">
 	</div>
 
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10">
+	<div
+		class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] relative z-10 transition-all duration-300">
 		<!-- Header -->
-		<div class="text-center mb-[var(--sp-12)] animate-fade-in">
+		<div class="text-center mb-[var(--sp-12)] animate-fade-in transition-all duration-300">
 			<h2 class="text-3xl font-black text-[var(--c-text-primary)] sm:text-4xl lg:text-5xl mb-4">{{ title() }}</h2>
 			<div class="w-16 h-1 bg-[var(--c-secondary)] mx-auto rounded-full mb-6"></div>
 			<p class="text-base text-[var(--c-text-secondary)] opacity-70 max-w-xl mx-auto font-medium">
@@ -56,9 +58,10 @@
 		</div>
 
 		<!-- Button -->
-		<div class="mt-[var(--sp-12)] text-center animate-fade-in" style="animation-delay: 0.4s;">
+		<div class="mt-[var(--sp-12)] text-center animate-fade-in transition-all duration-300"
+			style="animation-delay: 0.4s;">
 			<a routerLink="/list"
-				class="inline-flex items-center gap-2.5 px-[var(--sp-10)] py-3.5 rounded-[var(--radius-btn)] transition-all shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-95 group bg-[var(--c-primary)] text-white font-black text-sm">
+				class="inline-flex items-center gap-2.5 px-[var(--sp-10)] py-3.5 rounded-[var(--radius-btn)] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 active:scale-95 group bg-[var(--c-primary)] text-white font-black text-sm">
 				Переглянути всі події
 				<span class="group-hover:translate-x-1 transition-transform">→</span>
 			</a>

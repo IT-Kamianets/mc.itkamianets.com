@@ -1,5 +1,5 @@
 <section
-	class="hero relative overflow-hidden bg-[var(--c-bg-secondary)] min-h-[75vh] flex items-center mb-[var(--sp-8)] border-b border-[var(--c-border)]">
+	class="hero relative overflow-hidden bg-[var(--c-bg-secondary)] min-h-[75vh] flex items-center mb-[var(--sp-8)] border-b border-[var(--c-border)] transition-all duration-300">
 
 	<!-- Left Side: Solid Image spanning half width and full height -->
 	<div class="absolute inset-y-0 left-0 w-full lg:w-1/2 overflow-hidden z-0">
@@ -13,14 +13,14 @@
 		</div>
 	</div>
 
-	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-10)] relative z-10 w-full">
+	<div class="mx-auto max-w-7xl px-[var(--sp-4)] py-[var(--sp-10)] relative z-10 w-full transition-all duration-300">
 		<div class="grid items-center lg:grid-cols-2">
 
 			<!-- Left Spacer: Occupied by the absolute image above on desktop -->
 			<div class="hidden lg:block pointer-events-none"></div>
 
 			<!-- Right Column: Content -->
-			<div class="text-left animate-slide-up lg:pl-[var(--sp-12)]">
+			<div class="text-left animate-slide-up lg:pl-[var(--sp-12)] transition-all duration-300">
 				<div
 					class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[var(--c-primary)]/5 border border-[var(--c-primary)]/10 text-[var(--c-primary)] text-[11px] font-black uppercase tracking-wider mb-8">
 					<span class="relative flex h-2 w-2">
@@ -42,15 +42,15 @@
 					волонтерський рух у нашому місті.
 				</p>
 
-				<div class="flex flex-wrap gap-[var(--sp-5)]">
+				<div class="flex flex-wrap gap-[var(--sp-5)] transition-all duration-300">
 					<a routerLink="/list"
-						class="px-[var(--sp-10)] py-4.5 bg-[var(--c-primary)] text-white text-base font-black rounded-[var(--radius-btn)] transition-all shadow-lg hover:shadow-[var(--c-primary)]/40 hover:-translate-y-1 active:scale-95 flex items-center gap-3 group">
+						class="px-[var(--sp-10)] py-4.5 bg-[var(--c-primary)] text-white text-base font-black rounded-[var(--radius-btn)] transition-all duration-300 shadow-lg hover:shadow-[var(--c-primary)]/40 hover:-translate-y-1 active:scale-95 flex items-center gap-3 group">
 						<span class="text-white">Наші події</span>
 						<span class="text-white group-hover:translate-x-1 transition-transform">→</span>
 					</a>
 
 					<a routerLink="/gallery"
-						class="hero__btn-secondary px-[var(--sp-10)] py-4.5 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-bold rounded-[var(--radius-btn)] transition-all hover:border-[var(--c-primary)] hover:shadow-md hover:-translate-y-1 active:scale-95 shadow-sm">
+						class="hero__btn-secondary px-[var(--sp-10)] py-4.5 bg-[var(--c-bg-secondary)] border border-[var(--c-border)] text-[var(--c-text-primary)] text-base font-bold rounded-[var(--radius-btn)] transition-all duration-300 hover:border-[var(--c-primary)] hover:shadow-md hover:-translate-y-1 active:scale-95 shadow-sm">
 						Галерея
 					</a>
 				</div>

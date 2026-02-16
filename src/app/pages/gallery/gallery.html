@@ -1,73 +1,70 @@
-<div class="min-h-screen bg-[var(--c-bg-primary)] animate-fade-in">
-	<div class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)]">
-		
+<div class="min-h-screen bg-[var(--c-bg-primary)] animate-fade-in transition-all duration-300">
+	<div
+		class="max-w-7xl mx-auto px-[var(--sp-4)] sm:px-[var(--sp-6)] lg:px-[var(--sp-8)] py-[var(--sp-12)] transition-all duration-300">
+
 		<!-- Header Section -->
-		<div class="mb-12 text-center">
-			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Галерея</h1>
+		<div class="mb-[var(--sp-12)] text-center transition-all duration-300">
+			<h1 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6" style="color: var(--c-text-primary);">Галерея
+			</h1>
 			<p class="text-lg opacity-70 leading-relaxed max-w-2xl mx-auto" style="color: var(--c-text-secondary);">
 				Яскраві моменти з наших заходів, воркшопів та повсякденних буднів молодіжного центру.
 			</p>
 		</div>
 
 		<!-- Category Filter -->
-		<div class="flex flex-wrap justify-center gap-3 mb-12">
-			<button
-				(click)="selectedCategory.set(null)"
-				class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+		<div class="flex flex-wrap justify-center gap-[var(--sp-3)] mb-[var(--sp-12)] transition-all duration-300">
+			<button (click)="selectedCategory.set(null)"
+				class="px-6 py-2.5 rounded-[var(--radius-btn)] text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
 				[style.background-color]="!selectedCategory() ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
 				[style.color]="!selectedCategory() ? 'white' : 'var(--c-text-primary)'"
-				[style.border-color]="!selectedCategory() ? 'var(--c-primary)' : 'var(--c-border)'"
-			>
+				[style.border-color]="!selectedCategory() ? 'var(--c-primary)' : 'var(--c-border)'">
 				Усі фото
 			</button>
 
 			@for (category of getCategories(); track category) {
-				<button
-					(click)="selectedCategory.set(category)"
-					class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
-					[style.background-color]="selectedCategory() === category ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
-					[style.color]="selectedCategory() === category ? 'white' : 'var(--c-text-primary)'"
-					[style.border-color]="selectedCategory() === category ? 'var(--c-primary)' : 'var(--c-border)'"
-				>
-					{{ category }}
-				</button>
+			<button (click)="selectedCategory.set(category)"
+				class="px-6 py-2.5 rounded-[var(--radius-btn)] text-sm font-bold transition-all duration-300 border-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+				[style.background-color]="selectedCategory() === category ? 'var(--c-primary)' : 'var(--c-bg-secondary)'"
+				[style.color]="selectedCategory() === category ? 'white' : 'var(--c-text-primary)'"
+				[style.border-color]="selectedCategory() === category ? 'var(--c-primary)' : 'var(--c-border)'">
+				{{ category }}
+			</button>
 			}
 		</div>
 
 		<!-- Gallery Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+		<div
+			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[var(--sp-8)] transition-all duration-300">
 			@for (item of getFilteredItems(); track item.id; let i = $index) {
+			<div (click)="selectItem(item)"
+				class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-1">
+				<!-- Photo Count Badge -->
 				<div
-					(click)="selectItem(item)"
-					class="group relative aspect-[4/3] rounded-[var(--radius-card)] overflow-hidden bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-1"
-				>
-					<!-- Photo Count Badge -->
-					<div class="absolute top-4 right-4 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-full border border-white/20">
-						{{ item.images.length }} ФОТО
-					</div>
-
-					<img
-						[src]="item.images[0]"
-						[alt]="item.title"
-						loading="lazy"
-						class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-					/>
-
-					<!-- Overlay -->
-					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-						<span class="inline-block w-fit text-[10px] font-black px-3 py-1 rounded-full bg-[var(--c-primary)] text-white mb-2 uppercase tracking-widest">
-							{{ item.category }}
-						</span>
-						<h3 class="text-xl font-bold text-white mb-1 leading-tight">{{ item.title }}</h3>
-						<p class="text-white/70 text-xs line-clamp-2 font-medium">{{ item.description }}</p>
-					</div>
+					class="absolute top-4 right-4 z-20 bg-black/60 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-full border border-white/20">
+					{{ item.images.length }} ФОТО
 				</div>
+
+				<img [src]="item.images[0]" [alt]="item.title" loading="lazy"
+					class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+
+				<!-- Overlay -->
+				<div
+					class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+					<span
+						class="inline-block w-fit text-[10px] font-black px-3 py-1 rounded-full bg-[var(--c-primary)] text-white mb-2 uppercase tracking-widest">
+						{{ item.category }}
+					</span>
+					<h3 class="text-xl font-bold text-white mb-1 leading-tight">{{ item.title }}</h3>
+					<p class="text-white/70 text-xs line-clamp-2 font-medium">{{ item.description }}</p>
+				</div>
+			</div>
 			}
 		</div>
 
 		<!-- Results Count -->
-		<div class="text-center mt-16">
-			<div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-md">
+		<div class="text-center mt-[var(--sp-16)] transition-all duration-300">
+			<div
+				class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--c-bg-secondary)] border border-[var(--c-border)] shadow-md">
 				<span class="w-2 h-2 rounded-full bg-[var(--c-primary)]"></span>
 				<p class="text-sm font-bold" style="color: var(--c-text-secondary);">
 					Показано {{ getFilteredItems().length }} заходів
@@ -78,69 +75,77 @@
 
 	<!-- Modal -->
 	@if (selectedItem(); as item) {
-		<div
-			class="fixed inset-0 flex items-center justify-center p-4 sm:p-6 z-[99999] animate-fade-in"
-			(click)="closeModal()"
-		>
-			<div class="absolute inset-0 bg-black/95 backdrop-blur-2xl"></div>
+	<div class="fixed inset-0 flex items-center justify-center p-4 sm:p-6 z-[99999] animate-fade-in"
+		(click)="closeModal()">
+		<div class="absolute inset-0 bg-black/95 backdrop-blur-2xl"></div>
 
-			<div class="relative max-w-6xl w-full h-full flex items-center justify-center py-6 sm:py-12" (click)="$event.stopPropagation()">
-				<button
-					(click)="closeModal()"
-					class="absolute -top-2 -right-2 sm:top-4 sm:right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-[var(--c-secondary)] hover:scale-110 transition-all duration-300 z-[100001]"
-				>
-					✕
-				</button>
+		<div class="relative max-w-6xl w-full h-full flex items-center justify-center py-6 sm:py-12"
+			(click)="$event.stopPropagation()">
+			<button (click)="closeModal()"
+				class="absolute -top-2 -right-2 sm:top-4 sm:right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-[var(--c-secondary)] hover:scale-110 transition-all duration-300 z-[100001]">
+				✕
+			</button>
 
-				<div class="bg-white rounded-[var(--radius-card)] overflow-hidden shadow-2xl flex flex-col lg:flex-row w-full max-h-[80vh]">
-					<!-- Main Image Container -->
-					<div class="relative flex-1 bg-black flex items-center justify-center overflow-hidden group min-h-[300px] lg:min-h-0">
-						@if (item.images && item.images.length > 0) {
-							<img [src]="item.images[currentImageIndex()]" [alt]="item.title" class="max-w-full max-h-full object-contain animate-fade-in" />
-						}
+			<div
+				class="bg-[var(--c-bg-secondary)] rounded-[var(--radius-card)] overflow-hidden shadow-2xl flex flex-col lg:flex-row w-full max-h-[80vh]">
+				<!-- Main Image Container -->
+				<div
+					class="relative flex-1 bg-black flex items-center justify-center overflow-hidden group min-h-[300px] lg:min-h-0">
+					@if (item.images && item.images.length > 0) {
+					<img [src]="item.images[currentImageIndex()]" [alt]="item.title"
+						class="max-w-full max-h-full object-contain animate-fade-in" />
+					}
 
+					@if (item.images && item.images.length > 1) {
+					<button (click)="prevImage($event)"
+						class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">←</button>
+					<button (click)="nextImage($event)"
+						class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">→</button>
+					}
+				</div>
+
+				<!-- Sidebar Info -->
+				<div
+					class="w-full lg:w-80 flex flex-col border-l border-[var(--c-border)] bg-[var(--c-bg-secondary)] overflow-hidden h-full">
+					<div class="p-6 sm:p-8 flex-1 overflow-y-auto">
+						<span
+							class="inline-block px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-[var(--c-primary)] text-white mb-4">
+							{{ item.category }}
+						</span>
+						<h2 class="text-xl sm:text-2xl font-black mb-4 leading-tight"
+							style="color: var(--c-text-primary);">{{ item.title }}</h2>
+						<p class="text-sm opacity-70 leading-relaxed mb-6" style="color: var(--c-text-secondary);">{{
+							item.description }}</p>
+
+						<!-- Thumbnails Grid -->
 						@if (item.images && item.images.length > 1) {
-							<button (click)="prevImage($event)" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">←</button>
-							<button (click)="nextImage($event)" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-[var(--c-primary)] text-white backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 flex items-center justify-center font-bold">→</button>
-						}
-					</div>
-
-					<!-- Sidebar Info -->
-					<div class="w-full lg:w-80 flex flex-col border-l border-[var(--c-border)] bg-white overflow-hidden h-full">
-						<div class="p-6 sm:p-8 flex-1 overflow-y-auto">
-							<span class="inline-block px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-[var(--c-primary)] text-white mb-4">
-								{{ item.category }}
-							</span>
-							<h2 class="text-xl sm:text-2xl font-black mb-4 leading-tight" style="color: var(--c-text-primary);">{{ item.title }}</h2>
-							<p class="text-sm opacity-70 leading-relaxed mb-6" style="color: var(--c-text-secondary);">{{ item.description }}</p>
-							
-							<!-- Thumbnails Grid -->
-							@if (item.images && item.images.length > 1) {
-								<div class="mb-6">
-									<p class="text-[9px] font-black uppercase tracking-widest text-[var(--c-text-muted)] mb-3">Всі фото ({{ item.images.length }})</p>
-									<div class="grid grid-cols-4 gap-2">
-										@for (img of item.images; track $index; let i = $index) {
-											<div 
-												(click)="setCurrentImage(i)"
-												class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 transition-all shadow-sm"
-												[style.borderColor]="currentImageIndex() === i ? 'var(--c-primary)' : 'transparent'"
-											>
-												<img [src]="img" class="w-full h-full object-cover" [style.opacity]="currentImageIndex() === i ? '1' : '0.4'">
-											</div>
-										}
-									</div>
+						<div class="mb-6">
+							<p class="text-[9px] font-black uppercase tracking-widest text-[var(--c-text-muted)] mb-3">
+								Всі фото ({{ item.images.length }})</p>
+							<div class="grid grid-cols-4 gap-2">
+								@for (img of item.images; track $index; let i = $index) {
+								<div (click)="setCurrentImage(i)"
+									class="aspect-square rounded-lg overflow-hidden cursor-pointer border-2 transition-all shadow-sm"
+									[style.borderColor]="currentImageIndex() === i ? 'var(--c-primary)' : 'transparent'">
+									<img [src]="img" class="w-full h-full object-cover"
+										[style.opacity]="currentImageIndex() === i ? '1' : '0.4'">
 								</div>
-							}
-
-							<div class="flex flex-wrap gap-1.5">
-								@for (tag of item.tags; track tag) {
-									<span class="px-2.5 py-1 rounded-full bg-[var(--c-bg-tertiary)] text-[var(--c-text-primary)] text-[9px] font-black border border-[var(--c-border)] uppercase">#{{ tag }}</span>
 								}
 							</div>
+						</div>
+						}
+
+						<div class="flex flex-wrap gap-1.5">
+							@for (tag of item.tags; track tag) {
+							<span
+								class="px-2.5 py-1 rounded-full bg-[var(--c-bg-tertiary)] text-[var(--c-text-primary)] text-[9px] font-black border border-[var(--c-border)] uppercase">#{{
+								tag }}</span>
+							}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	}
 </div>
