@@ -160,15 +160,7 @@ html[data-mode='dark'] {
 	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-/* ITKP = city brand colors */
-html[data-mode='itkp'] {
-	--c-bg-primary: #005bbb;
-	--c-bg-secondary: #f7c948;
-	--c-bg-tertiary: #d9cba3;
-	--c-text-primary: #1b1b1b;
-	--c-text-secondary: #2d2d2d;
-	--c-border: rgba(0, 0, 0, 0.1);
-}
+
 
 /* ========= density ========= */
 html[data-density='compact'] {

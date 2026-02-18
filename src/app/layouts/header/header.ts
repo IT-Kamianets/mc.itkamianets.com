@@ -11,14 +11,27 @@ import { ThemeDensity, ThemeMode, ThemeRadius, ThemeService } from 'wacom';
 export class Header {
 	protected readonly theme = inject(ThemeService);
 
-	protected readonly modes: (ThemeMode | string)[] = ['light', 'dark', 'itkp'];
+	protected readonly modes: (ThemeMode | string)[] = ['light', 'dark'];
 	protected readonly densities: ThemeDensity[] = ['comfortable', 'compact'];
 	protected readonly radii: ThemeRadius[] = ['rounded', 'square'];
 
 	protected showThemeMenu = signal<boolean>(false);
+	protected showMobileMenu = signal<boolean>(false);
 
 	protected toggleThemeMenu() {
-		this.showThemeMenu.update((v: boolean) => !v);
+		const isOpen = this.showThemeMenu();
+		this.showThemeMenu.set(!isOpen);
+		if (!isOpen) {
+			this.showMobileMenu.set(false);
+		}
+	}
+
+	protected toggleMobileMenu() {
+		const isOpen = this.showMobileMenu();
+		this.showMobileMenu.set(!isOpen);
+		if (!isOpen) {
+			this.showThemeMenu.set(false);
+		}
 	}
 
 	protected setMode(mode: ThemeMode | string) {
