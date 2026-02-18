@@ -1,4 +1,0 @@
-/* Styles are now mostly handled by Tailwind classes in HTML for consistency */
-.list-item__card {
-	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
