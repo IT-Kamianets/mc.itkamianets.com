@@ -22,7 +22,7 @@ export const EVENTS = [
         date: "2026-02-16",
         time: "12:00",
         location: "Молодіжний центр, конференц-зал",
-        image: "https://instagram.fiev13-1.fna.fbcdn.net/v/t51.82787-15/631931683_17932643847179428_4061829304187944489_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzgzMDg2MTI4NjYyNDQ5MTg4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEzNTB4MTY4OC5zZHIuQzMifQ%3D%3D&_nc_ohc=iGvIXHz1UoQQ7kNvwG1K329&_nc_oc=Adm4z5zYBh1glDiOAF_6_nopl3Qmh1ylPLbN-Zx8SGqXliRxQooSRwKYAald_IlvffQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fiev13-1.fna&_nc_gid=FVfNKH8_OFWLtj_Yj2byvg&oh=00_Afvudxf83cP6UzmD2SHj5rp3I_1v3avL6M-JbR8x0SDUKQ&oe=699780FC",
+        image: "/images/events/event1.jpg",
         category: "Майстер-клас"
     },
     {
@@ -32,7 +32,7 @@ export const EVENTS = [
         date: "Щосереди",
         time: "16:00",
         location: "Молодіжний центр, конференц-зал",
-        image: "https://instagram.fiev13-1.fna.fbcdn.net/v/t51.82787-15/626128940_17937456960152395_5157884902048796353_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ig_cache_key=MzgyNDU3NDkyNTQyMDI3NzM0MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyODB4MTYwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=pDv5G_fEUvQQ7kNvwEM-eR6&_nc_oc=AdnK6ssO3Ov30aJs_SIztPR7S8kSLR3g4jL62_CziuyxysFzW9D9RBeIpfwFJDsgNF0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fiev13-1.fna&_nc_gid=FVfNKH8_OFWLtj_Yj2byvg&oh=00_AfuIKI3rCW8CiBUDf0WrhhtEaJbddT5FO3f3ZXNFUuwHJw&oe=69978C2D",
+        image: "/images/events/event2.jpg",
         category: "Воркшоп"
     },
     {
@@ -42,7 +42,7 @@ export const EVENTS = [
         date: "2026-02-17",
         time: "17:00",
         location: "Молодіжний центр, конференц-зал",
-        image: "https://instagram.fiev13-1.fna.fbcdn.net/v/t51.82787-15/627688484_17931651786179428_8554585030097870769_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgyNDYwMjU2MTE3Nzc2NjA0NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEzNTB4MTY4Ny5zZHIuQzMifQ%3D%3D&_nc_ohc=Shw1FbmZ5GAQ7kNvwGBIwAv&_nc_oc=Adm16sG3iPSswpNA0xdZyf3ES7IjJBklIpf06oAim-6zLtX0ZT54zK2FqCeS1zjTuBU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fiev13-1.fna&_nc_gid=FVfNKH8_OFWLtj_Yj2byvg&oh=00_AfuT3fNJf-Tv9V_T2bTsguUJbXMkUP-iu3m7NTbEOVrQNg&oe=69979D8C",
+        image: "/images/events/event3.jpg",
         category: "Тренінг"
     }
 ];
